@@ -1,0 +1,697 @@
+{"op": "abs", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "acos", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "acosh", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "add", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "item", "variant": "", "checked": 3, "output_devices": [], "status": "pass"}
+{"op": "arange", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "cauchy", "variant": "", "checked": 0, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 10 / 10 (100.0%)\nGreatest absolute difference: 3.49137544631958 at index (3,) (up to 3e-05 allowed)\nGreatest relative difference: 25.20731544494629 at index (5,) (up to 0.0003 allowed)"}
+{"op": "exponential", "variant": "", "checked": 0, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 10 / 10 (100.0%)\nGreatest absolute difference: 5.282311916351318 at index (7,) (up to 3e-05 allowed)\nGreatest relative difference: 27.36170768737793 at index (0,) (up to 0.0003 allowed)"}
+{"op": "geometric", "variant": "", "checked": 0, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 10 / 10 (100.0%)\nGreatest absolute difference: 12.0 at index (3,) (up to 3e-05 allowed)\nGreatest relative difference: 1.0 at index (6,) (up to 0.0003 allowed)"}
+{"op": "log_normal", "variant": "", "checked": 0, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 10 / 10 (100.0%)\nGreatest absolute difference: 0.5288220643997192 at index (4,) (up to 3e-05 allowed)\nGreatest relative difference: 0.7002000212669373 at index (4,) (up to 0.0003 allowed)"}
+{"op": "normal", "variant": "in_place", "checked": 0, "status": "stochastic_separate"}
+{"op": "uniform", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "clamp_max", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "clamp_min", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mul", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sub", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addmm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addmm", "variant": "decomposed", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addmv", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addbmm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "baddbmm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "dot", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "vdot", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "bmm", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "mv", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "addr", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addcmul", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "addcdiv", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "asin", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "asinh", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "atan", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "atan2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "atanh", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "allclose", "variant": "", "checked": 3, "output_devices": [], "status": "pass"}
+{"op": "broadcast_to", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "broadcast_shapes", "variant": "", "checked": 3, "output_devices": [], "status": "pass"}
+{"op": "broadcast_tensors", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "block_diag", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "bitwise_not", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "bitwise_left_shift", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "bitwise_right_shift", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "combinations", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cartesian_prod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cdist", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ceil", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "cholesky", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cholesky_inverse", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cholesky_solve", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_cholesky_solve_helper' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you c"}
+{"op": "chunk", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unsafe_chunk", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "clone", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "contiguous", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "sum_to_size", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "clamp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "positive", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "conj", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "conj_physical", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "resolve_conj", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "resolve_neg", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "view_as_real", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "view_as_complex", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "complex", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "copysign", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "corrcoef", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cos", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cosh", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cov", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cross", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cumsum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cumprod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cummax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cummin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "deg2rad", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "diff", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "div", "variant": "no_rounding_mode", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "div", "variant": "trunc_rounding", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "div", "variant": "floor_rounding", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "true_divide", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "equal", "variant": "", "checked": 3, "output_devices": [], "status": "pass"}
+{"op": "exp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "expand", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "expand_as", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "expand_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diag", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diag_embed", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diagonal", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diagonal_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diagonal_scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "alias_copy", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "eq", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fmin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fmod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "remainder", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "frac", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "stft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "istft", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "floor", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "flip", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fliplr", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "flipud", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "sparse.sampled_addmm", "variant": "", "checked": 0, "status": "ValueError", "detail": "sample outside dense real audit"}
+{"op": "sparse.mm", "variant": "reduce", "checked": 0, "status": "ValueError", "detail": "sample outside dense real audit"}
+{"op": "i0", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "floor_divide", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "frexp", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::frexp.Tensor_out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "log1p", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "ge", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "geqrf", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::geqrf' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the enviro"}
+{"op": "gt", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "imag", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "gradient", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "isin", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "kthvalue", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "le", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linspace", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "linspace", "variant": "tensor_overload", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "logspace", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "logspace", "variant": "tensor_overload", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "log", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "log10", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "log2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ldexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logaddexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logaddexp2", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "logical_not", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lt", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lu_unpack", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lu_solve", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked_fill", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked_scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked_select", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "matrix_exp", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_matrix_exp' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can se"}
+{"op": "matmul", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "max", "variant": "reduction_with_dim", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "max", "variant": "reduction_no_dim", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "median", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nanmedian", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "var_mean", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "var_mean", "variant": "unbiased", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "std_mean", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "std_mean", "variant": "unbiased", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "meshgrid", "variant": "variadic_tensors", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "meshgrid", "variant": "list_of_tensors", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "min", "variant": "reduction_with_dim", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "min", "variant": "reduction_no_dim", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "quantile", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nanquantile", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "max", "variant": "binary", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "maximum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "min", "variant": "binary", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "minimum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logical_and", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logical_or", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logical_xor", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "bitwise_and", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "bitwise_or", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "bitwise_xor", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "heaviside", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::heaviside.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "lcm", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "gcd", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "isclose", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "softmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "softmax", "variant": "with_dtype", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "_softmax_backward_data", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.softmin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.softmin", "variant": "with_dtype", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "nn.functional.cross_entropy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.normalize", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "aminmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "as_strided", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "as_strided", "variant": "partial_views", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "as_strided_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "as_strided_scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "native_layer_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "native_batch_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_native_batch_norm_legit", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_batch_norm_with_update", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.cosine_similarity", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.adaptive_avg_pool1d", "variant": "", "checked": 0, "status": "RuntimeError", "detail": "Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you can manually transfer tensor to cpu in this case. Please refer to [this issue](https://github.com/pytorch/pytorch/issues/96056)"}
+{"op": "nn.functional.adaptive_avg_pool2d", "variant": "", "checked": 0, "status": "RuntimeError", "detail": "Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you can manually transfer tensor to cpu in this case. Please refer to [this issue](https://github.com/pytorch/pytorch/issues/96056)"}
+{"op": "nn.functional.adaptive_avg_pool3d", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_adaptive_avg_pool3d' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can"}
+{"op": "nn.functional.adaptive_max_pool1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.adaptive_max_pool2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.adaptive_max_pool3d", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::adaptive_max_pool3d.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you "}
+{"op": "nn.functional.avg_pool1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.avg_pool3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.binary_cross_entropy_with_logits", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.relu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv_transpose1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv_transpose2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv_transpose3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.conv3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.group_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.instance_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.layer_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.rms_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.local_response_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "constant_pad_nd", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pad", "variant": "constant", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pad", "variant": "reflect", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pad", "variant": "replicate", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pad", "variant": "replicate_negative", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pad", "variant": "circular", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.hardswish", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.unfold", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "nearest", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "nearest-exact", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "linear", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "bilinear", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "bicubic", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "trilinear", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.interpolate", "variant": "area", "checked": 0, "status": "RuntimeError", "detail": "Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you can manually transfer tensor to cpu in this case. Please refer to [this issue](https://github.com/pytorch/pytorch/issues/96056)"}
+{"op": "nn.functional.upsample_bilinear", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_upsample_bilinear2d_aa", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.soft_margin_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.upsample_nearest", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.margin_ranking_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.multi_margin_loss", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::multi_margin_loss' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can se"}
+{"op": "nn.functional.multilabel_margin_loss", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::multilabel_margin_loss_forward' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fi"}
+{"op": "nn.functional.leaky_relu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.multilabel_soft_margin_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.avg_pool2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.fractional_max_pool2d", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::fractional_max_pool2d.output' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix,"}
+{"op": "nn.functional.fractional_max_pool3d", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::fractional_max_pool3d.output' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix,"}
+{"op": "nn.functional.max_pool1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_pool2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "max_pool2d_with_indices_backward", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_pool3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool1d", "variant": "grad", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool2d", "variant": "grad", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.max_unpool3d", "variant": "grad", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.linear", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.bilinear", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.glu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.elu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.prelu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.celu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.rrelu", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::rrelu_with_noise' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "nn.functional.selu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "torch._scaled_mm_v2", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "torch._scaled_mm", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "torch.ops.aten._safe_softmax.default", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.scaled_dot_product_attention", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 72 / 96 (75.0%)\nGreatest absolute difference: 17.990955352783203 at index (2, 0, 1) (up to 3e-05 allowed)\nGreatest relative difference: inf at index (0, 1, 0) (up to 0.0003 allowed)"}
+{"op": "torch.ops.aten._flash_attention_forward", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "torch.ops.aten._efficient_attention_forward", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "nn.functional.silu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.silu", "variant": "complex", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "nn.functional.hardsigmoid", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.logsigmoid", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.mish", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.softsign", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.tanhshrink", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.threshold", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.triplet_margin_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.triplet_margin_with_distance_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nextafter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "to", "variant": "", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "topk", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.batch_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.batch_norm", "variant": "without_cudnn", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "nn.functional.binary_cross_entropy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "igamma", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "igammac", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.softshrink", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.hardshrink", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.hardtanh", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.gelu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.relu6", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mode", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::mode' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the environ"}
+{"op": "mvlgamma", "variant": "mvlgamma_p_1", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mvlgamma", "variant": "mvlgamma_p_3", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mvlgamma", "variant": "mvlgamma_p_5", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ne", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "narrow", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "narrow_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "view_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "neg", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "dist", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "outer", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "ormqr", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::ormqr' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the enviro"}
+{"op": "permute", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "permute_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "pow", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "float_power", "variant": "", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "qr", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_qr.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "rad2deg", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "real", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "roll", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "rot90", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "round", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "round", "variant": "decimals_0", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "round", "variant": "decimals_3", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "round", "variant": "decimals_neg_3", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sin", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "sinc", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sinh", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "sign", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "sgn", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "split", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "split", "variant": "list_args", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unsafe_split", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "split_with_sizes", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "split_with_sizes_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__radd__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rdiv__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rmul__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rand__", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "__ror__", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "__rxor__", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "__rmatmul__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rmod__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rpow__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__rsub__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "rsub", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "select", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "select_scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "slice", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "slice_scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "signbit", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "tan", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "tanh", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "tensor_split", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "hsplit", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "vsplit", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "dsplit", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "triangular_solve", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "trunc", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "exp2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "expm1", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "nan_to_num", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "reciprocal", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "rsqrt", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sqrt", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "square", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lerp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "angle", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "isfinite", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "isinf", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "isposinf", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "isneginf", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "isreal", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "isnan", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "einsum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "svd", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "svd_lowrank", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_qr.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "pca_lowrank", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_qr.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "polar", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "polygamma", "variant": "polygamma_n_0", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "polygamma", "variant": "polygamma_n_1", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "polygamma", "variant": "polygamma_n_2", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "polygamma", "variant": "polygamma_n_3", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "polygamma", "variant": "polygamma_n_4", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ravel", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unravel_index", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "reshape", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "reshape_as", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "view", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "view_as", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "atleast_1d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "atleast_2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "atleast_3d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "flatten", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unflatten", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "column_stack", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "pinverse", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "gather", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_fill", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_select", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_add", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_reduce", "variant": "mean", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::index_reduce.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "index_reduce", "variant": "prod", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::index_reduce.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "index_reduce", "variant": "amin", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::index_reduce.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "index_reduce", "variant": "amax", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::index_reduce.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "_unsafe_masked_index", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_unsafe_masked_index_put_accumulate", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "__getitem__", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "index_put", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sort", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unique", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unique_consecutive", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "put", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::put_' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the environ"}
+{"op": "take", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::take' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the environ"}
+{"op": "scatter", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "bfloat16", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "bool", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "byte", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "char", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "double", "variant": "", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "float", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "half", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "int", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "long", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "short", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cdouble", "variant": "", "checked": 0, "status": "TypeError", "detail": "Trying to convert ComplexDouble to the MPS backend but it does not have support for that dtype."}
+{"op": "cfloat", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "chalf", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "empty_like", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "zeros_like", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ones_like", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "randn", "variant": "", "checked": 2, "output_devices": ["cpu"], "status": "pass"}
+{"op": "randn_like", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "rand_like", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "randint", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "randint_like", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "full_like", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "new_zeros", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "new_ones", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "ones", "variant": "", "checked": 2, "output_devices": ["cpu"], "status": "pass"}
+{"op": "zeros", "variant": "", "checked": 2, "output_devices": ["cpu"], "status": "pass"}
+{"op": "full", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "new_empty", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "new_empty_strided", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "empty_strided", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "empty", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "eye", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "empty_permuted", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "scalar_tensor", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "new_full", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "multinomial", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "normal", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "normal", "variant": "number_mean", "checked": 0, "status": "stochastic_separate"}
+{"op": "bernoulli", "variant": "", "checked": 0, "status": "stochastic_separate"}
+{"op": "scatter_add", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "stack", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_chunk_cat", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "hstack", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "hypot", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "histogram", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "histogramdd", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "histc", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "bincount", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "bucketize", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "searchsorted", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cat", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unbind", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unbind_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "vstack", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "dstack", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "unfold", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unfold_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "msort", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "movedim", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "renorm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "repeat", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "squeeze", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "squeeze", "variant": "multiple", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "squeeze_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fill", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "resize_", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "resize_as_", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "take_along_dim", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "tile", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "trapz", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "trapezoid", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "cumulative_trapezoid", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unsqueeze", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "unsqueeze_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "xlogy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "zero_", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logsumexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "trace", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "transpose", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "transpose_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "T", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "H", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "mT", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mH", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "tril", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "triu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "triu_indices", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "tril_indices", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "kron", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "inner", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "tensordot", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "to_sparse", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "logcumsumexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sigmoid", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "digamma", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "erf", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "erfc", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "erfinv", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.smooth_l1_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.l1_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "lgamma", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "logdet", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "log_softmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "log_softmax", "variant": "with_dtype", "checked": 0, "status": "TypeError", "detail": "Cannot convert a MPS Tensor to float64 dtype as the MPS framework doesn't support float64. Please use float32 instead."}
+{"op": "logit", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "where", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nonzero", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nonzero_static", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::nonzero_static' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set t"}
+{"op": "jiterator_unary", "variant": "", "checked": 0, "status": "AssertionError", "detail": "Jiterator is only supported on CUDA and ROCm GPUs, none are available."}
+{"op": "jiterator_binary", "variant": "", "checked": 0, "status": "AssertionError", "detail": "Jiterator is only supported on CUDA and ROCm GPUs, none are available."}
+{"op": "jiterator_4inputs_with_extra_args", "variant": "", "checked": 0, "status": "AssertionError", "detail": "Jiterator is only supported on CUDA and ROCm GPUs, none are available."}
+{"op": "jiterator_binary_return_by_ref", "variant": "", "checked": 0, "status": "AssertionError", "detail": "Jiterator is only supported on CUDA and ROCm GPUs, none are available."}
+{"op": "jiterator_2inputs_2outputs", "variant": "", "checked": 0, "status": "AssertionError", "detail": "Jiterator is only supported on CUDA and ROCm GPUs, none are available."}
+{"op": "norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "norm", "variant": "nuc", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_svd.U' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "norm", "variant": "fro", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "norm", "variant": "inf", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "t", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "t_copy", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.dropout", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 15 / 25 (60.0%)\nGreatest absolute difference: 16.95674705505371 at index (0, 0) (up to 3e-05 allowed)\nGreatest relative difference: inf at index (0, 4) (up to 0.0003 allowed)"}
+{"op": "native_dropout_backward", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.dropout2d", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 75 / 125 (60.0%)\nGreatest absolute difference: 17.06177520751953 at index (4, 3, 0) (up to 3e-05 allowed)\nGreatest relative difference: inf at index (0, 4, 0) (up to 0.0003 allowed)"}
+{"op": "nn.functional.dropout3d", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 625 / 625 (100.0%)\nGreatest absolute difference: 17.977039337158203 at index (1, 4, 3, 3) (up to 3e-05 allowed)\nGreatest relative difference: inf at index (4, 0, 0, 0) (up to 0.0003 allowed)"}
+{"op": "nn.functional.alpha_dropout", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 15 / 25 (60.0%)\nGreatest absolute difference: 6.67688512802124 at index (2, 3) (up to 3e-05 allowed)\nGreatest relative difference: 8.568964004516602 at index (2, 3) (up to 0.0003 allowed)"}
+{"op": "nn.functional.feature_alpha_dropout", "variant": "with_train", "checked": 1, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 375 / 625 (60.0%)\nGreatest absolute difference: 9.454937934875488 at index (1, 2, 0, 0) (up to 3e-05 allowed)\nGreatest relative difference: 89.15040588378906 at index (0, 1, 0, 1) (up to 0.0003 allowed)"}
+{"op": "nn.functional.feature_alpha_dropout", "variant": "without_train", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.one_hot", "variant": "", "checked": 0, "status": "ValueError", "detail": "no CPU float64 sample"}
+{"op": "nn.functional.embedding", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.embedding_bag", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.multi_head_attention_forward", "variant": "", "checked": 1, "output_devices": ["mps"], "status": "AssertionError", "detail": "Tensor-likes are not close!\n\nMismatched elements: 4 / 6 (66.7%)\nGreatest absolute difference: 326.27349853515625 at index (0, 0) (up to 3e-05 allowed)\nGreatest relative difference: 89.55534362792969 at index (1, 0) (up to 0.0003 allowed)\n\nThe failure occurred for item [0]"}
+{"op": "nn.functional.softplus", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.mse_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.grid_sample", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "grid_sampler_2d", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "grid_sampler_3d", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "ValueError", "detail": "sample outside dense real audit"}
+{"op": "argwhere", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "all", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "any", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "amax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "amin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "argmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "argmin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "count_nonzero", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "mean", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nanmean", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "std", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "std", "variant": "unbiased", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "var", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "var", "variant": "unbiased", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "prod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "sum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nansum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "hash_tensor", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::hash_tensor.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set "}
+{"op": "nn.functional.ctc_loss", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_ctc_loss' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the en"}
+{"op": "nn.functional.cosine_embedding_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.nll_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.gaussian_nll_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.hinge_embedding_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.huber_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pdist", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_pdist_forward' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set t"}
+{"op": "nn.functional.poisson_nll_loss", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "argsort", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "repeat_interleave", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pairwise_distance", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pixel_shuffle", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.pixel_unshuffle", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "nn.functional.channel_shuffle", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::channel_shuffle' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set "}
+{"op": "nn.functional.kl_div", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "diagflat", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "scatter_reduce", "variant": "sum", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "scatter_reduce", "variant": "prod", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "scatter_reduce", "variant": "mean", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "scatter_reduce", "variant": "amin", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "scatter_reduce", "variant": "amax", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "_segment_reduce", "variant": "lengths", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::segment_reduce' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set t"}
+{"op": "_segment_reduce", "variant": "offsets", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::segment_reduce' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set t"}
+{"op": "fft.fft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.fft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.fftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.hfft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.hfft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.hfftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.rfft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.rfft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.rfftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ifft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ifft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ifftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ihfft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ihfft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ihfftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.irfft", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.irfft2", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.irfftn", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.fftshift", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "fft.ifftshift", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.cross", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.det", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.diagonal", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.cholesky", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.cholesky_ex", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.vecdot", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.cond", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_svd.U' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "linalg.eig", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_eig' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the e"}
+{"op": "linalg.eigvals", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_eigvals' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set "}
+{"op": "linalg.eigh", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_eigh.eigenvalues' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.eigvalsh", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_eigh.eigenvalues' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.householder_product", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.ldl_factor", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_ldl_factor_ex.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.ldl_factor_ex", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_ldl_factor_ex.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.ldl_solve", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_ldl_solve.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can"}
+{"op": "linalg.lstsq", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_lstsq.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "linalg.lstsq", "variant": "grad_oriented", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_lstsq.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set"}
+{"op": "linalg.matrix_power", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.multi_dot", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.norm", "variant": "subgradients_at_zero", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.matrix_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.qr", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::linalg_qr.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "linalg.slogdet", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.vander", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.vector_norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.lu_factor", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.lu_factor_ex", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.lu", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.lu_solve", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.inv", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.inv_ex", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.solve", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.solve_ex", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.solve_triangular", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.matrix_rank", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_svd.U' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "linalg.matrix_rank", "variant": "hermitian", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_eigh.eigenvalues' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.pinv", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.pinv", "variant": "singular", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.pinv", "variant": "hermitian", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_eigh.eigenvalues' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you"}
+{"op": "linalg.svd", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.svdvals", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::_linalg_svd.U' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set th"}
+{"op": "linalg.tensorinv", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "linalg.tensorsolve", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "signal.windows.hamming", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.hann", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.bartlett", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.blackman", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.cosine", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.exponential", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.gaussian", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.kaiser", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.general_cosine", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.general_hamming", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "signal.windows.nuttall", "variant": "", "checked": 3, "output_devices": ["cpu"], "status": "pass"}
+{"op": "special.i0e", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.i1", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.i1e", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.ndtr", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.polygamma", "variant": "special_polygamma_n_0", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.xlog1py", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.zeta", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.entr", "variant": "", "checked": 2, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.ndtri", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::special_ndtri.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can se"}
+{"op": "special.log_ndtr", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::special_log_ndtr.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can"}
+{"op": "special.erfcx", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.airy_ai", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::special_airy_ai.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can "}
+{"op": "special.bessel_j0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.bessel_j1", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.bessel_y0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.bessel_y1", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.chebyshev_polynomial_t", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.chebyshev_polynomial_u", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.chebyshev_polynomial_v", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.chebyshev_polynomial_w", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.hermite_polynomial_h", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.hermite_polynomial_he", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.laguerre_polynomial_l", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::special_laguerre_polynomial_l.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary"}
+{"op": "special.legendre_polynomial_p", "variant": "", "checked": 0, "status": "NotImplementedError", "detail": "The operator 'aten::special_legendre_polynomial_p.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary"}
+{"op": "special.modified_bessel_i0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.modified_bessel_i1", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.modified_bessel_k0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.modified_bessel_k1", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.scaled_modified_bessel_k0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.scaled_modified_bessel_k1", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.shifted_chebyshev_polynomial_t", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.shifted_chebyshev_polynomial_u", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.shifted_chebyshev_polynomial_v", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.shifted_chebyshev_polynomial_w", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "special.spherical_bessel_j0", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.sum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.prod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.cumsum", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.cumprod", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.amax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.amin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.argmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.argmin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.mean", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.median", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.norm", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.var", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.std", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.softmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.log_softmax", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.softmin", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.normalize", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.logaddexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}
+{"op": "masked.logsumexp", "variant": "", "checked": 3, "output_devices": ["mps"], "status": "pass"}

@@ -1,0 +1,2860 @@
+{
+  "schema_version": 1,
+  "torch": "2.11.0",
+  "torch_git": "70d99e998b4955e0049d13a98d77ae1b14db1f45",
+  "gpu": "Apple M4 Max",
+  "cpu": "Apple M4 Max",
+  "physical_cpu_cores": "16",
+  "performance_cpu_cores": "12",
+  "macOS": "15.7.1",
+  "python": "3.13.9",
+  "numpy": "2.4.4",
+  "cpu_threads": 12,
+  "seed": 514933,
+  "rounds": 11,
+  "warmups": 3,
+  "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+  "package_source_sha256": "7ace66e84f1246b7fb7a6f786240a6d70eea1c34a599c1c0ba95e822d55aa89f",
+  "script_sha256": "4bdde2a7a9c9506f3fc69309e52ceefe1a3478a8ba8560951ac913787c4e30b5",
+  "design": "Fixed list in CASES, all rows reported. Input tensors are standard normal binary64, with independent inputs for binary operators and a precomputed Boolean condition for where. Data are generated once on CPU per case and copied without changing values or strides. Functional outputs allocate through each backend; out= is timed separately only after checking object identity and all output elements from a deliberately different sentinel. Each sample is one public torch operation, warmed and resident. The MPS queue is synchronized before the clock starts and again before it stops. Context setup, validation, host-device transfers and Python output destruction are outside the measured interval. Order is randomly shuffled within each round. MPS tensor results stay on the GPU. Native MPS CPU fallback and package CPU replay are disabled.",
+  "comparison_rule": "matched_cpu_over_mps compares out= with out= when both are available, otherwise functional with functional. cpu_reuse_over_mps gives CPU a reused output whenever the public operation permits it and retains that same MPS method. A ratio above 1 means lower MPS median latency. cpu_reuse_over_mps_functional always uses MPS functional; ratios are kept separate.",
+  "precision_rule": "All output elements checked against CPU float64 or exact boolean/integer output. Exact operations compare binary64 words. Transcendentals allow four ULP. Sum/mean/scan use 32*epsilon times absolute input sum/mean/prefix sum and also report independent sampled math.fsum errors. Variance and softmax allow 32*epsilon relative difference.",
+  "measurements": [
+    {
+      "id": "add_64k",
+      "operator": "torch.add",
+      "shape": [
+        256,
+        256
+      ],
+      "input_seed": 514933,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            256,
+            256
+          ],
+          "stride": [
+            256,
+            1
+          ],
+          "sample_sha256": "33c752638db60367a35e8a3b330b2d9dbcb94f5374539dee4b4bbec833f144e7",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            256,
+            256
+          ],
+          "stride": [
+            256,
+            1
+          ],
+          "sample_sha256": "8fd50b69e78c5ff5a4292ad8beaf2fee61c67b7dba5c1bbf220038f1fcb38734",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {},
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 65536,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 65536,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "mps_out": {
+          "criterion": "bitwise",
+          "elements": 65536,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.036958,
+          "samples_ms": [
+            0.038125,
+            0.031416,
+            0.032083,
+            0.035583,
+            0.057791,
+            0.043541,
+            0.039375,
+            0.034125,
+            0.045666,
+            0.036958,
+            0.031083
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.149334,
+          "samples_ms": [
+            0.139083,
+            0.209375,
+            0.178417,
+            0.207666,
+            0.504333,
+            0.144833,
+            0.142792,
+            0.140291,
+            0.149334,
+            0.148417,
+            0.188291
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.03525,
+          "samples_ms": [
+            0.041708,
+            0.032875,
+            0.033959,
+            0.035042,
+            0.050333,
+            0.048041,
+            0.04825,
+            0.033583,
+            0.039625,
+            0.032833,
+            0.03525
+          ]
+        },
+        "mps_out": {
+          "median_ms": 0.185958,
+          "samples_ms": [
+            0.185958,
+            0.215167,
+            0.226875,
+            0.186959,
+            0.194417,
+            0.184125,
+            0.183791,
+            0.179958,
+            0.270208,
+            0.171167,
+            0.162792
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_out",
+        "matched_mps_method": "mps_out",
+        "matched_cpu_over_mps": 0.18955893266221402,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.18955893266221402,
+        "cpu_reuse_over_mps_functional": 0.23604805335690465,
+        "functional_cpu_over_mps": 0.24748550229686475
+      },
+      "status": "pass"
+    },
+    {
+      "id": "add_8m",
+      "operator": "torch.add",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514934,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "fe43adeb8ade466d5a6141cb941676dd2b1abe10c91a7b886951958608c515ac",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "95b558982e0347f87ad51819d5564b79d00bf797c20876acad5397a92bb64204",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {},
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "mps_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.544917,
+          "samples_ms": [
+            1.544917,
+            1.616666,
+            1.426125,
+            1.424333,
+            1.419708,
+            1.760167,
+            1.801291,
+            1.612458,
+            1.520167,
+            1.660916,
+            1.3815
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 1.146125,
+          "samples_ms": [
+            1.599833,
+            1.488625,
+            1.596792,
+            1.434292,
+            0.92775,
+            0.762584,
+            0.682792,
+            1.253542,
+            0.76075,
+            1.146125,
+            0.596041
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.794458,
+          "samples_ms": [
+            0.876917,
+            0.647167,
+            0.810708,
+            0.727,
+            0.728584,
+            0.824375,
+            0.734333,
+            0.716375,
+            0.794458,
+            0.802875,
+            0.81
+          ]
+        },
+        "mps_out": {
+          "median_ms": 1.065,
+          "samples_ms": [
+            1.764709,
+            1.986709,
+            1.901583,
+            2.004042,
+            2.099875,
+            1.004125,
+            1.065,
+            0.944,
+            1.044792,
+            0.948041,
+            1.007292
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_out",
+        "matched_mps_method": "mps_out",
+        "matched_cpu_over_mps": 0.7459699530516433,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.7459699530516433,
+        "cpu_reuse_over_mps_functional": 0.693168720689279,
+        "functional_cpu_over_mps": 1.3479480859417603
+      },
+      "status": "pass"
+    },
+    {
+      "id": "add_transposed_1m",
+      "operator": "torch.add",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514935,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            1,
+            2048
+          ],
+          "sample_sha256": "2c6ea3a59452c8164bf189893bf3614fadfc94f83bf1f8a2c86346ecd5b58e70",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            1,
+            2048
+          ],
+          "sample_sha256": "1dc49d21ac6b5e7f95a15fb5907401f025078d2acb7f61c17542c7a5eee20386",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {},
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "mps_out": {
+          "criterion": "bitwise",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.212833,
+          "samples_ms": [
+            0.889125,
+            0.235583,
+            0.257625,
+            0.211917,
+            0.208459,
+            0.212833,
+            0.254375,
+            0.251375,
+            0.179625,
+            0.194,
+            0.21075
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.459,
+          "samples_ms": [
+            0.438958,
+            0.463834,
+            0.533583,
+            0.459,
+            0.460917,
+            0.541458,
+            0.454625,
+            0.422667,
+            0.510208,
+            0.450708,
+            0.433791
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.074292,
+          "samples_ms": [
+            0.070875,
+            0.074292,
+            0.123083,
+            0.073375,
+            0.069958,
+            0.065875,
+            0.07725,
+            0.080208,
+            0.106167,
+            0.072542,
+            0.077958
+          ]
+        },
+        "mps_out": {
+          "median_ms": 0.568875,
+          "samples_ms": [
+            0.556875,
+            0.546209,
+            0.568875,
+            0.554375,
+            0.539458,
+            0.607208,
+            0.569541,
+            0.581042,
+            0.693708,
+            0.598875,
+            0.561458
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_out",
+        "matched_mps_method": "mps_out",
+        "matched_cpu_over_mps": 0.13059459459459458,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.13059459459459458,
+        "cpu_reuse_over_mps_functional": 0.16185620915032678,
+        "functional_cpu_over_mps": 0.46368845315904134
+      },
+      "status": "pass"
+    },
+    {
+      "id": "mul_8m",
+      "operator": "torch.mul",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514936,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "bf07d67f2b3efd0593c65814069c7e7dbedb31b8ea45f4b235b8588b144fb71e",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "70b5097f4d9ba7e4a2bc2b47e0f2fa0a75a1ce6e99c78158e5df06633ae3f2ff",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {},
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "mps_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.584625,
+          "samples_ms": [
+            1.346583,
+            1.81275,
+            1.464,
+            1.613417,
+            1.477625,
+            1.706792,
+            1.584625,
+            1.708917,
+            1.471084,
+            1.44825,
+            1.815792
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 1.063625,
+          "samples_ms": [
+            1.533042,
+            1.175709,
+            1.088042,
+            1.063625,
+            1.434,
+            1.127459,
+            0.6815,
+            0.599041,
+            0.662667,
+            0.643667,
+            0.599458
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.72575,
+          "samples_ms": [
+            0.723375,
+            0.702333,
+            0.812917,
+            0.790417,
+            0.732208,
+            0.711416,
+            0.700291,
+            0.756708,
+            0.764416,
+            0.6895,
+            0.72575
+          ]
+        },
+        "mps_out": {
+          "median_ms": 1.261708,
+          "samples_ms": [
+            1.604667,
+            1.491167,
+            2.146167,
+            1.682,
+            1.261708,
+            1.026292,
+            0.89675,
+            1.093334,
+            0.958625,
+            1.49325,
+            1.062584
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_out",
+        "matched_mps_method": "mps_out",
+        "matched_cpu_over_mps": 0.575212331220853,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.575212331220853,
+        "cpu_reuse_over_mps_functional": 0.6823363497473264,
+        "functional_cpu_over_mps": 1.489834293101422
+      },
+      "status": "pass"
+    },
+    {
+      "id": "div_8m",
+      "operator": "torch.div",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514937,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "61bbce886975d8b5a9506b9748c5fcd4b055c94b1488436edece2cc167b1e338",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "bfc5a249b3b1675bafbb7da911066f721609898bd2d8eb28755112ceea5b2d9c",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {},
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "mps_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.7895,
+          "samples_ms": [
+            1.705875,
+            1.522208,
+            2.08425,
+            1.806042,
+            1.7895,
+            1.882875,
+            1.666417,
+            1.54575,
+            1.805709,
+            1.758042,
+            1.802458
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.672875,
+          "samples_ms": [
+            1.529959,
+            0.603125,
+            0.670334,
+            0.756167,
+            0.705833,
+            0.672875,
+            0.661083,
+            0.661083,
+            1.7425,
+            1.480167,
+            0.60325
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.80975,
+          "samples_ms": [
+            0.80975,
+            0.838375,
+            0.8665,
+            0.798625,
+            0.772542,
+            0.871042,
+            0.839292,
+            0.785208,
+            0.776458,
+            0.81725,
+            0.806334
+          ]
+        },
+        "mps_out": {
+          "median_ms": 1.06375,
+          "samples_ms": [
+            1.966,
+            1.390292,
+            0.924625,
+            0.95925,
+            1.040125,
+            0.942833,
+            1.441792,
+            0.958291,
+            1.06375,
+            1.765084,
+            2.177625
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_out",
+        "matched_mps_method": "mps_out",
+        "matched_cpu_over_mps": 0.7612220916568743,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.7612220916568743,
+        "cpu_reuse_over_mps_functional": 1.203418168307635,
+        "functional_cpu_over_mps": 2.6594835593535207
+      },
+      "status": "pass"
+    },
+    {
+      "id": "abs_8m",
+      "operator": "torch.abs",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514938,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "22aa5c97088e65ce54cafd529833c5f4600abbf47c68f9a212f38bf019ca53bd",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.abs.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.462375,
+          "samples_ms": [
+            1.4045,
+            1.433458,
+            1.521125,
+            1.517792,
+            1.557833,
+            1.481458,
+            1.493167,
+            1.425,
+            1.196791,
+            1.462375,
+            1.332166
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.55975,
+          "samples_ms": [
+            0.559334,
+            0.551917,
+            0.600209,
+            0.667791,
+            0.545625,
+            0.589666,
+            0.55975,
+            0.519291,
+            1.037291,
+            0.5085,
+            0.858875
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.448792,
+          "samples_ms": [
+            0.530333,
+            0.59275,
+            0.4845,
+            0.432916,
+            0.411125,
+            0.426667,
+            0.5405,
+            0.437208,
+            0.473708,
+            0.433084,
+            0.448792
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 2.6125502456453775,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.8017722197409559,
+        "cpu_reuse_over_mps_functional": 0.8017722197409559,
+        "functional_cpu_over_mps": 2.6125502456453775
+      },
+      "status": "pass"
+    },
+    {
+      "id": "neg_8m",
+      "operator": "torch.neg",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514939,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "6af2df756f0ec00448f866d67c1da452e7a878cdf6509a27d704ab7db3f149af",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.neg.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.343958,
+          "samples_ms": [
+            1.343958,
+            1.231042,
+            1.2605,
+            1.576208,
+            1.564708,
+            1.500416,
+            1.302334,
+            1.557833,
+            1.430416,
+            1.204041,
+            1.334959
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.664416,
+          "samples_ms": [
+            0.757166,
+            0.658917,
+            0.851042,
+            0.664416,
+            0.476583,
+            0.957625,
+            0.68875,
+            0.643291,
+            0.611625,
+            0.647708,
+            0.838291
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.451709,
+          "samples_ms": [
+            0.436542,
+            0.496792,
+            0.701167,
+            0.501333,
+            0.43225,
+            0.500084,
+            0.424167,
+            0.451709,
+            0.416833,
+            0.412625,
+            0.491959
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 2.0227658575350382,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.6798587029812648,
+        "cpu_reuse_over_mps_functional": 0.6798587029812648,
+        "functional_cpu_over_mps": 2.0227658575350382
+      },
+      "status": "pass"
+    },
+    {
+      "id": "lt_8m",
+      "operator": "torch.lt",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514940,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "817ff76beaf271716f37e8bdabf4262c984acbadbb90d1ed7f73c507ab9a6366",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "ce627920e70e42d46e3f475a49b741c90a848b3b32c9ee9aec90042c1181879e",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.lt.Tensor_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.652667,
+          "samples_ms": [
+            0.626583,
+            0.703208,
+            0.686125,
+            0.818542,
+            0.601583,
+            0.642542,
+            0.687833,
+            0.695166,
+            0.624542,
+            0.652667,
+            0.626125
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.810292,
+          "samples_ms": [
+            1.092417,
+            0.958875,
+            0.696458,
+            1.075375,
+            0.986625,
+            0.746334,
+            0.908958,
+            0.67575,
+            0.781792,
+            0.569625,
+            0.810292
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.556084,
+          "samples_ms": [
+            0.535208,
+            0.581042,
+            0.588833,
+            0.509583,
+            0.556084,
+            0.5885,
+            0.579083,
+            0.861084,
+            0.5205,
+            0.526375,
+            0.506833
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.8054713609414877,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.6862760585073036,
+        "cpu_reuse_over_mps_functional": 0.6862760585073036,
+        "functional_cpu_over_mps": 0.8054713609414877
+      },
+      "status": "pass"
+    },
+    {
+      "id": "relu_8m",
+      "operator": "torch.relu",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514941,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "3652bfbd141214ee6159d95ef276b0041078823ebf2ffb5c9697dbf3c06bed6b",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "cpu": "TypeError: relu() got an unexpected keyword argument 'out'",
+        "mps": "TypeError: relu() got an unexpected keyword argument 'out'"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.295542,
+          "samples_ms": [
+            1.295542,
+            1.280375,
+            1.209458,
+            1.293584,
+            1.381041,
+            1.272833,
+            1.386125,
+            1.304625,
+            1.262459,
+            1.954958,
+            1.596958
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.737791,
+          "samples_ms": [
+            0.737791,
+            0.559,
+            0.745291,
+            0.517708,
+            0.757375,
+            0.951417,
+            0.763,
+            0.530958,
+            0.674625,
+            0.813625,
+            0.697541
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.7559742528710705,
+        "cpu_reuse_method": "cpu_functional",
+        "cpu_reuse_over_mps": 1.7559742528710705,
+        "cpu_reuse_over_mps_functional": 1.7559742528710705,
+        "functional_cpu_over_mps": 1.7559742528710705
+      },
+      "status": "pass"
+    },
+    {
+      "id": "where_8m",
+      "operator": "torch.where",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514942,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.bool",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "5ff8d744f46674cd207e5cebba5cd735dcb945ea92fe248de69df8d950a3f8e8"
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "b3c1e422267ba5f2841be009e0c49f0cbb8e44bcac2398a05b0970572a2538ce",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        },
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "3f857a8bb0534be7010f5a1b7f1e35dd19dea16eaa723523c970664957b27500",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.where.self_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 8388608,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 1.536916,
+          "samples_ms": [
+            1.678167,
+            1.495958,
+            1.6705,
+            1.379416,
+            1.536916,
+            1.612083,
+            1.524416,
+            1.753166,
+            1.470042,
+            1.444667,
+            1.591916
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 1.161459,
+          "samples_ms": [
+            1.22075,
+            1.224834,
+            1.038708,
+            1.167541,
+            1.175708,
+            0.833833,
+            1.055292,
+            1.161459,
+            0.851125,
+            0.889833,
+            1.438167
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.790125,
+          "samples_ms": [
+            0.801959,
+            0.85025,
+            0.790125,
+            0.708416,
+            0.789625,
+            0.778041,
+            0.805792,
+            0.791833,
+            0.709125,
+            0.811209,
+            0.73375
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.3232632404587676,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.680286605037285,
+        "cpu_reuse_over_mps_functional": 0.680286605037285,
+        "functional_cpu_over_mps": 1.3232632404587676
+      },
+      "status": "pass"
+    },
+    {
+      "id": "exp_1m",
+      "operator": "torch.exp",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514943,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "5a080068c7c717238c52a8c845e1a9c058e6f3d0b7f743c8dc56c6d35dbefee2",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.exp.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "4 ULP",
+          "elements": 1048576,
+          "max_abs_error": 1.4210854715202004e-14,
+          "bit_mismatches": 61754,
+          "max_ulp": 1,
+          "max_fraction_of_error_bound": 0.25
+        },
+        "cpu_out": {
+          "criterion": "4 ULP",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.376208,
+          "samples_ms": [
+            0.811625,
+            0.319041,
+            0.731125,
+            0.44725,
+            0.376208,
+            0.298792,
+            0.272708,
+            0.326542,
+            0.846666,
+            0.4095,
+            0.275834
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.710583,
+          "samples_ms": [
+            0.676375,
+            0.713667,
+            0.835125,
+            0.743833,
+            0.738791,
+            0.6955,
+            0.689792,
+            0.710583,
+            0.716458,
+            0.668625,
+            0.6725
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.285208,
+          "samples_ms": [
+            0.285208,
+            0.3365,
+            0.355958,
+            0.206792,
+            0.271417,
+            0.318541,
+            0.214917,
+            0.334833,
+            0.2015,
+            0.208917,
+            0.310167
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.5294356887232033,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.40137183129908827,
+        "cpu_reuse_over_mps_functional": 0.40137183129908827,
+        "functional_cpu_over_mps": 0.5294356887232033
+      },
+      "status": "pass"
+    },
+    {
+      "id": "sin_1m",
+      "operator": "torch.sin",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514944,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "529f78a8e16d9f38b25a8598673d0d7cc9fe5a6a9dc91561ac5c25e8c78f2e4f",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.sin.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "4 ULP",
+          "elements": 1048576,
+          "max_abs_error": 1.1102230246251565e-16,
+          "bit_mismatches": 14235,
+          "max_ulp": 1,
+          "max_fraction_of_error_bound": 0.25
+        },
+        "cpu_out": {
+          "criterion": "4 ULP",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.298792,
+          "samples_ms": [
+            0.287666,
+            0.2885,
+            0.286125,
+            0.289875,
+            0.2985,
+            0.325,
+            0.305125,
+            0.306166,
+            0.298792,
+            0.349209,
+            0.304375
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.712042,
+          "samples_ms": [
+            0.788625,
+            0.687166,
+            0.742291,
+            0.687834,
+            0.712042,
+            0.697666,
+            0.705375,
+            0.791791,
+            0.758834,
+            0.720584,
+            0.690542
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.233542,
+          "samples_ms": [
+            0.252292,
+            0.236125,
+            0.233542,
+            0.231541,
+            0.238709,
+            0.231083,
+            0.25,
+            0.231792,
+            0.234542,
+            0.230334,
+            0.232583
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.4196269321191728,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.3279890792958843,
+        "cpu_reuse_over_mps_functional": 0.3279890792958843,
+        "functional_cpu_over_mps": 0.4196269321191728
+      },
+      "status": "pass"
+    },
+    {
+      "id": "sum_all_8m",
+      "operator": "torch.sum",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514945,
+      "kwargs": {
+        "dim": [
+          0,
+          1
+        ]
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "f9cdfbe4b0ad506f9c3342dd9c33d04b76950e8fd9e92fc493bc64cbcb14edd2",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.sum.IntList_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 1,
+          "max_abs_error": 4.547473508864641e-13,
+          "bit_mismatches": 1,
+          "max_ulp": 2,
+          "max_fraction_of_error_bound": 9.561464149535594e-06
+        },
+        "independent_math_fsum": {
+          "sample_count": 1,
+          "max_abs_error": {
+            "cpu": 4.547473508864641e-13,
+            "mps": 9.094947017729282e-13
+          }
+        },
+        "cpu_out": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 1,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.307542,
+          "samples_ms": [
+            0.307542,
+            0.400333,
+            0.335417,
+            0.384,
+            0.422458,
+            0.278792,
+            0.25125,
+            0.257125,
+            0.376375,
+            0.262625,
+            0.247
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.8855,
+          "samples_ms": [
+            2.382375,
+            2.355416,
+            2.323709,
+            2.4345,
+            2.404833,
+            0.8855,
+            0.755375,
+            0.716375,
+            0.65375,
+            0.603166,
+            0.670292
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.3225,
+          "samples_ms": [
+            0.314708,
+            0.374875,
+            0.383833,
+            0.391542,
+            0.40925,
+            0.316917,
+            0.249333,
+            0.318625,
+            0.376542,
+            0.3225,
+            0.274834
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.34730886504799546,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.36420101637492946,
+        "cpu_reuse_over_mps_functional": 0.36420101637492946,
+        "functional_cpu_over_mps": 0.34730886504799546
+      },
+      "status": "pass"
+    },
+    {
+      "id": "sum_rows_8m",
+      "operator": "torch.sum",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514946,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "3b346c9cf3c8afb992cceb3c46e27011c465109c65aac4a4dd4fbe11bf62d01a",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.sum.IntList_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 4096,
+          "max_abs_error": 5.684341886080802e-14,
+          "bit_mismatches": 3346,
+          "max_ulp": 131072,
+          "max_fraction_of_error_bound": 0.0050774505656924224
+        },
+        "independent_math_fsum": {
+          "sample_count": 16,
+          "max_abs_error": {
+            "cpu": 2.1316282072803006e-14,
+            "mps": 2.398081733190338e-14
+          }
+        },
+        "cpu_out": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.269333,
+          "samples_ms": [
+            0.282541,
+            0.244791,
+            0.256792,
+            0.333459,
+            0.259083,
+            0.305625,
+            0.271625,
+            0.244125,
+            0.269333,
+            0.216333,
+            0.305333
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.72775,
+          "samples_ms": [
+            2.307792,
+            2.337458,
+            2.461334,
+            1.651958,
+            0.769458,
+            0.667667,
+            0.659541,
+            0.72775,
+            0.671833,
+            0.6945,
+            0.627667
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.270292,
+          "samples_ms": [
+            0.270292,
+            0.305667,
+            0.2555,
+            0.2795,
+            0.294834,
+            0.263416,
+            0.277125,
+            0.314167,
+            0.255542,
+            0.228792,
+            0.259375
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.3700900034352456,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.3714077636551013,
+        "cpu_reuse_over_mps_functional": 0.3714077636551013,
+        "functional_cpu_over_mps": 0.3700900034352456
+      },
+      "status": "pass"
+    },
+    {
+      "id": "sum_columns_8m",
+      "operator": "torch.sum",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514947,
+      "kwargs": {
+        "dim": 0
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "981398fbe27699fc37994579308589bac6902541516152b2cd364ae0d6aff1ba",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.sum.IntList_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 2048,
+          "max_abs_error": 8.526512829121202e-14,
+          "bit_mismatches": 1710,
+          "max_ulp": 656,
+          "max_fraction_of_error_bound": 0.0036280287238651026
+        },
+        "independent_math_fsum": {
+          "sample_count": 16,
+          "max_abs_error": {
+            "cpu": 3.552713678800501e-14,
+            "mps": 1.7763568394002505e-14
+          }
+        },
+        "cpu_out": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 2048,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.876542,
+          "samples_ms": [
+            0.832417,
+            0.948208,
+            0.876542,
+            0.870541,
+            0.882875,
+            0.844583,
+            1.031584,
+            0.801542,
+            0.8575,
+            1.045542,
+            2.312083
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.772792,
+          "samples_ms": [
+            2.723333,
+            0.772792,
+            0.730959,
+            0.703,
+            1.293625,
+            1.387875,
+            0.632042,
+            1.401958,
+            0.660041,
+            0.678833,
+            1.342208
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.964416,
+          "samples_ms": [
+            1.257333,
+            1.875375,
+            1.0515,
+            1.050334,
+            0.840208,
+            0.837209,
+            0.841416,
+            0.911459,
+            0.830959,
+            0.985042,
+            0.964416
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.1342534601807472,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 1.247963229433017,
+        "cpu_reuse_over_mps_functional": 1.247963229433017,
+        "functional_cpu_over_mps": 1.1342534601807472
+      },
+      "status": "pass"
+    },
+    {
+      "id": "mean_rows_8m",
+      "operator": "torch.mean",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514948,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "ffed4153ee9f69ca0a05d555c49e4ea4d7eeae91997e17b0d9b7bc4bde573182",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.mean.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 4096,
+          "max_abs_error": 2.42861286636753e-17,
+          "bit_mismatches": 3293,
+          "max_ulp": 4864,
+          "max_fraction_of_error_bound": 0.004307521741579238
+        },
+        "independent_math_fsum": {
+          "sample_count": 16,
+          "max_abs_error": {
+            "cpu": 8.673617379884035e-18,
+            "mps": 3.469446951953614e-18
+          }
+        },
+        "cpu_out": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.318417,
+          "samples_ms": [
+            0.3915,
+            0.270458,
+            0.266834,
+            0.321458,
+            0.330625,
+            0.377792,
+            0.318417,
+            0.302375,
+            0.302875,
+            0.321333,
+            0.288292
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.791166,
+          "samples_ms": [
+            2.415708,
+            3.177,
+            2.1725,
+            0.8185,
+            0.816125,
+            0.779583,
+            0.791166,
+            0.747625,
+            0.70125,
+            0.712875,
+            0.631625
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.283708,
+          "samples_ms": [
+            0.285292,
+            0.273541,
+            0.339583,
+            0.346875,
+            0.264417,
+            0.313834,
+            0.282834,
+            0.303958,
+            0.283708,
+            0.267792,
+            0.277208
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.4024654750077733,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.3585947828900635,
+        "cpu_reuse_over_mps_functional": 0.3585947828900635,
+        "functional_cpu_over_mps": 0.4024654750077733
+      },
+      "status": "pass"
+    },
+    {
+      "id": "amax_rows_8m",
+      "operator": "torch.amax",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514949,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "14ab43020ce8cfa1b3b4ef97c8ccc87323c2407390d8c375e0e01bbfc14bfbca",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.amax.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.284792,
+          "samples_ms": [
+            0.272792,
+            0.366333,
+            0.33725,
+            0.35825,
+            0.261208,
+            0.33875,
+            0.25325,
+            0.287417,
+            0.284792,
+            0.259,
+            0.261375
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 1.083458,
+          "samples_ms": [
+            1.081292,
+            1.083458,
+            1.093542,
+            1.108292,
+            1.3785,
+            1.058416,
+            1.085125,
+            1.282042,
+            1.076667,
+            1.013083,
+            1.07675
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.301291,
+          "samples_ms": [
+            0.292208,
+            0.390917,
+            0.64125,
+            0.672666,
+            0.417041,
+            0.347833,
+            0.247375,
+            0.282209,
+            0.249834,
+            0.294917,
+            0.301291
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.2628546745697572,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.27808276832143003,
+        "cpu_reuse_over_mps_functional": 0.27808276832143003,
+        "functional_cpu_over_mps": 0.2628546745697572
+      },
+      "status": "pass"
+    },
+    {
+      "id": "argmax_all_8m",
+      "operator": "torch.argmax",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514950,
+      "kwargs": {},
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "305e173f54e7252892c4b225627a291ff975a5d4b8e57f5748e7dccf92796858",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.argmax.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 1,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 1,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 3.834125,
+          "samples_ms": [
+            3.792625,
+            3.833917,
+            3.834125,
+            3.657542,
+            5.715666,
+            3.737708,
+            3.825917,
+            4.102167,
+            4.189292,
+            4.319125,
+            4.27825
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 1.045542,
+          "samples_ms": [
+            0.6625,
+            1.183625,
+            1.73025,
+            1.413416,
+            0.966375,
+            1.045542,
+            1.229417,
+            0.84325,
+            1.040708,
+            0.755459,
+            1.065042
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 3.882084,
+          "samples_ms": [
+            3.838333,
+            3.768333,
+            3.873417,
+            3.906833,
+            4.327167,
+            4.351375,
+            3.84275,
+            3.839417,
+            4.1615,
+            4.403541,
+            3.882084
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 3.6671171507218263,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 3.712987139684489,
+        "cpu_reuse_over_mps_functional": 3.712987139684489,
+        "functional_cpu_over_mps": 3.6671171507218263
+      },
+      "status": "pass"
+    },
+    {
+      "id": "argmax_rows_8m",
+      "operator": "torch.argmax",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514951,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "b2aece934bda641998b27db0256ae6561997b8143a79203cd147b96a173be5a8",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.argmax.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.635458,
+          "samples_ms": [
+            0.596125,
+            0.610334,
+            0.671708,
+            0.660584,
+            0.582125,
+            0.651584,
+            0.55725,
+            0.635458,
+            0.610583,
+            0.701167,
+            0.746667
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.604166,
+          "samples_ms": [
+            0.607917,
+            0.594125,
+            0.589125,
+            0.664417,
+            0.567416,
+            0.630417,
+            0.604166,
+            0.570208,
+            0.550542,
+            0.906167,
+            0.629334
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.588541,
+          "samples_ms": [
+            0.559167,
+            0.588541,
+            0.581667,
+            0.598834,
+            0.895416,
+            0.524917,
+            0.538,
+            0.568291,
+            0.594583,
+            0.715375,
+            0.603208
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.0517937123240964,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.9741379024969958,
+        "cpu_reuse_over_mps_functional": 0.9741379024969958,
+        "functional_cpu_over_mps": 1.0517937123240964
+      },
+      "status": "pass"
+    },
+    {
+      "id": "var_rows_8m",
+      "operator": "torch.var",
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_seed": 514952,
+      "kwargs": {
+        "dim": 1,
+        "correction": 0
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "sample_sha256": "0a4c50a9d23cbd3510391a5a1f88d6c82e7e38e588532646d1468fe7c67285cb",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.var.correction_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps relative",
+          "elements": 4096,
+          "max_abs_error": 4.440892098500626e-15,
+          "bit_mismatches": 3844,
+          "max_ulp": 38,
+          "max_fraction_of_error_bound": 0.6229924050511624
+        },
+        "cpu_out": {
+          "criterion": "32eps relative",
+          "elements": 4096,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 8.080791,
+          "samples_ms": [
+            8.633792,
+            8.651125,
+            7.73525,
+            6.342959,
+            6.588875,
+            8.77825,
+            10.442625,
+            8.080791,
+            6.644416,
+            6.043792,
+            8.715417
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 7.216708,
+          "samples_ms": [
+            8.51425,
+            2.00475,
+            7.731791,
+            7.775416,
+            3.057917,
+            7.216708,
+            7.955791,
+            11.693792,
+            2.417833,
+            2.736959,
+            3.124416
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 6.667,
+          "samples_ms": [
+            7.527625,
+            8.955334,
+            7.752334,
+            6.667,
+            6.281542,
+            6.063125,
+            7.552292,
+            7.142208,
+            6.538334,
+            5.886875,
+            6.444125
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.1197336791235006,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.9238284270334896,
+        "cpu_reuse_over_mps_functional": 0.9238284270334896,
+        "functional_cpu_over_mps": 1.1197336791235006
+      },
+      "status": "pass"
+    },
+    {
+      "id": "cumsum_rows_2m",
+      "operator": "torch.cumsum",
+      "shape": [
+        4096,
+        512
+      ],
+      "input_seed": 514953,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            4096,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "14169200539ee486649575a507163b1661b4b219c141caa6b9f40c09cc0587f9",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.cumsum.out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 2097152,
+          "max_abs_error": 1.2789769243681803e-13,
+          "bit_mismatches": 1827897,
+          "max_ulp": 4521984,
+          "max_fraction_of_error_bound": 0.05542067962616464
+        },
+        "independent_math_fsum": {
+          "sample_count": 16,
+          "max_abs_error": {
+            "cpu": 2.1316282072803006e-14,
+            "mps": 7.105427357601002e-15
+          }
+        },
+        "cpu_out": {
+          "criterion": "32eps times input absolute sum/mean/prefix sum",
+          "elements": 2097152,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.232167,
+          "samples_ms": [
+            0.227334,
+            0.221916,
+            0.247208,
+            0.217083,
+            0.232167,
+            0.351584,
+            0.628583,
+            0.520042,
+            0.213958,
+            0.20325,
+            0.238666
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 173.310625,
+          "samples_ms": [
+            174.924916,
+            173.378125,
+            169.955625,
+            169.881458,
+            170.528708,
+            171.090125,
+            172.703709,
+            173.310625,
+            174.729916,
+            173.690333,
+            177.252958
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.24875,
+          "samples_ms": [
+            0.194208,
+            0.18525,
+            0.269458,
+            0.286792,
+            0.203542,
+            0.403416,
+            0.591417,
+            0.223417,
+            0.362833,
+            0.185625,
+            0.24875
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.0013396005005463457,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.0014352841898758373,
+        "cpu_reuse_over_mps_functional": 0.0014352841898758373,
+        "functional_cpu_over_mps": 0.0013396005005463457
+      },
+      "status": "pass"
+    },
+    {
+      "id": "sort_rows_1m",
+      "operator": "torch.sort",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514954,
+      "kwargs": {
+        "dim": 1,
+        "stable": true
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "2f738736f5336d01606958919101fb882a0175c2054d2e37361b89259583a663",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.sort.values_stable"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 2097152,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 2097152,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 4.759917,
+          "samples_ms": [
+            4.157625,
+            4.790375,
+            5.039,
+            4.789541,
+            4.759917,
+            4.33575,
+            4.888833,
+            4.458167,
+            4.159875,
+            4.46625,
+            5.562708
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.7785,
+          "samples_ms": [
+            0.946167,
+            0.7785,
+            0.974125,
+            0.892334,
+            0.49725,
+            0.53625,
+            0.841125,
+            0.527417,
+            1.092875,
+            0.488333,
+            0.678583
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 4.152083,
+          "samples_ms": [
+            3.723875,
+            3.691583,
+            4.152083,
+            4.057083,
+            3.978208,
+            4.303416,
+            3.978167,
+            4.186833,
+            4.361,
+            4.503916,
+            4.342667
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 6.114215799614644,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 5.33343994861914,
+        "cpu_reuse_over_mps_functional": 5.33343994861914,
+        "functional_cpu_over_mps": 6.114215799614644
+      },
+      "status": "pass"
+    },
+    {
+      "id": "topk_rows_1m",
+      "operator": "torch.topk",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514955,
+      "kwargs": {
+        "dim": 1,
+        "k": 32
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "ba07f77ec7a5dcc23c62c06c99d4daf4a5e4599907c6396893638694a82f50bb",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.topk.values"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "bitwise",
+          "elements": 131072,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        },
+        "cpu_out": {
+          "criterion": "bitwise",
+          "elements": 131072,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.88,
+          "samples_ms": [
+            0.925541,
+            0.864084,
+            0.927417,
+            0.755584,
+            0.88,
+            0.964542,
+            0.786333,
+            1.3345,
+            0.834333,
+            0.893792,
+            0.860791
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.474959,
+          "samples_ms": [
+            1.022625,
+            0.474959,
+            0.425708,
+            0.870209,
+            0.923166,
+            0.460667,
+            1.056417,
+            0.739083,
+            0.47475,
+            0.451083,
+            0.449584
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.903416,
+          "samples_ms": [
+            1.275458,
+            0.935959,
+            0.861084,
+            0.759833,
+            0.903416,
+            0.853916,
+            1.067708,
+            0.859084,
+            1.171542,
+            0.818125,
+            0.946333
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 1.8527915041087757,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 1.9020926016771973,
+        "cpu_reuse_over_mps_functional": 1.9020926016771973,
+        "functional_cpu_over_mps": 1.8527915041087757
+      },
+      "status": "pass"
+    },
+    {
+      "id": "softmax_rows_1m",
+      "operator": "torch.softmax",
+      "shape": [
+        2048,
+        512
+      ],
+      "input_seed": 514956,
+      "kwargs": {
+        "dim": 1
+      },
+      "inputs": [
+        {
+          "dtype": "torch.float64",
+          "shape": [
+            2048,
+            512
+          ],
+          "stride": [
+            512,
+            1
+          ],
+          "sample_sha256": "afa92413ac6f34c08273308478293a2f86e4637e54aa8c156b3d76a678433c99",
+          "low_29_mantissa_bits_nonzero_in_sample": 1024,
+          "sample_size": 1024
+        }
+      ],
+      "out_unavailable": {
+        "mps": "NotImplementedError: MPS FP64 GPU implementation missing for aten.softmax.int_out"
+      },
+      "validation": {
+        "mps_functional": {
+          "criterion": "32eps relative",
+          "elements": 1048576,
+          "max_abs_error": 6.938893903907228e-17,
+          "bit_mismatches": 828928,
+          "max_ulp": 12,
+          "max_fraction_of_error_bound": 0.2091258031448038
+        },
+        "cpu_out": {
+          "criterion": "32eps relative",
+          "elements": 1048576,
+          "max_abs_error": 0.0,
+          "bit_mismatches": 0,
+          "max_ulp": 0,
+          "max_fraction_of_error_bound": 0.0
+        }
+      },
+      "methods": {
+        "cpu_functional": {
+          "median_ms": 0.577666,
+          "samples_ms": [
+            0.585125,
+            0.35275,
+            0.550167,
+            0.784875,
+            0.592208,
+            0.337,
+            0.829042,
+            0.509417,
+            0.527709,
+            0.577666,
+            1.470542
+          ]
+        },
+        "mps_functional": {
+          "median_ms": 0.911208,
+          "samples_ms": [
+            0.908458,
+            0.955584,
+            0.787458,
+            0.911208,
+            0.938,
+            0.90425,
+            0.980459,
+            0.819,
+            0.82225,
+            0.945166,
+            1.212166
+          ]
+        },
+        "cpu_out": {
+          "median_ms": 0.305209,
+          "samples_ms": [
+            0.450625,
+            0.261667,
+            0.444625,
+            0.392541,
+            0.3095,
+            0.305,
+            0.280458,
+            0.302625,
+            0.26175,
+            0.305209,
+            0.413667
+          ]
+        }
+      },
+      "comparison": {
+        "matched_cpu_method": "cpu_functional",
+        "matched_mps_method": "mps_functional",
+        "matched_cpu_over_mps": 0.6339562427019956,
+        "cpu_reuse_method": "cpu_out",
+        "cpu_reuse_over_mps": 0.3349498687456651,
+        "cpu_reuse_over_mps_functional": 0.3349498687456651,
+        "functional_cpu_over_mps": 0.6339562427019956
+      },
+      "status": "pass"
+    }
+  ],
+  "summary": {
+    "declared": 24,
+    "passed": 24,
+    "matched_wins": 10,
+    "cpu_reuse_wins": 5,
+    "both_out_validated": 5,
+    "package_cpu_replay_calls_in_validated_methods": 0
+  }
+}

@@ -1,0 +1,10 @@
+include *.md
+include LICENSE
+include index.html .nojekyll
+recursive-include LICENSES *.txt
+recursive-include benchmarks *.csv *.json *.md *.svg *.css *.js
+recursive-include results *.json *.jsonl *.csv *.txt
+recursive-include tests *.py
+recursive-include tools *.py *.c
+recursive-include examples *.py
+global-exclude *.py[cod] .DS_Store

@@ -1,0 +1,22 @@
+test_binary64_bits (test_backend.Core.test_binary64_bits) ... ok
+test_fp64_residual_and_lu (test_backend.Core.test_fp64_residual_and_lu) ... ok
+test_graph (test_backend.Core.test_graph) ... ok
+test_opt_in_cpu_replay (test_backend.Core.test_opt_in_cpu_replay) ... ok
+test_threads (test_backend.Core.test_threads) ... ok
+test_transcendentals (test_backend.Core.test_transcendentals) ... ok
+test_views_gather_and_alias (test_backend.Core.test_views_gather_and_alias) ... ok
+test_fused_rounding (test_fma.FusedOperation.test_fused_rounding) ... ok
+test_fft_backward (test_integration.Integration.test_fft_backward) ... ok
+test_hessian (test_integration.Integration.test_hessian) ... ok
+test_scalar_gather_preserves_bits (test_integration.Integration.test_scalar_gather_preserves_bits) ... ok
+test_string_padding_and_pool_backward (test_integration.Integration.test_string_padding_and_pool_backward) ... ok
+test_cholesky (test_workloads.Workloads.test_cholesky) ... ok
+test_convolution_gradients (test_workloads.Workloads.test_convolution_gradients) ... ok
+test_fft (test_workloads.Workloads.test_fft) ... ok
+test_rng (test_workloads.Workloads.test_rng) ... ok
+test_stable_sort (test_workloads.Workloads.test_stable_sort) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.215s
+
+OK

@@ -1,0 +1,702 @@
+operator,variant,native_float32,strict_float64,native_samples_passed,fp64_samples_passed,strict_detail
+_batch_norm_with_update,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten._batch_norm_with_update.default
+_chunk_cat,,pass,NotImplementedError,8,0,MPS FP64 GPU implementation missing for aten._chunk_cat.default
+_unsafe_masked_index_put_accumulate,,pass,NotImplementedError,6,0,MPS FP64 GPU implementation missing for aten._unsafe_masked_index_put_accumulate.default
+_upsample_bilinear2d_aa,,pass,NotImplementedError,7,0,MPS FP64 GPU implementation missing for aten._upsample_bilinear2d_aa.default
+angle,,pass,NotImplementedError,1,0,MPS FP64 GPU implementation missing for aten.angle.default
+as_strided_scatter,,pass,NotImplementedError,7,0,MPS FP64 GPU implementation missing for aten.as_strided_scatter.default
+broadcast_shapes,,pass,ValueError,10,0,no CPU float64 sample
+cdist,,pass,NotImplementedError,256,32,MPS FP64 GPU implementation missing for aten._euclidean_dist.default
+cfloat,,pass,NotImplementedError,5,0,GPU cast from torch.float64 to torch.complex64
+chalf,,pass,NotImplementedError,5,0,GPU cast from torch.float64 to torch.complex32
+cov,,pass,AssertionError,40,33,"Tensor-likes are not close!
+
+Mismatched elements: 4 / 4 (100.0%)
+Greatest absolute difference: 1.1086399123172441e-06 at index (0, 0) (up to 1e-12 allowed)
+Greatest relative difference: 1.0512118910084404e-07 at index (0, 0) (up to 1e-10 allowed)"
+cummax,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.cummax.default
+cummin,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.cummin.default
+diagonal_scatter,,pass,NotImplementedError,15,0,MPS FP64 GPU implementation missing for aten.diagonal_scatter.default
+digamma,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.digamma.default
+div,floor_rounding,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.div.Tensor_mode
+erfinv,,pass,NotImplementedError,1,0,MPS FP64 GPU implementation missing for aten.erfinv.default
+floor_divide,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.floor_divide.default
+histc,,pass,NotImplementedError,96,0,MPS FP64 GPU implementation missing for aten.histc.default
+histogram,,pass,NotImplementedError,192,0,MPS FP64 GPU implementation missing for aten.histogram.bin_ct
+histogramdd,,pass,NotImplementedError,96,0,MPS FP64 GPU implementation missing for aten._histogramdd_bin_edges.default
+i0,,pass,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten.i0.default
+igamma,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.igamma.default
+igammac,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.igammac.default
+index_add,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.index_add.default
+index_copy,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.index_copy.default
+index_fill,,pass,NotImplementedError,6,0,MPS FP64 GPU implementation missing for aten.index_fill.int_Scalar
+index_put,,pass,NotImplementedError,4,0,MPS FP64 GPU implementation missing for aten.index_put.default
+isin,,pass,NotImplementedError,2,1,MPS FP64 GPU implementation missing for aten.isin.Tensor_Tensor
+kthvalue,,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.kthvalue.default
+lgamma,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.lgamma.default
+linalg.householder_product,,pass,NotImplementedError,8,0,MPS FP64 GPU implementation missing for aten.linalg_householder_product.default
+linalg.lu,,pass,NotImplementedError,20,0,MPS FP64 GPU implementation missing for aten.linalg_lu.default
+linalg.pinv,,pass,NotImplementedError,24,0,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.pinv,singular,pass,NotImplementedError,48,0,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.svd,,pass,NotImplementedError,216,0,MPS FP64 GPU implementation missing for aten.linalg_svd.default
+logcumsumexp,,pass,NotImplementedError,6,0,MPS FP64 GPU implementation missing for aten.logcumsumexp.default
+logsumexp,,pass,NotImplementedError,15,0,MPS FP64 GPU implementation missing for aten.logsumexp.default
+lu_unpack,,pass,NotImplementedError,20,0,MPS FP64 GPU implementation missing for aten.lu_unpack.default
+masked.logsumexp,,pass,NotImplementedError,90,0,MPS FP64 GPU implementation missing for aten.logsumexp.default
+masked_scatter,,pass,NotImplementedError,4,0,MPS FP64 GPU implementation missing for aten.masked_scatter.default
+median,,pass,NotImplementedError,13,0,MPS FP64 GPU implementation missing for aten.median.default
+mvlgamma,mvlgamma_p_1,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+mvlgamma,mvlgamma_p_3,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+mvlgamma,mvlgamma_p_5,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+nanmedian,,pass,NotImplementedError,13,0,MPS FP64 GPU implementation missing for aten.nanmedian.default
+nanquantile,,pass,NotImplementedError,60,0,MPS FP64 GPU implementation missing for aten.masked_fill_.Scalar
+nn.functional.avg_pool2d,,pass,NotImplementedError,7,4,pool geometry outside uint32 kernel domain
+nn.functional.avg_pool3d,,pass,NotImplementedError,8,5,pool geometry outside uint32 kernel domain
+nn.functional.bilinear,,pass,NotImplementedError,16,0,MPS FP64 GPU implementation missing for aten._trilinear.default
+nn.functional.cosine_embedding_loss,,pass,NotImplementedError,6,0,MPS FP64 GPU implementation missing for aten.sqrt_.default
+nn.functional.embedding,,pass,NotImplementedError,10,5,MPS FP64 GPU implementation missing for aten.embedding_renorm_.default
+nn.functional.embedding_bag,,pass,NotImplementedError,49,0,MPS FP64 GPU implementation missing for aten._embedding_bag_forward_only.default
+nn.functional.gaussian_nll_loss,,pass,NotImplementedError,324,0,MPS FP64 GPU implementation missing for aten.clamp_.default
+nn.functional.glu,,pass,NotImplementedError,46,0,MPS FP64 GPU implementation missing for aten.glu.default
+nn.functional.group_norm,,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.native_group_norm.default
+nn.functional.interpolate,bilinear,pass,NotImplementedError,24,0,MPS FP64 GPU implementation missing for aten.upsample_bilinear2d.default
+nn.functional.interpolate,linear,pass,NotImplementedError,18,0,MPS FP64 GPU implementation missing for aten.upsample_linear1d.default
+nn.functional.interpolate,trilinear,pass,NotImplementedError,24,0,MPS FP64 GPU implementation missing for aten.upsample_trilinear3d.default
+nn.functional.linear,,pass,NotImplementedError,18,11,MPS FP64 GPU implementation missing for aten.linear.default
+nn.functional.pixel_shuffle,,pass,NotImplementedError,5,0,MPS FP64 GPU implementation missing for aten.pixel_shuffle.default
+nn.functional.pixel_unshuffle,,pass,NotImplementedError,5,0,MPS FP64 GPU implementation missing for aten.pixel_unshuffle.default
+nn.functional.unfold,,pass,NotImplementedError,163,0,MPS FP64 GPU implementation missing for aten.im2col.default
+nn.functional.upsample_bilinear,,pass,NotImplementedError,4,0,MPS FP64 GPU implementation missing for aten.upsample_bilinear2d.default
+pinverse,,pass,NotImplementedError,8,0,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+polygamma,polygamma_n_0,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+polygamma,polygamma_n_1,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+polygamma,polygamma_n_2,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+polygamma,polygamma_n_3,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+polygamma,polygamma_n_4,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+quantile,,pass,NotImplementedError,60,0,MPS FP64 GPU implementation missing for aten.ceil_.default
+resize_,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.resize_.default
+resize_as_,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.resize_as_.default
+scatter,,pass,NotImplementedError,27,0,MPS FP64 GPU implementation missing for aten.scatter.src
+scatter_add,,pass,NotImplementedError,7,0,MPS FP64 GPU implementation missing for aten.scatter_add.default
+scatter_reduce,amax,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,amin,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,mean,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,prod,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,sum,pass,NotImplementedError,21,0,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+searchsorted,,pass,NotImplementedError,288,0,MPS FP64 GPU implementation missing for aten.searchsorted.Tensor
+special.bessel_j0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_bessel_j0.default
+special.bessel_j1,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_bessel_j1.default
+special.bessel_y0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_bessel_y0.default
+special.bessel_y1,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_bessel_y1.default
+special.chebyshev_polynomial_t,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_t.default
+special.chebyshev_polynomial_u,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_u.default
+special.chebyshev_polynomial_v,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_v.default
+special.chebyshev_polynomial_w,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_w.default
+special.erfcx,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_erfcx.default
+special.hermite_polynomial_h,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_hermite_polynomial_h.default
+special.hermite_polynomial_he,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_hermite_polynomial_he.default
+special.i0e,,pass,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten.special_i0e.default
+special.i1,,pass,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten.special_i1.default
+special.i1e,,pass,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten.special_i1e.default
+special.modified_bessel_i0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_modified_bessel_i0.default
+special.modified_bessel_i1,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_modified_bessel_i1.default
+special.modified_bessel_k0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_modified_bessel_k0.default
+special.modified_bessel_k1,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_modified_bessel_k1.default
+special.polygamma,special_polygamma_n_0,pass,NotImplementedError,10,0,MPS FP64 GPU implementation missing for aten.polygamma.default
+special.scaled_modified_bessel_k0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_scaled_modified_bessel_k0.default
+special.scaled_modified_bessel_k1,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_scaled_modified_bessel_k1.default
+special.shifted_chebyshev_polynomial_t,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_t.default
+special.shifted_chebyshev_polynomial_u,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_u.default
+special.shifted_chebyshev_polynomial_v,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_v.default
+special.shifted_chebyshev_polynomial_w,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_w.default
+special.spherical_bessel_j0,,pass,NotImplementedError,3,0,MPS FP64 GPU implementation missing for aten.special_spherical_bessel_j0.default
+special.zeta,,pass,NotImplementedError,9,0,MPS FP64 GPU implementation missing for aten.special_zeta.default
+stft,,pass,NotImplementedError,9,0,MPS complex128 operation missing for aten.transpose_.default
+svd,,pass,NotImplementedError,216,0,MPS FP64 GPU implementation missing for aten.linalg_svd.default
+to_sparse,,pass,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten._to_sparse.default
+unique,,pass,NotImplementedError,528,0,MPS FP64 GPU implementation missing for aten._unique2.default
+unique_consecutive,,pass,NotImplementedError,264,0,MPS FP64 GPU implementation missing for aten.unique_consecutive.default
+H,,pass,pass,2,2,
+T,,pass,pass,2,2,
+__getitem__,,pass,pass,16,16,
+__radd__,,pass,pass,9,9,
+__rand__,,ValueError,ValueError,0,0,no CPU float64 sample
+__rdiv__,,pass,pass,9,9,
+__rmatmul__,,pass,pass,15,15,
+__rmod__,,pass,pass,9,9,
+__rmul__,,pass,pass,9,9,
+__ror__,,ValueError,ValueError,0,0,no CPU float64 sample
+__rpow__,,pass,pass,9,9,
+__rsub__,,pass,pass,9,9,
+__rxor__,,ValueError,ValueError,0,0,no CPU float64 sample
+_native_batch_norm_legit,,pass,pass,10,10,
+_segment_reduce,lengths,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.segment_reduce.default
+_segment_reduce,offsets,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.segment_reduce.default
+_softmax_backward_data,,pass,pass,3,3,
+_unsafe_masked_index,,pass,pass,6,6,
+abs,,pass,pass,1,1,
+acos,,pass,pass,3,3,
+acosh,,pass,pass,3,3,
+add,,pass,pass,11,11,
+addbmm,,pass,pass,6,6,
+addcdiv,,pass,pass,12,12,
+addcmul,,pass,pass,12,12,
+addmm,,pass,pass,6,6,
+addmm,decomposed,pass,pass,6,6,
+addmv,,pass,pass,6,6,
+addr,,pass,pass,6,6,
+alias_copy,,pass,pass,2,2,
+all,,pass,pass,20,20,
+allclose,,pass,pass,24,24,
+amax,,pass,pass,20,20,
+amin,,pass,pass,20,20,
+aminmax,,pass,pass,7,7,
+any,,pass,pass,20,20,
+arange,,pass,pass,27,27,
+argmax,,pass,pass,13,13,
+argmin,,pass,pass,13,13,
+argsort,,pass,pass,58,58,
+argwhere,,pass,pass,6,6,
+as_strided,,pass,pass,5,5,
+as_strided,partial_views,pass,pass,3,3,
+as_strided_copy,,pass,pass,5,5,
+asin,,pass,pass,1,1,
+asinh,,pass,pass,1,1,
+atan,,pass,pass,1,1,
+atan2,,pass,pass,9,9,
+atanh,,pass,pass,1,1,
+atleast_1d,,pass,pass,6,6,
+atleast_2d,,pass,pass,6,6,
+atleast_3d,,pass,pass,6,6,
+baddbmm,,pass,pass,6,6,
+bernoulli,,stochastic_separate,stochastic_separate,0,0,
+bfloat16,,pass,pass,5,5,
+bincount,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_and,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_left_shift,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_not,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_or,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_right_shift,,ValueError,ValueError,0,0,no CPU float64 sample
+bitwise_xor,,ValueError,ValueError,0,0,no CPU float64 sample
+block_diag,,pass,pass,4,4,
+bmm,,pass,pass,1,1,
+bool,,pass,pass,5,5,
+broadcast_tensors,,pass,pass,1,1,
+broadcast_to,,pass,pass,7,7,
+bucketize,,pass,pass,24,24,
+byte,,pass,pass,5,5,
+cartesian_prod,,pass,pass,3,3,
+cat,,pass,pass,9,9,
+cauchy,,AssertionError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.cauchy_.default
+cdouble,,TypeError,pass,0,5,
+ceil,,pass,pass,1,1,
+char,,pass,pass,5,5,
+cholesky,,pass,pass,16,16,
+cholesky_inverse,,pass,pass,12,12,
+cholesky_solve,,NotImplementedError,pass,0,12,
+chunk,,pass,pass,3,3,
+clamp,,pass,pass,7,7,
+clamp_max,,pass,pass,9,9,
+clamp_min,,pass,pass,9,9,
+clone,,pass,pass,2,2,
+column_stack,,pass,pass,3,3,
+combinations,,pass,pass,18,18,
+complex,,pass,pass,9,9,
+conj,,pass,pass,3,3,
+conj_physical,,pass,pass,1,1,
+constant_pad_nd,,pass,pass,51,51,
+contiguous,,pass,pass,2,2,
+copysign,,pass,pass,10,10,
+corrcoef,,pass,pass,4,4,
+cos,,pass,pass,3,3,
+cosh,,pass,pass,3,3,
+count_nonzero,,pass,pass,20,20,
+cross,,pass,pass,3,3,
+cumprod,,pass,pass,10,10,
+cumsum,,pass,pass,4,4,
+cumulative_trapezoid,,pass,pass,9,9,
+deg2rad,,pass,pass,1,1,
+diag,,pass,pass,16,16,
+diag_embed,,pass,pass,15,15,
+diagflat,,pass,pass,5,5,
+diagonal,,pass,pass,15,15,
+diagonal_copy,,pass,pass,15,15,
+diff,,pass,pass,64,64,
+dist,,pass,pass,50,50,
+div,no_rounding_mode,pass,pass,9,9,
+div,trunc_rounding,pass,pass,9,9,
+dot,,pass,pass,1,1,
+double,,TypeError,pass,0,5,
+dsplit,,pass,pass,2,2,
+dstack,,pass,pass,2,2,
+einsum,,pass,pass,11,11,
+empty,,pass,pass,6,6,
+empty_like,,TypeError,pass,4,7,
+empty_permuted,,pass,pass,39,39,
+empty_strided,,pass,pass,4,4,
+eq,,pass,pass,10,10,
+equal,,pass,pass,8,8,
+erf,,pass,pass,1,1,
+erfc,,pass,pass,3,3,
+exp,,pass,pass,3,3,
+exp2,,pass,pass,3,3,
+expand,,pass,pass,9,9,
+expand_as,,pass,pass,3,3,
+expand_copy,,pass,pass,9,9,
+expm1,,pass,pass,1,1,
+exponential,,AssertionError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.exponential_.default
+eye,,pass,pass,90,90,
+fft.fft,,pass,pass,8,8,
+fft.fft2,,pass,pass,7,7,
+fft.fftn,,pass,pass,9,9,
+fft.fftshift,,pass,pass,5,5,
+fft.hfft,,pass,pass,8,8,
+fft.hfft2,,pass,pass,7,7,
+fft.hfftn,,pass,pass,9,9,
+fft.ifft,,pass,pass,8,8,
+fft.ifft2,,pass,pass,7,7,
+fft.ifftn,,pass,pass,9,9,
+fft.ifftshift,,pass,pass,5,5,
+fft.ihfft,,pass,pass,8,8,
+fft.ihfft2,,pass,pass,7,7,
+fft.ihfftn,,pass,pass,9,9,
+fft.irfft,,pass,pass,8,8,
+fft.irfft2,,pass,pass,7,7,
+fft.irfftn,,pass,pass,9,9,
+fft.rfft,,pass,pass,8,8,
+fft.rfft2,,pass,pass,7,7,
+fft.rfftn,,pass,pass,9,9,
+fill,,pass,pass,3,3,
+flatten,,pass,pass,6,6,
+flip,,pass,pass,10,10,
+fliplr,,pass,pass,2,2,
+flipud,,pass,pass,2,2,
+float,,pass,pass,5,5,
+float_power,,TypeError,pass,0,9,
+floor,,pass,pass,1,1,
+fmax,,pass,pass,9,9,
+fmin,,pass,pass,9,9,
+fmod,,pass,pass,9,9,
+frac,,pass,pass,1,1,
+frexp,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.frexp.Tensor
+full,,pass,pass,4,4,
+full_like,,TypeError,NotImplementedError,4,3,aten.full_like.default
+gather,,pass,pass,7,7,
+gcd,,ValueError,ValueError,0,0,no CPU float64 sample
+ge,,pass,pass,9,9,
+geometric,,AssertionError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.geometric_.default
+geqrf,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.geqrf.default
+gradient,,pass,pass,8,8,
+grid_sampler_2d,,pass,pass,18,18,
+grid_sampler_3d,,ValueError,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten.grid_sampler_3d.default
+gt,,pass,pass,9,9,
+half,,pass,pass,5,5,
+hash_tensor,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.hash_tensor.default
+heaviside,,NotImplementedError,pass,0,9,
+hsplit,,pass,pass,2,2,
+hstack,,pass,pass,2,2,
+hypot,,pass,pass,9,9,
+imag,,ValueError,ValueError,0,0,no CPU float64 sample
+index_reduce,amax,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,amin,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,mean,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,prod,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_select,,pass,pass,3,3,
+inner,,pass,pass,2,2,
+int,,pass,pass,5,5,
+isclose,,pass,pass,17,17,
+isfinite,,pass,pass,3,3,
+isinf,,pass,pass,1,1,
+isnan,,pass,pass,1,1,
+isneginf,,pass,pass,1,1,
+isposinf,,pass,pass,1,1,
+isreal,,pass,pass,3,3,
+istft,,ValueError,ValueError,0,0,no CPU float64 sample
+item,,pass,pass,4,4,
+jiterator_2inputs_2outputs,,AssertionError,AssertionError,0,0,"Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_4inputs_with_extra_args,,AssertionError,AssertionError,0,0,"Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_binary,,AssertionError,AssertionError,0,0,"Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_binary_return_by_ref,,AssertionError,AssertionError,0,0,"Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_unary,,AssertionError,AssertionError,0,0,"Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+kron,,pass,pass,1,1,
+lcm,,ValueError,ValueError,0,0,no CPU float64 sample
+ldexp,,pass,pass,9,9,
+le,,pass,pass,9,9,
+lerp,,pass,pass,14,14,
+linalg.cholesky,,pass,pass,16,16,
+linalg.cholesky_ex,,pass,pass,16,16,
+linalg.cond,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.cross,,pass,pass,3,3,
+linalg.det,,pass,pass,9,9,
+linalg.diagonal,,pass,pass,15,15,
+linalg.eig,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_eig.default
+linalg.eigh,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.eigvals,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_eig.default
+linalg.eigvalsh,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.inv,,pass,pass,8,8,
+linalg.inv_ex,,pass,pass,8,8,
+linalg.ldl_factor,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default
+linalg.ldl_factor_ex,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default
+linalg.ldl_solve,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_ldl_solve.default
+linalg.lstsq,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default
+linalg.lstsq,grad_oriented,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default
+linalg.lu_factor,,pass,pass,20,20,
+linalg.lu_factor_ex,,pass,pass,20,20,
+linalg.lu_solve,,pass,pass,108,108,
+linalg.matrix_norm,,NotImplementedError,NotImplementedError,4,4,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.matrix_power,,pass,pass,18,18,
+linalg.matrix_rank,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.matrix_rank,hermitian,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.multi_dot,,pass,pass,7,7,
+linalg.norm,,NotImplementedError,NotImplementedError,44,44,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.norm,subgradients_at_zero,NotImplementedError,NotImplementedError,38,38,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.pinv,hermitian,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.qr,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+linalg.slogdet,,pass,pass,9,9,
+linalg.solve,,pass,pass,24,24,
+linalg.solve_ex,,pass,pass,24,24,
+linalg.solve_triangular,,pass,pass,144,144,
+linalg.svdvals,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.tensorinv,,pass,pass,2,2,
+linalg.tensorsolve,,pass,pass,4,4,
+linalg.vander,,pass,pass,10,10,
+linalg.vecdot,,pass,pass,44,44,
+linalg.vector_norm,,pass,pass,180,180,
+linspace,,pass,pass,62,62,
+linspace,tensor_overload,pass,pass,182,182,
+log,,pass,pass,3,3,
+log10,,pass,pass,3,3,
+log1p,,pass,pass,1,1,
+log2,,pass,pass,3,3,
+log_normal,,AssertionError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.log_normal_.default
+log_softmax,,pass,pass,7,7,
+log_softmax,with_dtype,TypeError,pass,0,7,
+logaddexp,,pass,pass,9,9,
+logaddexp2,,pass,pass,1,1,
+logdet,,pass,pass,9,9,
+logical_and,,pass,pass,9,9,
+logical_not,,pass,pass,3,3,
+logical_or,,pass,pass,9,9,
+logical_xor,,pass,pass,9,9,
+logit,,pass,pass,4,4,
+logspace,,pass,pass,401,401,
+logspace,tensor_overload,pass,pass,1201,1201,
+long,,pass,pass,5,5,
+lt,,pass,pass,9,9,
+lu,,pass,pass,30,30,
+lu_solve,,pass,pass,27,27,
+mH,,pass,pass,5,5,
+mT,,pass,pass,5,5,
+masked.amax,,pass,pass,90,90,
+masked.amin,,pass,pass,90,90,
+masked.argmax,,AssertionError,pass,16,55,
+masked.argmin,,AssertionError,pass,16,55,
+masked.cumprod,,pass,pass,17,17,
+masked.cumsum,,pass,pass,17,17,
+masked.log_softmax,,pass,pass,24,24,
+masked.logaddexp,,pass,pass,11,11,
+masked.mean,,pass,pass,90,90,
+masked.median,,AssertionError,NotImplementedError,5,0,MPS FP64 GPU implementation missing for aten.nanmedian.dim
+masked.norm,,AssertionError,pass,200,450,
+masked.normalize,,pass,pass,30,30,
+masked.prod,,pass,pass,90,90,
+masked.softmax,,pass,pass,24,24,
+masked.softmin,,pass,pass,24,24,
+masked.std,,pass,pass,58,58,
+masked.sum,,pass,pass,90,90,
+masked.var,,pass,pass,58,58,
+masked_fill,,pass,pass,8,8,
+masked_select,,pass,pass,7,7,
+matmul,,pass,pass,15,15,
+matrix_exp,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_matrix_exp.default
+max,binary,pass,pass,9,9,
+max,reduction_no_dim,pass,pass,2,2,
+max,reduction_with_dim,pass,pass,4,4,
+max_pool2d_with_indices_backward,,pass,pass,1440,1440,
+maximum,,pass,pass,9,9,
+mean,,pass,pass,20,20,
+meshgrid,list_of_tensors,pass,pass,10,10,
+meshgrid,variadic_tensors,pass,pass,10,10,
+min,binary,pass,pass,9,9,
+min,reduction_no_dim,pass,pass,2,2,
+min,reduction_with_dim,pass,pass,4,4,
+minimum,,pass,pass,9,9,
+mm,,pass,pass,3,3,
+mode,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.mode.default
+movedim,,pass,pass,2,2,
+msort,,pass,pass,2,2,
+mul,,pass,pass,9,9,
+multinomial,,stochastic_separate,stochastic_separate,0,0,
+mv,,pass,pass,1,1,
+nan_to_num,,pass,pass,3,3,
+nanmean,,pass,pass,35,35,
+nansum,,pass,pass,35,35,
+narrow,,pass,pass,10,10,
+narrow_copy,,pass,pass,5,5,
+native_batch_norm,,pass,pass,10,10,
+native_dropout_backward,,pass,pass,9,9,
+native_layer_norm,,AssertionError,pass,9,20,
+ne,,pass,pass,9,9,
+neg,,pass,pass,1,1,
+new_empty,,TypeError,pass,4,7,
+new_empty_strided,,TypeError,pass,4,7,
+new_full,,TypeError,pass,4,7,
+new_ones,,TypeError,pass,4,7,
+new_zeros,,TypeError,pass,4,7,
+nextafter,,pass,pass,9,9,
+nn.functional.adaptive_avg_pool1d,,RuntimeError,pass,0,6,
+nn.functional.adaptive_avg_pool2d,,RuntimeError,pass,0,10,
+nn.functional.adaptive_avg_pool3d,,NotImplementedError,pass,0,12,
+nn.functional.adaptive_max_pool1d,,pass,pass,8,8,
+nn.functional.adaptive_max_pool2d,,pass,pass,24,24,
+nn.functional.adaptive_max_pool3d,,NotImplementedError,pass,0,20,
+nn.functional.alpha_dropout,,AssertionError,NotImplementedError,2,2,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.avg_pool1d,,pass,pass,9,9,
+nn.functional.batch_norm,,pass,pass,12,12,
+nn.functional.batch_norm,without_cudnn,ValueError,ValueError,0,0,no CPU float64 sample
+nn.functional.binary_cross_entropy,,pass,pass,11,11,
+nn.functional.binary_cross_entropy_with_logits,,pass,pass,26,26,
+nn.functional.celu,,pass,pass,3,3,
+nn.functional.channel_shuffle,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.channel_shuffle.default
+nn.functional.conv1d,,pass,pass,10,10,
+nn.functional.conv2d,,pass,pass,30,30,
+nn.functional.conv3d,,pass,pass,20,20,
+nn.functional.conv_transpose1d,,pass,pass,10,10,
+nn.functional.conv_transpose2d,,pass,pass,12,12,
+nn.functional.conv_transpose3d,,pass,pass,10,10,
+nn.functional.cosine_similarity,,pass,pass,9,9,
+nn.functional.cross_entropy,,pass,pass,21,21,
+nn.functional.ctc_loss,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._ctc_loss.default
+nn.functional.dropout,,AssertionError,NotImplementedError,2,2,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.dropout2d,,AssertionError,NotImplementedError,2,2,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.dropout3d,,AssertionError,NotImplementedError,2,2,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.elu,,pass,pass,3,3,
+nn.functional.feature_alpha_dropout,with_train,AssertionError,NotImplementedError,1,1,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.feature_alpha_dropout,without_train,pass,pass,10,10,
+nn.functional.fractional_max_pool2d,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.fractional_max_pool2d.default
+nn.functional.fractional_max_pool3d,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.fractional_max_pool3d.default
+nn.functional.gelu,,pass,pass,8,8,
+nn.functional.grid_sample,,RuntimeError,NotImplementedError,24,18,MPS FP64 GPU implementation missing for aten.grid_sampler_3d.default
+nn.functional.hardshrink,,pass,pass,6,6,
+nn.functional.hardsigmoid,,pass,pass,3,3,
+nn.functional.hardswish,,pass,pass,4,4,
+nn.functional.hardtanh,,pass,pass,5,5,
+nn.functional.hinge_embedding_loss,,pass,pass,10,10,
+nn.functional.huber_loss,,pass,pass,9,9,
+nn.functional.instance_norm,,pass,pass,9,9,
+nn.functional.interpolate,area,RuntimeError,pass,0,22,
+nn.functional.interpolate,bicubic,pass,pass,24,24,
+nn.functional.interpolate,nearest,pass,pass,22,22,
+nn.functional.interpolate,nearest-exact,pass,pass,22,22,
+nn.functional.kl_div,,pass,pass,16,16,
+nn.functional.l1_loss,,pass,pass,6,6,
+nn.functional.layer_norm,,pass,pass,6,6,
+nn.functional.leaky_relu,,pass,pass,9,9,
+nn.functional.local_response_norm,,pass,pass,11,11,
+nn.functional.logsigmoid,,pass,pass,3,3,
+nn.functional.margin_ranking_loss,,pass,pass,24,24,
+nn.functional.max_pool1d,,pass,pass,864,864,
+nn.functional.max_pool2d,,pass,pass,1440,1440,
+nn.functional.max_pool3d,,pass,pass,576,576,
+nn.functional.max_unpool1d,,pass,pass,144,144,
+nn.functional.max_unpool1d,grad,pass,pass,13,18,
+nn.functional.max_unpool2d,,pass,pass,288,288,
+nn.functional.max_unpool2d,grad,pass,pass,33,35,
+nn.functional.max_unpool3d,,pass,pass,96,96,
+nn.functional.max_unpool3d,grad,pass,pass,12,9,
+nn.functional.mish,,pass,pass,3,3,
+nn.functional.mse_loss,,pass,pass,6,6,
+nn.functional.multi_head_attention_forward,,AssertionError,NotImplementedError,1,1,MPS FP64 GPU implementation missing for aten.bernoulli_.float
+nn.functional.multi_margin_loss,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.multi_margin_loss.default
+nn.functional.multilabel_margin_loss,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.multilabel_margin_loss_forward.default
+nn.functional.multilabel_soft_margin_loss,,pass,pass,4,4,
+nn.functional.nll_loss,,pass,pass,61,61,
+nn.functional.normalize,,pass,pass,8,8,
+nn.functional.one_hot,,ValueError,ValueError,0,0,no CPU float64 sample
+nn.functional.pad,circular,pass,pass,8,8,
+nn.functional.pad,constant,pass,pass,51,51,
+nn.functional.pad,reflect,pass,pass,12,12,
+nn.functional.pad,replicate,pass,pass,12,12,
+nn.functional.pad,replicate_negative,pass,pass,6,6,
+nn.functional.pairwise_distance,,pass,pass,7,7,
+nn.functional.pdist,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._pdist_forward.default
+nn.functional.poisson_nll_loss,,pass,pass,72,72,
+nn.functional.prelu,,pass,pass,25,25,
+nn.functional.relu,,pass,pass,4,4,
+nn.functional.relu6,,pass,pass,3,3,
+nn.functional.rms_norm,,pass,pass,6,6,
+nn.functional.rrelu,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.rrelu_with_noise.default
+nn.functional.scaled_dot_product_attention,,AssertionError,NotImplementedError,2,0,MPS FP64 GPU implementation missing for aten._scaled_dot_product_attention_math_for_mps.default
+nn.functional.selu,,pass,pass,3,3,
+nn.functional.silu,,pass,pass,3,3,
+nn.functional.silu,complex,ValueError,ValueError,0,0,no CPU float64 sample
+nn.functional.smooth_l1_loss,,pass,pass,8,8,
+nn.functional.soft_margin_loss,,pass,pass,6,6,
+nn.functional.softmin,,pass,pass,7,7,
+nn.functional.softmin,with_dtype,TypeError,pass,0,7,
+nn.functional.softplus,,pass,pass,3,3,
+nn.functional.softshrink,,pass,pass,5,5,
+nn.functional.softsign,,pass,pass,3,3,
+nn.functional.tanhshrink,,pass,pass,3,3,
+nn.functional.threshold,,pass,pass,4,4,
+nn.functional.triplet_margin_loss,,pass,pass,7,7,
+nn.functional.triplet_margin_with_distance_loss,,pass,pass,7,7,
+nn.functional.upsample_nearest,,pass,pass,12,12,
+nonzero,,pass,pass,24,24,
+nonzero_static,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.nonzero_static.default
+norm,,pass,pass,42,42,
+norm,fro,pass,pass,3,3,
+norm,inf,pass,pass,4,4,
+norm,nuc,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+normal,,stochastic_separate,stochastic_separate,0,0,
+normal,in_place,stochastic_separate,stochastic_separate,0,0,
+normal,number_mean,stochastic_separate,stochastic_separate,0,0,
+ones,,pass,pass,2,2,
+ones_like,,TypeError,NotImplementedError,4,3,aten.ones_like.default
+ormqr,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.ormqr.default
+outer,,pass,pass,1,1,
+pca_lowrank,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+permute,,pass,pass,4,4,
+permute_copy,,pass,pass,4,4,
+polar,,pass,pass,9,9,
+positive,,pass,pass,1,1,
+pow,,pass,pass,9,9,
+prod,,pass,pass,39,39,
+put,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.put.default
+qr,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+rad2deg,,pass,pass,1,1,
+rand_like,,stochastic_separate,stochastic_separate,0,0,
+randint,,stochastic_separate,stochastic_separate,0,0,
+randint_like,,stochastic_separate,stochastic_separate,0,0,
+randn,,pass,pass,2,2,
+randn_like,,stochastic_separate,stochastic_separate,0,0,
+ravel,,pass,pass,3,3,
+real,,pass,pass,3,3,
+reciprocal,,pass,pass,3,3,
+remainder,,pass,pass,9,9,
+renorm,,pass,pass,4,4,
+repeat,,pass,pass,40,40,
+repeat_interleave,,pass,pass,5,5,
+reshape,,pass,pass,7,7,
+reshape_as,,pass,pass,4,4,
+resolve_conj,,pass,pass,2,2,
+resolve_neg,,pass,pass,2,2,
+roll,,pass,pass,17,17,
+rot90,,pass,pass,34,34,
+round,,pass,pass,1,1,
+round,decimals_0,pass,pass,3,3,
+round,decimals_3,pass,pass,3,3,
+round,decimals_neg_3,pass,pass,3,3,
+rsqrt,,pass,pass,3,3,
+rsub,,pass,pass,11,11,
+scalar_tensor,,pass,pass,3,3,
+select,,pass,pass,6,6,
+select_scatter,,pass,pass,5,5,
+sgn,,pass,pass,1,1,
+short,,pass,pass,5,5,
+sigmoid,,pass,pass,3,3,
+sign,,pass,pass,1,1,
+signal.windows.bartlett,,pass,pass,12,12,
+signal.windows.blackman,,pass,pass,12,12,
+signal.windows.cosine,,pass,pass,12,12,
+signal.windows.exponential,,pass,pass,12,12,
+signal.windows.gaussian,,pass,pass,12,12,
+signal.windows.general_cosine,,pass,pass,12,12,
+signal.windows.general_hamming,,pass,pass,12,12,
+signal.windows.hamming,,pass,pass,12,12,
+signal.windows.hann,,pass,pass,12,12,
+signal.windows.kaiser,,pass,pass,12,12,
+signal.windows.nuttall,,pass,pass,12,12,
+signbit,,pass,pass,1,1,
+sin,,pass,pass,1,1,
+sinc,,pass,pass,3,3,
+sinh,,pass,pass,1,1,
+slice,,pass,pass,4,4,
+slice_scatter,,pass,pass,9,9,
+softmax,,pass,pass,7,7,
+softmax,with_dtype,TypeError,pass,0,7,
+sort,,pass,pass,58,58,
+sparse.mm,reduce,ValueError,ValueError,0,0,sample outside dense real audit
+sparse.sampled_addmm,,ValueError,ValueError,0,0,sample outside dense real audit
+special.airy_ai,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.special_airy_ai.default
+special.entr,,pass,pass,2,2,
+special.laguerre_polynomial_l,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.special_laguerre_polynomial_l.default
+special.legendre_polynomial_p,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.special_legendre_polynomial_p.default
+special.log_ndtr,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.special_log_ndtr.default
+special.ndtr,,pass,pass,3,3,
+special.ndtri,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.special_ndtri.default
+special.xlog1py,,pass,pass,9,9,
+split,,pass,pass,2,2,
+split,list_args,pass,pass,3,3,
+split_with_sizes,,pass,pass,4,4,
+split_with_sizes_copy,,pass,pass,4,4,
+sqrt,,pass,pass,1,1,
+square,,pass,pass,3,3,
+squeeze,,pass,pass,8,8,
+squeeze,multiple,pass,pass,6,6,
+squeeze_copy,,pass,pass,8,8,
+stack,,pass,pass,9,9,
+std,,pass,pass,14,14,
+std,unbiased,pass,pass,2,2,
+std_mean,,pass,pass,14,14,
+std_mean,unbiased,pass,pass,2,2,
+sub,,pass,pass,11,11,
+sum,,pass,pass,20,20,
+sum_to_size,,pass,pass,16,16,
+svd_lowrank,,NotImplementedError,NotImplementedError,0,0,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+t,,pass,pass,3,3,
+t_copy,,pass,pass,3,3,
+take,,NotImplementedError,NotImplementedError,0,0,"The operator 'aten::take' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the environ"
+take_along_dim,,pass,pass,5,5,
+tan,,pass,pass,1,1,
+tanh,,pass,pass,1,1,
+tensor_split,,pass,pass,10,10,
+tensordot,,pass,pass,3,3,
+tile,,pass,pass,54,54,
+to,,TypeError,pass,0,24,
+topk,,pass,pass,14,14,
+torch._scaled_mm,,ValueError,ValueError,0,0,no CPU float64 sample
+torch._scaled_mm_v2,,ValueError,ValueError,0,0,no CPU float64 sample
+torch.ops.aten._efficient_attention_forward,,ValueError,ValueError,0,0,no CPU float64 sample
+torch.ops.aten._flash_attention_forward,,ValueError,ValueError,0,0,no CPU float64 sample
+torch.ops.aten._safe_softmax.default,,pass,pass,8,8,
+trace,,pass,pass,1,1,
+transpose,,pass,pass,8,8,
+transpose_copy,,pass,pass,8,8,
+trapezoid,,pass,pass,9,9,
+trapz,,pass,pass,9,9,
+triangular_solve,,pass,pass,16,16,
+tril,,pass,pass,8,8,
+tril_indices,,ValueError,ValueError,0,0,no CPU float64 sample
+triu,,pass,pass,8,8,
+triu_indices,,ValueError,ValueError,0,0,no CPU float64 sample
+true_divide,,pass,pass,9,9,
+trunc,,pass,pass,1,1,
+unbind,,pass,pass,6,6,
+unbind_copy,,pass,pass,6,6,
+unflatten,,pass,pass,10,10,
+unfold,,pass,pass,22,22,
+unfold_copy,,pass,pass,22,22,
+uniform,,stochastic_separate,stochastic_separate,0,0,
+unravel_index,,ValueError,ValueError,0,0,no CPU float64 sample
+unsafe_chunk,,pass,pass,3,3,
+unsafe_split,,pass,pass,2,2,
+unsqueeze,,pass,pass,9,9,
+unsqueeze_copy,,pass,pass,9,9,
+var,,pass,pass,14,14,
+var,unbiased,pass,pass,2,2,
+var_mean,,pass,pass,14,14,
+var_mean,unbiased,pass,pass,2,2,
+vdot,,pass,pass,1,1,
+view,,pass,pass,7,7,
+view_as,,pass,pass,4,4,
+view_as_complex,,pass,pass,1,1,
+view_as_real,,ValueError,ValueError,0,0,no CPU float64 sample
+view_copy,,pass,pass,7,7,
+vsplit,,pass,pass,2,2,
+vstack,,pass,pass,2,2,
+where,,pass,pass,6,6,
+xlogy,,pass,pass,9,9,
+zero_,,pass,pass,3,3,
+zeros,,pass,pass,2,2,
+zeros_like,,TypeError,NotImplementedError,4,3,aten.zeros_like.default

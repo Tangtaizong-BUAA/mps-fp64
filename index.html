@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Explore measured Apple M4 Max CPU and GPU timings for double-precision PyTorch workloads. Compare input shapes, execution modes and CPU baselines.">
+  <title>FP64 benchmark explorer · mps-fp64</title>
+  <link rel="stylesheet" href="benchmarks/site.css">
+  <script src="benchmarks/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="topbar">
+    <div class="frame topbar-inner">
+      <a href="https://github.com/Tangtaizong-BUAA/mps-fp64/tree/v0.3.0.post1" class="brand">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>mps-fp64
+      </a>
+      <nav aria-label="Project links">
+        <a href="https://github.com/Tangtaizong-BUAA/mps-fp64/blob/v0.3.0.post1/BENCHMARKS.md">Methodology</a>
+        <a class="release-link" href="https://github.com/Tangtaizong-BUAA/mps-fp64/releases/tag/v0.3.0.post1">v0.3.0.post1 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="frame">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="machine"><span aria-hidden="true"></span>Apple M4 Max · 40-core GPU</p>
+        <h1 id="page-title">FP64 benchmark explorer</h1>
+        <p class="intro-copy">Double-precision PyTorch workloads on one Mac. Compare measured CPU and GPU wall times for each input shape and execution mode.</p>
+      </div>
+      <dl class="platform">
+        <div><dt>System</dt><dd>macOS 15.7.1</dd></div>
+        <div><dt>Framework</dt><dd>PyTorch 2.11.0</dd></div>
+        <div><dt>Metric</dt><dd>CPU time ÷ GPU time</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="reference-title" class="reference">
+      <div class="section-line"><h2 id="reference-title">Reference workloads</h2><p>Median time per call · ratios above 1× favor GPU</p></div>
+      <div id="featured" class="featured"><p class="loading">Loading measurements…</p></div>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" tabindex="-1">
+      <div class="results-head">
+        <h2 id="results-title">Explore results</h2>
+        <a class="download-link" href="benchmarks/all-results.csv" download>Download all results <span aria-hidden="true">↓</span></a>
+      </div>
+      <form id="filters" class="filters" aria-label="Filter benchmark results">
+        <fieldset class="outcomes">
+          <legend class="sr-only">Outcome</legend>
+          <label><input type="radio" name="outcome" value="GPU" checked><span>GPU ahead <b id="n-gpu"></b></span></label>
+          <label><input type="radio" name="outcome" value="all"><span>All results <b id="n-all"></b></span></label>
+          <label><input type="radio" name="outcome" value="CPU"><span>CPU ahead <b id="n-cpu"></b></span></label>
+        </fieldset>
+        <div class="filter-grid">
+          <label class="search-field" for="search">Search workloads
+            <span class="search-box"><i aria-hidden="true"></i><input id="search" type="search" placeholder="Operator, shape or baseline" autocomplete="off"></span>
+          </label>
+          <label for="suite">Experiment<select id="suite"><option value="all">All experiments</option></select></label>
+          <label for="scenario">Timing<select id="scenario">
+            <option value="all">All timing modes</option>
+            <option value="single">Single call · resident</option>
+            <option value="batch">Repeated calls · resident</option>
+            <option value="transfer-single">Round trip · single call</option>
+            <option value="transfer-batch">Round trip · repeated calls</option>
+          </select></label>
+          <label for="paths">Paths<select id="paths">
+            <option value="primary">Primary comparisons</option><option value="all">All measured paths</option>
+          </select></label>
+        </div>
+      </form>
+      <div class="result-tools">
+        <p id="status" role="status" aria-live="polite" aria-atomic="true">Loading results…</p>
+        <label for="sort" class="sort-label">Sort by
+          <select id="sort">
+            <option value="ratio-desc">Highest CPU/GPU</option>
+            <option value="ratio-asc">Lowest CPU/GPU</option>
+            <option value="gpu-asc">Lowest GPU time</option>
+            <option value="cpu-asc">Lowest CPU time</option>
+            <option value="name-asc">Workload A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-wrap" id="table-wrap" hidden>
+        <table role="table">
+          <caption class="sr-only">CPU and GPU median milliseconds per call. Select a workload for its CPU baseline, allocation, quartiles, validation and raw source.</caption>
+          <thead role="rowgroup"><tr role="row">
+            <th scope="col" id="h-name">Workload</th>
+            <th scope="col">Experiment</th>
+            <th scope="col" class="num" id="h-cpu">CPU <span>ms</span></th>
+            <th scope="col" class="num" id="h-gpu">GPU <span>ms</span></th>
+            <th scope="col" class="num" id="h-ratio">CPU/GPU</th>
+            <th scope="col" class="samples">Rounds × calls</th>
+          </tr></thead>
+          <tbody id="rows" role="rowgroup"></tbody>
+        </table>
+      </div>
+      <div id="empty" class="empty" hidden>
+        <h3>No matching comparisons</h3><p>Try another workload, experiment or outcome.</p>
+        <button id="reset" type="button" class="plain-button">Reset filters</button>
+      </div>
+      <div id="load-error" class="empty" hidden>
+        <h3>Couldn’t load the measurements</h3>
+        <p><a href="benchmarks/all-results.csv" download>Download the complete CSV</a> or <button id="retry" type="button" class="text-button">try again</button>.</p>
+      </div>
+      <nav id="pager" class="pager" aria-label="Result pages" hidden>
+        <button type="button" id="prev">← Previous</button><span id="page-number"></span><button type="button" id="next">Next →</button>
+      </nav>
+      <noscript><p>Download the <a href="benchmarks/all-results.csv">complete measurements</a> or read the <a href="https://github.com/Tangtaizong-BUAA/mps-fp64/blob/v0.3.0.post1/BENCHMARKS.md">benchmark report</a>.</p></noscript>
+    </section>
+  </main>
+
+  <footer>
+    <div class="frame footer-inner">
+      <div><strong>mps-fp64</strong><p>Multi-version measurements on Apple M4 Max.</p></div>
+      <nav aria-label="Data and source">
+        <a href="benchmarks/gpu-ahead.csv" download>GPU-ahead CSV</a>
+        <a href="benchmarks/matched-allocation-ahead.csv" download>Matched-allocation CSV</a>
+        <a href="benchmarks/timed-paths.csv" download>Timing samples</a>
+        <a href="https://github.com/Tangtaizong-BUAA/mps-fp64/tree/v0.3.0.post1/results">Raw archive <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="dialog-head"><p id="detail-suite" class="detail-suite"></p><button type="button" id="close" class="plain-button">Close <span aria-hidden="true">×</span></button></div>
+    <h2 id="detail-title"></h2><p id="detail-shape" class="detail-shape"></p>
+    <div id="detail-times" class="detail-times"></div>
+    <dl id="detail-fields" class="detail-fields"></dl>
+    <div class="dialog-links"><a id="raw-link" download>Download raw JSON ↓</a><a id="pinned-source">Pinned source ↗</a></div>
+  </dialog>
+</body>
+</html>

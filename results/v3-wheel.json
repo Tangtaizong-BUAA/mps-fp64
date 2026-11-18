@@ -1,0 +1,17 @@
+{
+  "wheel": "mps_fp64-0.3.0-py3-none-any.whl",
+  "sha256": "57580ef0e3016cf01b6e148ed4fd7bc50a4b23c3063f5db5f04ac28c854bb735",
+  "verified_source_files": 49,
+  "metal_files": 28,
+  "installed_version": "0.3.0",
+  "device": "mps",
+  "dtype": "torch.float64",
+  "checks": [
+    "wheel archive CRC",
+    "all package files byte-identical to source",
+    "unittest from isolated wheel install",
+    "scoped solve and matrix product",
+    "rfft complex128",
+    "zero package CPU replay"
+  ]
+}

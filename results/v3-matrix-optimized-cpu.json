@@ -1,0 +1,524 @@
+{
+  "torch": "2.11.0",
+  "device": "Apple M4 Max",
+  "macOS": "15.7.1",
+  "cpu_reference_sha256": "46a75d6cafef2626fe061f20035740e4310567c8f83493a2cc5b7be914100922",
+  "cpu_threads": 12,
+  "method": "Synchronized individual GPU calls, shuffled with both CPU paths, median wall time. All paths return a full FP64 output into a preallocated buffer. The independent CPU algorithm gets the dyadic lattice, prepacked CPU FP32 digit planes and scratch space for free. Its timings include Accelerate SGEMM panels and CPU-parallel exact double reconstruction. The GPU starts from resident raw FP64 and includes all qualification and packing. Every output compared bitwise to native CPU FP64 DGEMM.",
+  "rounds": 7,
+  "cases": [
+    {
+      "case": "dyadic_4_1024",
+      "seed": 1027,
+      "radix": 0,
+      "planes": 1,
+      "max_panel_k": 1024,
+      "max_product_sum_bound_per_plane_panel": 230400,
+      "checked_output_words": 1048576,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 0.987542,
+          "q1_ms": 0.900833,
+          "q3_ms": 1.0101455000000001,
+          "samples_ms": [
+            0.987542,
+            0.845708,
+            1.066375,
+            0.772625,
+            1.018375,
+            0.955958,
+            1.001916
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 3.343917,
+          "q1_ms": 3.1939995000000003,
+          "q3_ms": 3.4315625,
+          "samples_ms": [
+            5.99825,
+            3.343917,
+            3.213416,
+            3.38475,
+            3.174583,
+            3.171375,
+            3.478375
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 2.272167,
+          "q1_ms": 2.245896,
+          "q3_ms": 2.596166,
+          "samples_ms": [
+            2.259708,
+            2.711916,
+            3.332875,
+            2.480416,
+            2.272167,
+            2.232084,
+            2.072959
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 0.434625623908806,
+      "cpu_prepacked_over_gpu": 0.434625623908806
+    },
+    {
+      "case": "dyadic_4_2048",
+      "seed": 1028,
+      "radix": 0,
+      "planes": 1,
+      "max_panel_k": 2048,
+      "max_product_sum_bound_per_plane_panel": 460800,
+      "checked_output_words": 4194304,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 5.85775,
+          "q1_ms": 5.807125,
+          "q3_ms": 5.9244375,
+          "samples_ms": [
+            5.92275,
+            5.85775,
+            5.75725,
+            5.857,
+            6.009417,
+            5.723167,
+            5.926125
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 22.332167,
+          "q1_ms": 22.1645005,
+          "q3_ms": 22.6806045,
+          "samples_ms": [
+            22.958209,
+            22.137417,
+            22.72125,
+            22.332167,
+            22.639959,
+            22.191584,
+            22.135541
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 5.276917,
+          "q1_ms": 4.7111045,
+          "q3_ms": 6.079458499999999,
+          "samples_ms": [
+            3.057625,
+            4.643875,
+            4.778334,
+            6.624292,
+            13.233042,
+            5.276917,
+            5.534625
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 1.110070520343602,
+      "cpu_prepacked_over_gpu": 1.110070520343602
+    },
+    {
+      "case": "dyadic_4_4096",
+      "seed": 1029,
+      "radix": 0,
+      "planes": 1,
+      "max_panel_k": 4096,
+      "max_product_sum_bound_per_plane_panel": 921600,
+      "checked_output_words": 16777216,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 45.294375,
+          "q1_ms": 45.038646,
+          "q3_ms": 45.460416499999994,
+          "samples_ms": [
+            46.278166,
+            45.513625,
+            45.070042,
+            45.00725,
+            44.940917,
+            45.294375,
+            45.407208
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 176.158,
+          "q1_ms": 175.43200000000002,
+          "q3_ms": 177.05283350000002,
+          "samples_ms": [
+            174.894708,
+            185.575292,
+            175.969292,
+            177.240167,
+            172.985625,
+            176.8655,
+            176.158
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 21.876708,
+          "q1_ms": 20.147917,
+          "q3_ms": 28.239624999999997,
+          "samples_ms": [
+            19.901167,
+            20.275167,
+            21.876708,
+            28.134959,
+            29.729,
+            20.020667,
+            28.344291
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 2.070438340174399,
+      "cpu_prepacked_over_gpu": 2.070438340174399
+    },
+    {
+      "case": "dyadic_12_1024",
+      "seed": 1030,
+      "radix": 64,
+      "planes": 3,
+      "max_panel_k": 1024,
+      "max_product_sum_bound_per_plane_panel": 4194304,
+      "checked_output_words": 1048576,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 2.794375,
+          "q1_ms": 2.7754585,
+          "q3_ms": 2.872604,
+          "samples_ms": [
+            2.929125,
+            2.794375,
+            2.963,
+            2.77675,
+            2.774167,
+            2.816083,
+            2.512791
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 3.240167,
+          "q1_ms": 3.1608335,
+          "q3_ms": 3.473021,
+          "samples_ms": [
+            3.549708,
+            3.151042,
+            2.984125,
+            3.475584,
+            3.170625,
+            3.470458,
+            3.240167
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 1.331458,
+          "q1_ms": 1.2435415,
+          "q3_ms": 1.518896,
+          "samples_ms": [
+            1.254458,
+            1.689292,
+            1.724792,
+            1.331458,
+            1.10325,
+            1.3485,
+            1.232625
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 2.0987331181306508,
+      "cpu_prepacked_over_gpu": 2.0987331181306508
+    },
+    {
+      "case": "dyadic_12_2048",
+      "seed": 1031,
+      "radix": 64,
+      "planes": 3,
+      "max_panel_k": 2048,
+      "max_product_sum_bound_per_plane_panel": 8388608,
+      "checked_output_words": 4194304,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 16.536417,
+          "q1_ms": 16.454791999999998,
+          "q3_ms": 16.826770500000002,
+          "samples_ms": [
+            16.536417,
+            17.100333,
+            17.147625,
+            16.429917,
+            16.553208,
+            16.479667,
+            16.388625
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 22.63375,
+          "q1_ms": 21.689583499999998,
+          "q3_ms": 23.5336255,
+          "samples_ms": [
+            22.63375,
+            23.639084,
+            26.297167,
+            23.428167,
+            21.60825,
+            21.752625,
+            21.626542
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 10.7645,
+          "q1_ms": 6.839459,
+          "q3_ms": 12.926083,
+          "samples_ms": [
+            6.711459,
+            6.967459,
+            10.7645,
+            6.340958,
+            15.154167,
+            14.218875,
+            11.633291
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 1.5361992661061823,
+      "cpu_prepacked_over_gpu": 1.5361992661061823
+    },
+    {
+      "case": "dyadic_12_4096",
+      "seed": 1032,
+      "radix": 64,
+      "planes": 3,
+      "max_panel_k": 4096,
+      "max_product_sum_bound_per_plane_panel": 16777216,
+      "checked_output_words": 16777216,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 131.531083,
+          "q1_ms": 130.649021,
+          "q3_ms": 131.6345,
+          "samples_ms": [
+            131.702792,
+            133.295667,
+            131.566208,
+            130.461792,
+            130.541292,
+            131.531083,
+            130.75675
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 172.672583,
+          "q1_ms": 171.1353125,
+          "q3_ms": 173.67195800000002,
+          "samples_ms": [
+            174.274333,
+            189.44975,
+            170.9955,
+            173.069583,
+            171.275125,
+            169.979083,
+            172.672583
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 44.462416,
+          "q1_ms": 38.3605205,
+          "q3_ms": 45.318687499999996,
+          "samples_ms": [
+            38.063834,
+            50.886917,
+            38.384833,
+            38.336208,
+            45.575584,
+            45.061791,
+            44.462416
+          ]
+        }
+      },
+      "best_cpu": "cpu_prepacked_sgemm",
+      "best_cpu_over_gpu": 2.958253168248887,
+      "cpu_prepacked_over_gpu": 2.958253168248887
+    },
+    {
+      "case": "dyadic_16_1024",
+      "seed": 1033,
+      "radix": 256,
+      "planes": 3,
+      "max_panel_k": 256,
+      "max_product_sum_bound_per_plane_panel": 16777216,
+      "checked_output_words": 1048576,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 3.633875,
+          "q1_ms": 3.3925834999999998,
+          "q3_ms": 3.6825,
+          "samples_ms": [
+            3.261459,
+            3.689125,
+            3.227834,
+            3.523708,
+            3.992291,
+            3.633875,
+            3.675875
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 3.177459,
+          "q1_ms": 3.1609999999999996,
+          "q3_ms": 3.233854,
+          "samples_ms": [
+            3.244667,
+            3.177459,
+            3.167375,
+            3.223041,
+            3.108542,
+            3.154625,
+            3.589792
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 1.352917,
+          "q1_ms": 1.3075625,
+          "q3_ms": 1.547021,
+          "samples_ms": [
+            1.316667,
+            1.298458,
+            1.13625,
+            1.352917,
+            1.369917,
+            2.096625,
+            1.724125
+          ]
+        }
+      },
+      "best_cpu": "cpu_fp64_out",
+      "best_cpu_over_gpu": 2.3485986206101335,
+      "cpu_prepacked_over_gpu": 2.685955605554517
+    },
+    {
+      "case": "dyadic_16_2048",
+      "seed": 1034,
+      "radix": 256,
+      "planes": 3,
+      "max_panel_k": 256,
+      "max_product_sum_bound_per_plane_panel": 16777216,
+      "checked_output_words": 4194304,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 25.32975,
+          "q1_ms": 25.251625,
+          "q3_ms": 25.589437500000003,
+          "samples_ms": [
+            25.26525,
+            25.32975,
+            25.4465,
+            25.238,
+            26.002583,
+            25.732375,
+            24.675834
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 22.264416,
+          "q1_ms": 22.046292,
+          "q3_ms": 22.8696455,
+          "samples_ms": [
+            21.49425,
+            21.834375,
+            23.0055,
+            22.733791,
+            22.258209,
+            22.264416,
+            23.662292
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 6.467291,
+          "q1_ms": 6.109042,
+          "q3_ms": 7.3749585,
+          "samples_ms": [
+            5.605125,
+            6.334375,
+            6.868792,
+            7.881125,
+            14.213333,
+            6.467291,
+            5.883709
+          ]
+        }
+      },
+      "best_cpu": "cpu_fp64_out",
+      "best_cpu_over_gpu": 3.442618555435344,
+      "cpu_prepacked_over_gpu": 3.916593516512555
+    },
+    {
+      "case": "dyadic_16_4096",
+      "seed": 1035,
+      "radix": 256,
+      "planes": 3,
+      "max_panel_k": 256,
+      "max_product_sum_bound_per_plane_panel": 16777216,
+      "checked_output_words": 16777216,
+      "cpu_dgemm_vs_prepacked_vs_gpu_mismatches": 0,
+      "timing": {
+        "cpu_prepacked_sgemm": {
+          "median_ms": 209.610125,
+          "q1_ms": 208.829917,
+          "q3_ms": 211.13437449999998,
+          "samples_ms": [
+            211.577083,
+            209.610125,
+            208.643208,
+            212.003625,
+            208.678292,
+            208.981542,
+            210.691666
+          ]
+        },
+        "cpu_fp64_out": {
+          "median_ms": 171.296375,
+          "q1_ms": 171.1095415,
+          "q3_ms": 175.785458,
+          "samples_ms": [
+            177.62425,
+            171.177208,
+            169.254875,
+            174.249875,
+            177.321041,
+            171.296375,
+            171.041875
+          ]
+        },
+        "gpu_from_fp64_out": {
+          "median_ms": 47.5725,
+          "q1_ms": 44.471520999999996,
+          "q3_ms": 49.649333,
+          "samples_ms": [
+            39.027,
+            42.08575,
+            47.5725,
+            46.857292,
+            49.299166,
+            54.838875,
+            49.9995
+          ]
+        }
+      },
+      "best_cpu": "cpu_fp64_out",
+      "best_cpu_over_gpu": 3.600743601870829,
+      "cpu_prepacked_over_gpu": 4.406119606915761
+    }
+  ]
+}

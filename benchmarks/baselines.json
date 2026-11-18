@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "release_tag": "v0.3.0.post1",
+  "archive_hash_algorithm": "SHA-256 of the exact wheel bytes.",
+  "runtime_hash_algorithm": "SHA-256 of sorted mps_fp64/ Python and Metal file paths followed by a NUL byte and each file's unmodified bytes, with no other separators. Paths are relative to the wheel root and use forward slashes. This matches source_sha256 in the archived 0.2.0 workload and OpInfo reports.",
+  "package_tree_hash_algorithm": "The same digest over every file under mps_fp64/, including the original bundled vendor notices. All package files were compared individually between each historical wheel and its public build.",
+  "provenance": "Public build-tagged baseline wheels add publication metadata and distribution notices. Use the public_wheel digest for downloads. The historical_archive digest identifies the file named by the original measurements.",
+  "baselines": [
+    {
+      "version": "0.1.0",
+      "build_tag": "1public",
+      "public_wheel": {
+        "filename": "mps_fp64-0.1.0-1public-py3-none-any.whl",
+        "size_bytes": 93168,
+        "sha256": "068eb22f1d59b968c85d51b0de4796e0b9b45b9875e00c6b1a884c695e5a4aa9",
+        "url": "https://github.com/Tangtaizong-BUAA/mps-fp64/releases/download/v0.3.0.post1/mps_fp64-0.1.0-1public-py3-none-any.whl"
+      },
+      "historical_archive": {
+        "filename": "mps_fp64-0.1.0-py3-none-any.whl",
+        "size_bytes": 80752,
+        "sha256": "0aacf330c391222c59ae988c4a25e54700ec6cbb4693b24d1e35c45078801791"
+      },
+      "runtime_sha256": "70c8db74dcbc86d7a299a42200bc859186a901fed6a09c83b2d95ebdb79da03b",
+      "runtime_files": 22,
+      "package_tree_sha256": "51ce592013c0995cfae9eabbe71886f943da47832b263ebe63f33f65656c3018",
+      "package_files": 25,
+      "verified_record_entries": 39,
+      "verified_license_files": 10,
+      "license_expression": "MIT AND BSD-3-Clause AND BSD-2-Clause AND SunPro"
+    },
+    {
+      "version": "0.2.0",
+      "build_tag": "1public",
+      "public_wheel": {
+        "filename": "mps_fp64-0.2.0-1public-py3-none-any.whl",
+        "size_bytes": 537411,
+        "sha256": "a2f54f6a0a4f6885284623feb720817fae9a83646e70a249820b7ac66891801f",
+        "url": "https://github.com/Tangtaizong-BUAA/mps-fp64/releases/download/v0.3.0.post1/mps_fp64-0.2.0-1public-py3-none-any.whl"
+      },
+      "historical_archive": {
+        "filename": "mps_fp64-0.2.0-py3-none-any.whl",
+        "size_bytes": 527699,
+        "sha256": "4de53fb2ee695eef353c6f22cc886a29fb1959861f801f9894450fe458a9732d"
+      },
+      "runtime_sha256": "b0151ac9f7680d3b2e2ef7ea341cb1fdaf1949bc807023c866bf64c71ced9f21",
+      "runtime_files": 40,
+      "package_tree_sha256": "73a9229416ec9a2d4a4a73107f80992800a283181f84c1a2bb279122924b8e5b",
+      "package_files": 43,
+      "verified_record_entries": 57,
+      "verified_license_files": 10,
+      "license_expression": "MIT AND BSD-3-Clause AND BSD-2-Clause AND SunPro AND HPND"
+    }
+  ],
+  "historical_results": [
+    {
+      "files": [
+        "results/v2-workloads.json",
+        "results/v2-catalog-timing.json"
+      ],
+      "old_fp64": "0.1.0",
+      "new_fp64": "0.2.0"
+    },
+    {
+      "files": [
+        "results/v3-large-matrices.json",
+        "results/v3-matrix-second-seed.json"
+      ],
+      "baseline": "0.2.0"
+    }
+  ]
+}

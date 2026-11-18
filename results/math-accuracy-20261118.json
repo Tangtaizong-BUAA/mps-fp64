@@ -1,0 +1,146 @@
+{
+  "device": "Apple M4 Max",
+  "gpu_cores": 40,
+  "torch": "2.11.0",
+  "macos": "15.7.1",
+  "mpfr": "MPFR 4.2.1",
+  "seed": 83345,
+  "reference_precision_bits": [
+    220,
+    350
+  ],
+  "operations": {
+    "sin": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52424,
+      "full_range_inputs": 7356,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 1443,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "cos": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52481,
+      "full_range_inputs": 7299,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 1376,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "tanh": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52442,
+      "full_range_inputs": 7338,
+      "old_max_ulp": 2,
+      "new_max_ulp": 1,
+      "improved": 9078,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "atan": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52451,
+      "full_range_inputs": 7329,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 2556,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "erf": {
+      "samples": 54660,
+      "base_samples": 54660,
+      "midpoint_neighbours": 0,
+      "certified_bit_exact": 40203,
+      "full_range_inputs": 14457,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 1230,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "asinh": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52411,
+      "full_range_inputs": 7369,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 8365,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "exp": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 50557,
+      "full_range_inputs": 9223,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 4102,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "expm1": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 52239,
+      "full_range_inputs": 7541,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 4026,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "log": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 35517,
+      "full_range_inputs": 24263,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 1954,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "log2": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 35534,
+      "full_range_inputs": 24246,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 264,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    },
+    "log10": {
+      "samples": 59780,
+      "base_samples": 54660,
+      "midpoint_neighbours": 5120,
+      "certified_bit_exact": 35438,
+      "full_range_inputs": 24342,
+      "old_max_ulp": 1,
+      "new_max_ulp": 1,
+      "improved": 227,
+      "worse": 0,
+      "zero_sign_mismatches": 0
+    }
+  }
+}

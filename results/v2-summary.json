@@ -1,0 +1,61 @@
+{
+  "entries": 697,
+  "native": 561,
+  "old": 471,
+  "new": 592,
+  "old_native": 445,
+  "new_native": 551,
+  "native_gaps": 10,
+  "new_passes": 121,
+  "lost_passes": [],
+  "samples_compared": 16568,
+  "timing_counts": {
+    "alias, empty or host result": 88,
+    "within threshold": 48,
+    "faster": 355,
+    "unpaired": 206
+  },
+  "measured_new_examples": 601,
+  "unmatched_native_entries": [
+    [
+      "broadcast_shapes",
+      ""
+    ],
+    [
+      "linalg.svd",
+      ""
+    ],
+    [
+      "polygamma",
+      "polygamma_n_0"
+    ],
+    [
+      "polygamma",
+      "polygamma_n_1"
+    ],
+    [
+      "polygamma",
+      "polygamma_n_2"
+    ],
+    [
+      "polygamma",
+      "polygamma_n_3"
+    ],
+    [
+      "polygamma",
+      "polygamma_n_4"
+    ],
+    [
+      "special.polygamma",
+      "special_polygamma_n_0"
+    ],
+    [
+      "svd",
+      ""
+    ],
+    [
+      "to_sparse",
+      ""
+    ]
+  ]
+}

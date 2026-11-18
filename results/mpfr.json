@@ -1,0 +1,156 @@
+{
+  "sin": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2524,
+    "precision_bits": 340
+  },
+  "cos": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2515,
+    "precision_bits": 340
+  },
+  "tan": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2495,
+    "precision_bits": 340
+  },
+  "exp": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2458,
+    "precision_bits": 340
+  },
+  "expm1": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2498,
+    "precision_bits": 340
+  },
+  "log": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 1261,
+    "precision_bits": 340
+  },
+  "log1p": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 1704,
+    "precision_bits": 340
+  },
+  "atan": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2493,
+    "precision_bits": 340
+  },
+  "asin": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 858,
+    "precision_bits": 340
+  },
+  "acos": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 860,
+    "precision_bits": 340
+  },
+  "tanh": {
+    "samples": 2573,
+    "max_ulp": 2,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2495,
+    "precision_bits": 340
+  },
+  "asinh": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2276,
+    "precision_bits": 340
+  },
+  "acosh": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 731,
+    "precision_bits": 340
+  },
+  "atanh": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 834,
+    "precision_bits": 340
+  },
+  "sinh": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2305,
+    "precision_bits": 340
+  },
+  "cosh": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2343,
+    "precision_bits": 340
+  },
+  "erf": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2511,
+    "precision_bits": 340
+  },
+  "erfc": {
+    "samples": 2573,
+    "max_ulp": 2,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2360,
+    "precision_bits": 340
+  },
+  "sqrt": {
+    "samples": 2573,
+    "max_ulp": 0,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 1316,
+    "precision_bits": 340
+  },
+  "log2": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 1313,
+    "precision_bits": 340
+  },
+  "log10": {
+    "samples": 2573,
+    "max_ulp": 1,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 1313,
+    "precision_bits": 340
+  },
+  "exp2": {
+    "samples": 2573,
+    "max_ulp": 0,
+    "different_zero_sign": 0,
+    "exact_including_zero_sign": 2573,
+    "precision_bits": 340
+  }
+}

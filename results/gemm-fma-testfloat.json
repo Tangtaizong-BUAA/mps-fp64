@@ -1,0 +1,9 @@
+{
+  "fma": {
+    "level": 1,
+    "cases": 6133248,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  }
+}

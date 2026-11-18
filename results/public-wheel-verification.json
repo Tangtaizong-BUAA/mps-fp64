@@ -1,0 +1,24 @@
+{
+  "version": "0.3.0.post1",
+  "public_wheel": "mps_fp64-0.3.0.post1-py3-none-any.whl",
+  "public_wheel_sha256": "e6edd091704270eb36cdd282f037c9a73e8abdbda47ae0e5719549c802a628d9",
+  "original_measured_wheel": "mps_fp64-0.3.0-py3-none-any.whl",
+  "original_measured_wheel_sha256": "57580ef0e3016cf01b6e148ed4fd7bc50a4b23c3063f5db5f04ac28c854bb735",
+  "stored_python_metal_files_identical": 46,
+  "metal_files": 28,
+  "runtime_source_sha256": "7ace66e84f1246b7fb7a6f786240a6d70eea1c34a599c1c0ba95e822d55aa89f",
+  "distribution_license_files": 10,
+  "installed_wheel_regressions_passed": 88,
+  "readme_example": {
+    "torch": "2.11.0",
+    "gpu": "Apple M4 Max",
+    "dtype": "torch.float64",
+    "device": "mps:0",
+    "solution": [
+      1.0,
+      1.0
+    ]
+  },
+  "standalone_addition_reference": "2,000,901 pairs matched CPU float64.",
+  "PYTORCH_ENABLE_MPS_FALLBACK": 0
+}

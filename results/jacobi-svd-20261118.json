@@ -1,0 +1,151 @@
+{
+  "device": "Apple M4 Max",
+  "torch": "2.11.0",
+  "seed": 9325,
+  "comparison": "SVD reconstruction and spectrum max abs normalized by largest input entry, orthogonality max abs; pinv max abs normalized by max(1, largest abs reference entry)",
+  "svd": {
+    "random_3x6x5": {
+      "reconstruction": 8.400090954968612e-16,
+      "singular_values": 1.0080109145962334e-15,
+      "left_orthogonality": 4.440892098500626e-16,
+      "right_orthogonality": 1.1102230246251565e-15
+    },
+    "random_2x5x7": {
+      "reconstruction": 9.093514323297577e-16,
+      "singular_values": 7.577928602747981e-16,
+      "left_orthogonality": 1.5543122344752192e-15,
+      "right_orthogonality": 4.440892098500626e-16
+    },
+    "random_2x1": {
+      "reconstruction": 0.0,
+      "singular_values": 0.0,
+      "left_orthogonality": 2.220446049250313e-16,
+      "right_orthogonality": 0.0
+    },
+    "random_1x13": {
+      "reconstruction": 3.100294745403786e-17,
+      "singular_values": 2.480235796323029e-16,
+      "left_orthogonality": 0.0,
+      "right_orthogonality": 2.220446049250313e-16
+    },
+    "random_33x33": {
+      "reconstruction": 4.1608978172273675e-15,
+      "singular_values": 8.573971259741242e-15,
+      "left_orthogonality": 6.065234561484249e-16,
+      "right_orthogonality": 7.327471962526033e-15
+    },
+    "random_64x8": {
+      "reconstruction": 1.1570583307432425e-15,
+      "singular_values": 2.314116661486485e-15,
+      "left_orthogonality": 6.661338147750939e-16,
+      "right_orthogonality": 1.7763568394002505e-15
+    },
+    "random_128x128": {
+      "reconstruction": 2.3108229893377704e-14,
+      "singular_values": 7.2853532668777e-14,
+      "left_orthogonality": 1.2989858984412657e-15,
+      "right_orthogonality": 2.9531932455029164e-14
+    },
+    "random_8192x2": {
+      "reconstruction": 2.2822953869832394e-16,
+      "singular_values": 3.651672619173183e-15,
+      "left_orthogonality": 4.440892098500626e-16,
+      "right_orthogonality": 2.220446049250313e-16
+    },
+    "rank3_9x6": {
+      "reconstruction": 1.656317944307658e-15,
+      "singular_values": 1.4492782012692008e-15,
+      "left_orthogonality": 2.220446049250313e-16,
+      "right_orthogonality": 1.5543122344752192e-15
+    },
+    "duplicated": {
+      "reconstruction": 1.2422384582307435e-15,
+      "singular_values": 1.656317944307658e-15,
+      "left_orthogonality": 4.440892098500626e-16,
+      "right_orthogonality": 1.5543122344752192e-15
+    },
+    "zero": {
+      "reconstruction": 0.0,
+      "singular_values": 0.0,
+      "left_orthogonality": 0.0,
+      "right_orthogonality": 0.0
+    },
+    "repeated": {
+      "reconstruction": 0.0,
+      "singular_values": 0.0,
+      "left_orthogonality": 0.0,
+      "right_orthogonality": 0.0
+    },
+    "graded": {
+      "reconstruction": 0.0,
+      "singular_values": 0.0,
+      "left_orthogonality": 0.0,
+      "right_orthogonality": 0.0
+    },
+    "hilbert12": {
+      "reconstruction": 3.552713678800501e-15,
+      "singular_values": 2.886579864025407e-15,
+      "left_orthogonality": 3.885780586188048e-16,
+      "right_orthogonality": 5.329070518200751e-15
+    }
+  },
+  "pinv": {
+    "random_3x6x5": {
+      "AXA": 6.720072763974889e-16,
+      "XAX": 7.209756411693849e-16,
+      "AX_symmetry": 1.734723475976807e-15,
+      "XA_symmetry": 5.16589658482218e-15,
+      "CPU_pinv": 3.2958886453457702e-15
+    },
+    "random_2x5x7": {
+      "AXA": 3.031171441099192e-16,
+      "XAX": 2.7755575615628914e-16,
+      "AX_symmetry": 6.266339023175821e-16,
+      "XA_symmetry": 5.551115123125783e-16,
+      "CPU_pinv": 2.530094189712173e-15
+    },
+    "rank3_9x6": {
+      "AXA": 3.1055961455768587e-16,
+      "XAX": 1.1102230246251565e-16,
+      "AX_symmetry": 3.469446951953614e-16,
+      "XA_symmetry": 5.551115123125783e-16,
+      "CPU_pinv": 3.3306690738754696e-16
+    },
+    "duplicated": {
+      "AXA": 4.140794860769145e-16,
+      "XAX": 1.1102230246251565e-16,
+      "AX_symmetry": 2.7755575615628914e-16,
+      "XA_symmetry": 6.106226635438361e-16,
+      "CPU_pinv": 2.7755575615628914e-16
+    },
+    "repeated": {
+      "AXA": 0.0,
+      "XAX": 0.0,
+      "AX_symmetry": 0.0,
+      "XA_symmetry": 0.0,
+      "CPU_pinv": 0.0
+    },
+    "zero": {
+      "AXA": 0.0,
+      "XAX": 0.0,
+      "AX_symmetry": 0.0,
+      "XA_symmetry": 0.0,
+      "CPU_pinv": 0.0
+    }
+  },
+  "cpu_fallback_ops": 0,
+  "gradients": {
+    "seed": 82,
+    "shape": [
+      5,
+      3
+    ],
+    "metric": "maximum absolute deviation from CPU",
+    "errors": {
+      "svd_gradient": 7.105427357601002e-15,
+      "svd_second_gradient": 3.552713678800501e-14,
+      "pinv_gradient": 5.773159728050814e-15,
+      "pinv_second_gradient": 1.3855583347321954e-13
+    }
+  }
+}

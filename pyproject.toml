@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mps-fp64"
+version = "0.3.0.post1"
+description = "Experimental eager-mode binary64 kernels for PyTorch on Apple GPUs"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.11,<2.12"]
+readme = "README.md"
+license = "MIT AND BSD-3-Clause AND BSD-2-Clause AND SunPro AND HPND"
+license-files = ["LICENSE", "THIRD_PARTY.md", "LICENSES/*.txt", "mps_fp64/vendor/LICENSE-*"]
+keywords = ["pytorch", "mps", "metal", "float64", "apple-silicon"]
+
+[project.urls]
+Repository = "https://github.com/Tangtaizong-BUAA/mps-fp64"
+Benchmarks = "https://github.com/Tangtaizong-BUAA/mps-fp64/blob/v0.3.0.post1/BENCHMARKS.md"
+Releases = "https://github.com/Tangtaizong-BUAA/mps-fp64/releases"
+Issues = "https://github.com/Tangtaizong-BUAA/mps-fp64/issues"
+
+[project.optional-dependencies]
+validation = ["numpy", "expecttest", "gmpy2", "mpmath"]
+
+[tool.setuptools.packages.find]
+include = ["mps_fp64*"]
+
+[tool.setuptools.package-data]
+mps_fp64 = ["*.metal", "vendor/*.metal", "vendor/LICENSE-*"]

@@ -1,0 +1,44 @@
+{
+  "add": {
+    "level": 1,
+    "cases": 46464,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  },
+  "sub": {
+    "level": 1,
+    "cases": 46464,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  },
+  "mul": {
+    "level": 1,
+    "cases": 46464,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  },
+  "div": {
+    "level": 1,
+    "cases": 46464,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  },
+  "sqrt": {
+    "level": 1,
+    "cases": 768,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  },
+  "fma": {
+    "level": 1,
+    "cases": 6133248,
+    "mismatches": 0,
+    "rounding": "nearest-even",
+    "NaN": "classification"
+  }
+}

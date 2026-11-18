@@ -1,0 +1,88 @@
+{
+  "elapsed_s": 0.6711378750624135,
+  "elements": 65536,
+  "iterations": 4096,
+  "scope": "one process, sequential GPU iterations, FP64 add/sub. Snapshot every 256 iterations.",
+  "samples": [
+    {
+      "step": 256,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 512,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 768,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 1024,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 1280,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 1536,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 1792,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 2048,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 2304,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 2560,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 2816,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 3072,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 3328,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 3584,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 3840,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    },
+    {
+      "step": 4096,
+      "allocated": 524544,
+      "driver_allocated": 17268736
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "device": "Apple M4 Max",
+  "torch": "2.11.0",
+  "macOS": "15.7.1",
+  "seed": 39917,
+  "size": 1024,
+  "logical_streams": 1048576,
+  "fmas_per_launch": 1073741824,
+  "FLOPs_per_FMA": 2,
+  "check_only": false,
+  "shader_sha256": {
+    "vendor/softfloat64.metal": "95b63a73c942ab9c49bce39af85e73338ac166ef35ca0cbbde961b219b0c2e26",
+    "fma.metal": "03599b5ad3aef13bf6b2e8e74871eabd26091ceda4b1e65573614bf1ee58aa51",
+    "gemm.metal": "b21bad3d76bde2f99171c190dc4863e988265a333dfb5e3aa95098b2ba45c39b"
+  },
+  "register_seed_patterns": 512,
+  "dot_reference_block": [
+    16,
+    16
+  ],
+  "method": {
+    "register": "1, 2, 4, or 8 independent pairs per thread. Each step is a rounded dot_fma using register-resident source-level arithmetic. Alternating updates x=fma(f,y,x), y=fma(-f,x,y) prevent a loop-invariant product. Factors and states are runtime inputs. Register allocation is compiler-dependent.",
+    "table": "Same number of chains per thread. Predecoded operands change at every k. Repeated rows and columns come from the actual GEMM input. Two shared device buffers occupy 2*K*16*16 bytes and avoid GEMM tile staging. Cache behavior is device-dependent.",
+    "gemm": "Shipping mm_staged, standard-normal device-resident contiguous A/B, preallocated output. All micro outputs and the upper-left 16x16 GEMM block are compared bitwise to independently iterated CPU fma.",
+    "timing": "Synchronized wall-clock time per dispatch, initialized pipelines, preallocated outputs. All variants perform size cubed binary64 FMA with one nearest-even rounding per FMA. Timing order is shuffled each round.",
+    "interpretation": "The maximum observed register-recurrence median throughput is a same-machine arithmetic reference for these specific inputs and kernels. Different dependency graphs, data distributions, cache traffic and compiled code affect comparisons."
+  },
+  "measurements": {
+    "reg_1": {
+      "checked_words": 2097152,
+      "output_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "expected_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "observed_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "median_ms": 16.407083,
+      "samples_ms": [
+        16.847375,
+        16.616833,
+        16.693292,
+        16.108959,
+        15.947917,
+        16.407083,
+        16.1685
+      ],
+      "GFLOP_s": 130.88759580237388
+    },
+    "table_1": {
+      "checked_words": 1048576,
+      "output_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "expected_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "observed_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "median_ms": 17.8655,
+      "samples_ms": [
+        18.256083,
+        17.945209,
+        17.875292,
+        17.749083,
+        17.532917,
+        17.8655,
+        17.4235
+      ],
+      "GFLOP_s": 120.20282936385772
+    },
+    "reg_2": {
+      "checked_words": 2097152,
+      "output_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "expected_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "observed_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "median_ms": 16.691834,
+      "samples_ms": [
+        16.704,
+        16.9365,
+        17.194584,
+        16.28475,
+        16.581958,
+        16.392375,
+        16.691834
+      ],
+      "GFLOP_s": 128.65474506875637
+    },
+    "table_2": {
+      "checked_words": 1048576,
+      "output_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "expected_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "observed_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "median_ms": 17.865458,
+      "samples_ms": [
+        18.351792,
+        17.16275,
+        17.735334,
+        18.107333,
+        18.361666,
+        17.278459,
+        17.865458
+      ],
+      "GFLOP_s": 120.20311194932702
+    },
+    "reg_4": {
+      "checked_words": 2097152,
+      "output_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "expected_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "observed_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "median_ms": 17.170084,
+      "samples_ms": [
+        17.190584,
+        17.017625,
+        17.170084,
+        17.341083,
+        16.311708,
+        16.487166,
+        17.227708
+      ],
+      "GFLOP_s": 125.07123715876988
+    },
+    "table_4": {
+      "checked_words": 1048576,
+      "output_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "expected_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "observed_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "median_ms": 18.085333,
+      "samples_ms": [
+        18.336792,
+        17.605084,
+        18.085333,
+        17.982958,
+        18.482166,
+        18.096708,
+        17.668875
+      ],
+      "GFLOP_s": 118.74172557397756
+    },
+    "reg_8": {
+      "checked_words": 2097152,
+      "output_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "expected_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "observed_checked_sha256": "e84c5e6065c49e947fdf73f817109178cc83655f105710d742a69fdfa85bdcac",
+      "median_ms": 22.162417,
+      "samples_ms": [
+        22.162417,
+        21.620958,
+        23.018917,
+        22.302333,
+        22.297208,
+        21.225958,
+        21.68125
+      ],
+      "GFLOP_s": 96.89753820623446
+    },
+    "table_8": {
+      "checked_words": 1048576,
+      "output_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "expected_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "observed_checked_sha256": "1dd9cb333b30d8f9fe33c1c244611eaebf5c0ec9146599f912e9ab35db4e333c",
+      "median_ms": 18.209833,
+      "samples_ms": [
+        18.130334,
+        18.142292,
+        18.42775,
+        18.209833,
+        18.844833,
+        18.178542,
+        18.389542
+      ],
+      "GFLOP_s": 117.92989249269887
+    },
+    "gemm": {
+      "checked_words": 256,
+      "output_sha256": "a8191cc6609605a747d08e9ca0ca84e41ad5b469b6c40bcd7a352fed9325c6c4",
+      "expected_checked_sha256": "88106792c771752391b7fecda8ab47532b1e0610b17850e27862a940dc5530ef",
+      "observed_checked_sha256": "88106792c771752391b7fecda8ab47532b1e0610b17850e27862a940dc5530ef",
+      "median_ms": 19.05225,
+      "samples_ms": [
+        19.074375,
+        18.819125,
+        18.780208,
+        19.545416,
+        19.244208,
+        18.661209,
+        19.05225
+      ],
+      "GFLOP_s": 112.71548756708525
+    }
+  },
+  "fastest_measured_recurrence": "reg_1",
+  "gemm_over_fastest_measured_recurrence": 0.8611624873702581
+}

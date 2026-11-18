@@ -1,0 +1,758 @@
+operator,variant,native_fp32,v01_fp64,v02_fp64,native_checked,v01_checked,v02_checked,v02_output_devices,v02_first_error,timing_sample_index,timing_shapes,v01_timing_status,v02_timing_status,v02_output_kind,old_median_us,new_median_us,old_over_new,timing_class,timing_detail
+H,,pass,pass,pass,2,2,2,mps,,1,"[[10, 20]]",pass,pass,alias,15.1424,5.0868,2.97679,"alias, empty or host result",
+T,,pass,pass,pass,2,2,2,mps,,1,"[[10, 20]]",pass,pass,alias,19.2569,5.6806,3.38995,"alias, empty or host result",
+__getitem__,,pass,pass,pass,16,16,16,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,185.6702,185.6042,1.00036,within threshold,
+__radd__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,42.7743,25.6875,1.66518,faster,
+__rand__,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+__rdiv__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,67.2986,38.4097,1.75213,faster,
+__rmatmul__,,pass,pass,pass,15,15,15,mps,,3,"[[10, 5], [5, 10]]",pass,pass,materialized,109.1146,62.7534,1.73878,faster,
+__rmod__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,5841.3542,166.0729,35.17343,faster,
+__rmul__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.941,24.4132,1.71797,faster,
+__ror__,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+__rpow__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,92.25,68.6458,1.34385,faster,
+__rsub__,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,59.8715,36.7673,1.62839,faster,
+__rxor__,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+_batch_norm_with_update,,pass,NotImplementedError,pass,9,0,9,mps,,0,"[[5, 5, 5], [5], [5], [5], [5]]",NotImplementedError,pass,materialized,,499.0764,,unpaired,MPS FP64 GPU implementation missing for aten._batch_norm_with_update.default
+_chunk_cat,,pass,NotImplementedError,pass,8,0,8,mps,,1,"[[1, 2, 129], [1, 2, 297]]",NotImplementedError,pass,materialized,,63.3924,,unpaired,MPS FP64 GPU implementation missing for aten._chunk_cat.default
+_native_batch_norm_legit,,pass,pass,pass,10,10,10,mps,,0,"[[5, 5, 5], [5], [5], [5], [5]]",pass,pass,materialized,903.7917,487.0938,1.85548,faster,
+_segment_reduce,lengths,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.segment_reduce.default,0,"[[5], [4]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.segment_reduce.default
+_segment_reduce,offsets,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.segment_reduce.default,0,"[[5], [5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.segment_reduce.default
+_softmax_backward_data,,pass,pass,pass,3,3,3,mps,,2,"[[5, 10, 5], [5, 10, 5]]",pass,pass,materialized,245.4827,154.0,1.59404,faster,
+_unsafe_masked_index,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5], [10, 10], [10, 1], [1, 10]]",pass,pass,materialized,302.941,208.1527,1.45538,faster,
+_unsafe_masked_index_put_accumulate,,pass,NotImplementedError,pass,6,0,6,mps,,0,"[[5, 5], [10, 10], [10, 1], [1, 10], [10, 10]]",NotImplementedError,pass,materialized,,498.1562,,unpaired,MPS FP64 GPU implementation missing for aten._unsafe_masked_index_put_accumulate.default
+_upsample_bilinear2d_aa,,pass,NotImplementedError,pass,7,0,7,mps,,0,"[[6, 3, 10, 20]]",NotImplementedError,pass,materialized,,159.4445,,unpaired,MPS FP64 GPU implementation missing for aten._upsample_bilinear2d_aa.default
+abs,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,31.3472,23.5521,1.33098,faster,
+acos,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,86.1215,79.5452,1.08267,within threshold,
+acosh,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,60.7708,50.7882,1.19655,faster,
+add,,pass,pass,pass,11,11,11,mps,,3,"[[10, 5], []]",pass,pass,materialized,38.8854,20.7396,1.87494,faster,
+addbmm,,pass,pass,pass,6,6,6,mps,,0,"[[5, 10], [5, 5, 5], [5, 5, 10]]",pass,pass,materialized,212.7118,107.6146,1.97661,faster,
+addcdiv,,pass,pass,pass,12,12,12,mps,,0,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,157.5556,77.875,2.02319,faster,
+addcmul,,pass,pass,pass,12,12,12,mps,,0,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,138.4027,62.1216,2.22793,faster,
+addmm,,pass,pass,pass,6,6,6,mps,,1,"[[3, 3], [3, 3], [3, 3]]",pass,pass,materialized,354.0486,169.8125,2.08494,faster,
+addmm,decomposed,pass,pass,pass,6,6,6,mps,,1,"[[3, 3], [3, 3], [3, 3]]",pass,pass,materialized,343.2048,163.9098,2.09386,faster,
+addmv,,pass,pass,pass,6,6,6,mps,,0,"[[5], [5, 10], [10]]",pass,pass,materialized,464.9792,255.2292,1.82181,faster,
+addr,,pass,pass,pass,6,6,6,mps,,0,"[[5, 10], [5], [10]]",pass,pass,materialized,127.7361,56.3542,2.26667,faster,
+alias_copy,,pass,pass,pass,2,2,2,mps,,0,[[5]],pass,pass,materialized,61.809,43.6562,1.41581,faster,
+all,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,86.0556,67.4722,1.27542,faster,
+allclose,,pass,pass,pass,24,24,24,,,0,"[[], []]",pass,pass,host_scalar,1025.5729,849.2847,1.20757,"alias, empty or host result",
+amax,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,28.6284,25.2638,1.13318,faster,
+amin,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,26.5104,25.2604,1.04948,within threshold,
+aminmax,,pass,pass,pass,7,7,7,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,108.2673,41.3472,2.61849,faster,
+angle,,pass,NotImplementedError,pass,1,0,1,mps,,0,"[[20, 20]]",NotImplementedError,pass,materialized,,152.059,,unpaired,MPS FP64 GPU implementation missing for aten.angle.default
+any,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,122.8889,102.6528,1.19713,faster,
+arange,,pass,pass,pass,27,27,27,mps,,0,[],pass,pass,materialized,184.3992,98.4236,1.87353,faster,
+argmax,,pass,pass,pass,13,13,13,mps,,3,[[2]],pass,pass,materialized,37.25,30.2361,1.23197,faster,
+argmin,,pass,pass,pass,13,13,13,mps,,3,[[2]],pass,pass,materialized,36.368,29.8194,1.21961,faster,
+argsort,,pass,pass,pass,58,58,58,mps,,0,[[8000]],pass,pass,materialized,148.7431,68.7917,2.16223,faster,
+argwhere,,pass,pass,pass,6,6,6,mps,,1,"[[5, 5]]",pass,pass,materialized,638.6423,631.4479,1.01139,within threshold,
+as_strided,,pass,pass,pass,5,5,5,mps,,3,[[16]],pass,pass,alias,27.0173,7.3716,3.66507,"alias, empty or host result",
+as_strided,partial_views,pass,pass,pass,3,3,3,mps,,0,[[10]],pass,pass,alias,23.6667,6.4826,3.65081,"alias, empty or host result",
+as_strided_copy,,pass,pass,pass,5,5,5,mps,,3,[[16]],pass,pass,materialized,87.1493,58.4757,1.49035,faster,
+as_strided_scatter,,pass,NotImplementedError,pass,7,0,7,mps,,2,"[[3, 3], [2, 2]]",NotImplementedError,pass,materialized,,52.6354,,unpaired,MPS FP64 GPU implementation missing for aten.as_strided_scatter.default
+asin,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,87.8958,85.7777,1.02469,within threshold,
+asinh,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,78.2188,42.7674,1.82893,faster,
+atan,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,53.9758,38.8159,1.39056,faster,
+atan2,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,58.3298,39.3612,1.48191,faster,
+atanh,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,83.8229,73.243,1.14445,faster,
+atleast_1d,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 5, 5]]",pass,pass,alias,1.934,2.191,0.8827,"alias, empty or host result",
+atleast_2d,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 5, 5]]",pass,pass,alias,1.8889,2.1667,0.87181,"alias, empty or host result",
+atleast_3d,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 5, 5]]",pass,pass,alias,1.9062,2.1702,0.87839,"alias, empty or host result",
+baddbmm,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 10], [5, 5, 5], [5, 5, 10]]",pass,pass,materialized,172.6181,101.2917,1.70417,faster,
+bernoulli,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+bfloat16,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,27.4896,22.7465,1.20852,faster,
+bincount,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_and,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_left_shift,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_not,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_or,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_right_shift,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+bitwise_xor,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+block_diag,,pass,pass,pass,4,4,4,mps,,0,"[[1, 5], [2, 5], [3, 5]]",pass,pass,materialized,338.9722,329.0382,1.03019,within threshold,
+bmm,,pass,pass,pass,1,1,1,mps,,0,"[[10, 5, 10], [10, 10, 5]]",pass,pass,materialized,48.434,31.7743,1.52431,faster,
+bool,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,26.9479,23.4827,1.14757,faster,
+broadcast_shapes,,pass,ValueError,ValueError,10,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+broadcast_tensors,,pass,pass,pass,1,1,1,mps,,0,"[[3], [1, 2, 1], [1, 1], [5, 1, 1]]",pass,pass,alias,82.5764,21.8611,3.77733,"alias, empty or host result",
+broadcast_to,,pass,pass,pass,7,7,7,mps,,1,"[[5, 1, 5]]",pass,pass,alias,20.6389,6.4167,3.21645,"alias, empty or host result",
+bucketize,,pass,pass,pass,24,24,24,mps,,0,"[[], [5]]",pass,pass,materialized,2324.6944,28.5139,81.52841,faster,
+byte,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,44.8889,39.1077,1.14783,faster,
+cartesian_prod,,pass,pass,pass,3,3,3,mps,,2,"[[1], [2], [4]]",pass,pass,materialized,284.5625,132.2743,2.15131,faster,
+cat,,pass,pass,pass,9,9,9,mps,,2,"[[10, 5], [5, 5]]",pass,pass,materialized,32.2223,30.9409,1.04141,within threshold,
+cauchy,,AssertionError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.cauchy_.default,,,excluded,excluded,,,,,unpaired,ValueError: mutates input or running state
+cdist,,pass,NotImplementedError,pass,256,32,256,mps,,2,"[[5, 5, 5], [5, 5, 5]]",pass,pass,materialized,335.6111,209.0833,1.60515,faster,
+cdouble,,TypeError,pass,pass,0,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,43.5938,36.1215,1.20686,faster,
+ceil,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,39.8021,30.8056,1.29204,faster,
+cfloat,,pass,NotImplementedError,pass,5,0,5,mps,,2,"[[2, 3]]",NotImplementedError,pass,materialized,,42.7882,,unpaired,GPU cast from torch.float64 to torch.complex64
+chalf,,pass,NotImplementedError,pass,5,0,5,mps,,2,"[[2, 3]]",NotImplementedError,pass,materialized,,37.9201,,unpaired,GPU cast from torch.float64 to torch.complex32
+char,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,43.1771,38.3958,1.12453,faster,
+cholesky,,pass,pass,pass,16,16,16,mps,,0,"[[5, 5]]",pass,pass,materialized,215.6007,220.5798,0.97743,within threshold,
+cholesky_inverse,,pass,pass,pass,12,12,12,mps,,0,"[[0, 0]]",pass,pass,empty,28.8264,25.5312,1.12906,"alias, empty or host result",
+cholesky_solve,,NotImplementedError,pass,pass,0,12,12,mps,,0,"[[0, 0], [0, 0]]",pass,pass,empty,21.4028,17.7083,1.20863,"alias, empty or host result",
+chunk,,pass,pass,pass,3,3,3,mps,,0,"[[5, 5, 5]]",pass,pass,alias,18.4062,15.3958,1.19553,"alias, empty or host result",
+clamp,,pass,pass,pass,7,7,7,mps,,0,"[[5, 10, 5], [5, 10, 5], [5, 10, 5]]",pass,pass,materialized,222.3438,139.0625,1.59888,faster,
+clamp_max,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,194.4758,118.7708,1.6374,faster,
+clamp_min,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,180.8681,106.1771,1.70346,faster,
+clone,,pass,pass,pass,2,2,2,mps,,0,"[[5, 10, 5]]",pass,pass,materialized,28.0417,25.6112,1.0949,within threshold,
+column_stack,,pass,pass,pass,3,3,3,mps,,1,"[[5], [5, 5]]",pass,pass,materialized,70.6944,50.7292,1.39357,faster,
+combinations,,pass,pass,pass,18,18,18,mps,,0,[[1]],pass,pass,materialized,695.7257,642.0348,1.08363,within threshold,
+complex,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,39.6424,35.25,1.12461,faster,
+conj,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,alias,0.6702,0.8993,0.74518,"alias, empty or host result",
+conj_physical,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,alias,0.7847,1.1216,0.69968,"alias, empty or host result",
+constant_pad_nd,,pass,pass,pass,51,51,51,mps,,0,"[[1, 3, 3]]",pass,pass,materialized,50.8785,50.4723,1.00805,within threshold,
+contiguous,,pass,pass,pass,2,2,2,mps,,0,"[[5, 10, 5]]",pass,pass,alias,0.7431,0.9583,0.77539,"alias, empty or host result",
+copysign,,pass,pass,pass,10,10,10,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.7396,23.1736,1.80117,faster,
+corrcoef,,pass,pass,pass,4,4,4,mps,,2,"[[3, 2]]",pass,pass,materialized,1423.2013,1012.7952,1.40522,faster,
+cos,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,81.3889,32.5625,2.49947,faster,
+cosh,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,39.0555,31.3888,1.24425,faster,
+count_nonzero,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,107.2083,62.6944,1.71001,faster,
+cov,,pass,AssertionError,pass,40,33,40,mps,,2,"[[2], [2]]",pass,pass,materialized,1433.0417,1444.9062,0.99179,within threshold,
+cross,,pass,pass,pass,3,3,3,mps,,1,"[[5, 3, 5], [5, 3, 5]]",pass,pass,materialized,505.6423,422.1771,1.1977,faster,
+cummax,,pass,NotImplementedError,pass,3,0,3,mps,,0,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,64.2292,,unpaired,MPS FP64 GPU implementation missing for aten.cummax.default
+cummin,,pass,NotImplementedError,pass,3,0,3,mps,,0,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,40.7153,,unpaired,MPS FP64 GPU implementation missing for aten.cummin.default
+cumprod,,pass,pass,pass,10,10,10,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,368.3784,306.691,1.20114,faster,
+cumsum,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,406.0764,336.0138,1.20851,faster,
+cumulative_trapezoid,,pass,pass,pass,9,9,9,mps,,0,"[[2, 3], [2, 3]]",pass,pass,materialized,647.7674,403.3229,1.60608,faster,
+deg2rad,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,91.2083,42.809,2.13059,faster,
+diag,,pass,pass,pass,16,16,16,mps,,1,"[[10, 10]]",pass,pass,materialized,68.0034,47.5382,1.4305,faster,
+diag_embed,,pass,pass,pass,15,15,15,mps,,0,"[[5, 5]]",pass,pass,materialized,205.0625,167.3889,1.22507,faster,
+diagflat,,pass,pass,pass,5,5,5,mps,,2,"[[2, 2]]",pass,pass,materialized,219.934,192.9827,1.13966,faster,
+diagonal,,pass,pass,pass,15,15,15,mps,,0,"[[5, 5]]",pass,pass,alias,13.2361,4.4445,2.97808,"alias, empty or host result",
+diagonal_copy,,pass,pass,pass,15,15,15,mps,,0,"[[5, 5]]",pass,pass,materialized,62.1423,44.0139,1.41188,faster,
+diagonal_scatter,,pass,NotImplementedError,pass,15,0,15,mps,,0,"[[10, 10], [10]]",NotImplementedError,pass,materialized,,40.0312,,unpaired,MPS FP64 GPU implementation missing for aten.diagonal_scatter.default
+diff,,pass,pass,pass,64,64,64,mps,,1,[[5]],pass,pass,materialized,42.8333,36.9237,1.16005,faster,
+digamma,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,124.5312,,unpaired,MPS FP64 GPU implementation missing for aten.digamma.default
+dist,,pass,pass,pass,50,50,50,mps,,0,"[[5, 5, 5], [5, 5, 5]]",pass,pass,materialized,6024.5903,188.4409,31.97071,faster,
+div,floor_rounding,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,443.6875,,unpaired,MPS FP64 GPU implementation missing for aten.div.Tensor_mode
+div,no_rounding_mode,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,43.875,26.1493,1.67786,faster,
+div,trunc_rounding,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,184.0243,68.7604,2.67631,faster,
+dot,,pass,pass,pass,1,1,1,mps,,0,"[[5], [5]]",pass,pass,materialized,103.9062,79.441,1.30797,faster,
+double,,TypeError,pass,pass,0,5,5,mps,,2,"[[2, 3]]",pass,pass,alias,0.9062,1.0798,0.83925,"alias, empty or host result",
+dsplit,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5, 6]]",pass,pass,alias,32.1284,9.2812,3.46165,"alias, empty or host result",
+dstack,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,106.0034,66.0417,1.6051,faster,
+einsum,,pass,pass,pass,11,11,11,mps,,3,"[[2, 3], [1, 3]]",pass,pass,materialized,300.5277,97.1771,3.09258,faster,
+empty,,pass,pass,pass,6,6,6,mps,,0,[],pass,pass,materialized,18.2708,16.8923,1.08161,within threshold,
+empty_like,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,14.4479,11.3368,1.27443,faster,
+empty_permuted,,pass,NotImplementedError,pass,39,0,39,mps,,0,[],NotImplementedError,pass,materialized,,13.4896,,unpaired,MPS FP64 GPU implementation missing for aten.empty_permuted.default
+empty_strided,,pass,pass,pass,4,4,4,mps,,0,[],pass,pass,materialized,239.5069,243.3577,0.98418,within threshold,
+eq,,pass,pass,pass,10,10,10,mps,,3,"[[10, 5], []]",pass,pass,materialized,39.6215,22.1493,1.78883,faster,
+equal,,pass,pass,pass,8,8,8,,,2,"[[5], []]",pass,pass,host_scalar,9.3958,5.6771,1.65505,"alias, empty or host result",
+erf,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,127.8299,21.9583,5.82148,faster,
+erfc,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,77.3056,68.4965,1.12861,faster,
+erfinv,,pass,NotImplementedError,pass,1,0,1,mps,,0,"[[20, 20]]",NotImplementedError,pass,materialized,,584.0138,,unpaired,MPS FP64 GPU implementation missing for aten.erfinv.default
+exp,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,38.7292,41.1562,0.94103,within threshold,
+exp2,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,41.8056,31.2326,1.33852,faster,
+expand,,pass,pass,pass,9,9,9,mps,,1,"[[5, 1, 5]]",pass,pass,alias,20.7569,6.8993,3.00858,"alias, empty or host result",
+expand_as,,pass,pass,pass,3,3,3,mps,,0,"[[5, 1, 1], [5, 5, 5]]",pass,pass,alias,20.125,6.6458,3.02821,"alias, empty or host result",
+expand_copy,,pass,pass,pass,9,9,9,mps,,1,"[[5, 1, 5]]",pass,pass,materialized,75.0277,57.4792,1.3053,faster,
+expm1,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,78.2673,64.5348,1.21279,faster,
+exponential,,AssertionError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.exponential_.default,,,excluded,excluded,,,,,unpaired,ValueError: mutates input or running state
+eye,,pass,pass,pass,90,90,90,mps,,0,[],pass,pass,empty,69.2847,10.2362,6.76861,"alias, empty or host result",
+fft.fft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6458.8958,310.2222,20.82022,faster,
+fft.fft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12295.566,511.3264,24.04641,faster,
+fft.fftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,11922.2153,522.066,22.83661,faster,
+fft.fftshift,,pass,pass,pass,5,5,5,mps,,0,"[[9, 10]]",pass,pass,materialized,66.7431,68.3229,0.97688,within threshold,
+fft.hfft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6457.9201,589.8298,10.94879,faster,
+fft.hfft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12016.5138,678.4479,17.71177,faster,
+fft.hfftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12024.7223,656.9305,18.30441,faster,
+fft.ifft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6312.6562,332.6216,18.97849,faster,
+fft.ifft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12518.1215,502.7882,24.89741,faster,
+fft.ifftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12309.7118,510.5833,24.10911,faster,
+fft.ifftshift,,pass,pass,pass,5,5,5,mps,,0,"[[9, 10]]",pass,pass,materialized,65.5278,64.8333,1.01071,within threshold,
+fft.ihfft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6534.6875,319.9966,20.42112,faster,
+fft.ihfft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12603.5347,476.5972,26.44484,faster,
+fft.ihfftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12496.1909,480.5938,26.00157,faster,
+fft.irfft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6604.3958,441.9826,14.94266,faster,
+fft.irfft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12541.0312,536.4028,23.37988,faster,
+fft.irfftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,12396.4965,549.8854,22.54378,faster,
+fft.rfft,,pass,pass,pass,8,8,8,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,6176.4202,322.3576,19.16015,faster,
+fft.rfft2,,pass,pass,pass,7,7,7,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,11740.5278,416.9826,28.15592,faster,
+fft.rfftn,,pass,pass,pass,9,9,9,mps,,0,"[[5, 6, 7]]",pass,pass,materialized,11875.3056,430.6112,27.57779,faster,
+fill,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,63.1841,55.7014,1.13434,faster,
+flatten,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 5]]",pass,pass,alias,18.0035,5.6771,3.17126,"alias, empty or host result",
+flip,,pass,pass,pass,10,10,10,mps,,0,"[[5, 10, 5]]",pass,pass,materialized,52.7327,54.125,0.97428,within threshold,
+fliplr,,pass,pass,pass,2,2,2,mps,,0,"[[5, 10, 5]]",pass,pass,materialized,46.6562,46.9444,0.99386,within threshold,
+flipud,,pass,pass,pass,2,2,2,mps,,0,"[[5, 10, 5]]",pass,pass,materialized,49.4618,48.6181,1.01735,within threshold,
+float,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,26.6042,22.1805,1.19944,faster,
+float_power,,TypeError,pass,pass,0,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,86.5139,61.4271,1.4084,faster,
+floor,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,30.9305,21.5798,1.43331,faster,
+floor_divide,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,351.4896,,unpaired,MPS FP64 GPU implementation missing for aten.floor_divide.default
+fmax,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.0486,23.8542,1.72081,faster,
+fmin,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.5486,23.5556,1.76385,faster,
+fmod,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,46.5868,27.7673,1.67776,faster,
+frac,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,54.3819,48.4514,1.1224,faster,
+frexp,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.frexp.Tensor,0,[[20]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.frexp.Tensor
+full,,pass,pass,pass,4,4,4,mps,,0,[],pass,pass,materialized,53.6493,49.8889,1.07538,within threshold,
+full_like,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,49.0451,44.1771,1.11019,faster,
+gather,,pass,pass,pass,7,7,7,mps,,0,"[[10, 5], [5, 5]]",pass,pass,materialized,60.5868,55.9617,1.08265,within threshold,
+gcd,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+ge,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,38.6216,19.618,1.96868,faster,
+geometric,,AssertionError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.geometric_.default,,,excluded,excluded,,,,,unpaired,ValueError: mutates input or running state
+geqrf,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.geqrf.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.geqrf.default
+gradient,,pass,pass,pass,8,8,8,mps,,2,"[[5, 5]]",pass,pass,materialized,1472.559,631.8854,2.33042,faster,
+grid_sampler_2d,,pass,pass,pass,18,18,18,mps,,0,"[[2, 3, 5, 20], [2, 13, 10, 2]]",pass,pass,materialized,7803.7361,1847.2048,4.22462,faster,
+grid_sampler_3d,,ValueError,NotImplementedError,NotImplementedError,2,0,0,,MPS FP64 GPU implementation missing for aten.grid_sampler_3d.default,3,"[[10, 11, 12, 13, 14], [10, 23, 22, 21, 3]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.grid_sampler_3d.default
+gt,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,37.1702,18.9271,1.96386,faster,
+half,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,28.6771,22.4409,1.27789,faster,
+hash_tensor,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.hash_tensor.default,0,[[]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.hash_tensor.default
+heaviside,,NotImplementedError,pass,pass,0,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,374.6945,245.5,1.52625,faster,
+histc,,pass,NotImplementedError,pass,96,0,96,mps,,0,[[]],NotImplementedError,pass,materialized,,341.2048,,unpaired,MPS FP64 GPU implementation missing for aten.histc.default
+histogram,,pass,NotImplementedError,pass,192,0,192,mps,,1,"[[], [2]]",NotImplementedError,pass,materialized,,46.4202,,unpaired,MPS FP64 GPU implementation missing for aten.histogram.bins_tensor
+histogramdd,,pass,NotImplementedError,pass,96,0,96,mps,,1,"[[5, 5], [2], [2], [2], [2], [2]]",NotImplementedError,pass,materialized,,88.434,,unpaired,MPS FP64 GPU implementation missing for aten._histogramdd_from_bin_tensors.default
+hsplit,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5, 5]]",pass,pass,alias,62.6527,16.7048,3.75058,"alias, empty or host result",
+hstack,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,39.9548,39.7152,1.00603,within threshold,
+hypot,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,44.6597,26.7708,1.66822,faster,
+i0,,pass,NotImplementedError,pass,2,0,2,mps,,0,[[5]],NotImplementedError,pass,materialized,,146.3646,,unpaired,MPS FP64 GPU implementation missing for aten.i0.default
+igamma,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,204.25,,unpaired,MPS FP64 GPU implementation missing for aten.igamma.default
+igammac,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,198.4271,,unpaired,MPS FP64 GPU implementation missing for aten.igammac.default
+imag,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+index_add,,pass,NotImplementedError,pass,9,0,9,mps,,0,"[[], [1], []]",NotImplementedError,pass,materialized,,434.7083,,unpaired,MPS FP64 GPU implementation missing for aten.index_add.default
+index_copy,,pass,NotImplementedError,pass,3,0,3,mps,,2,"[[5, 5], [5], [5, 5]]",NotImplementedError,pass,materialized,,22.1875,,unpaired,MPS FP64 GPU implementation missing for aten.index_copy.default
+index_fill,,pass,NotImplementedError,pass,6,0,6,mps,,1,"[[], [1], []]",NotImplementedError,pass,materialized,,678.4375,,unpaired,MPS FP64 GPU implementation missing for aten.index_fill.int_Tensor
+index_put,,pass,NotImplementedError,pass,4,0,4,mps,,2,"[[5, 5], [2], [2, 5]]",NotImplementedError,pass,materialized,,422.375,,unpaired,MPS FP64 GPU implementation missing for aten.index_put.default
+index_reduce,amax,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.index_reduce.default,0,"[[], [1], []]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,amin,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.index_reduce.default,0,"[[], [1], []]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,mean,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.index_reduce.default,0,"[[], [1], []]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_reduce,prod,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.index_reduce.default,0,"[[], [1], []]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.index_reduce.default
+index_select,,pass,pass,pass,3,3,3,mps,,2,"[[5, 5], [5]]",pass,pass,materialized,47.441,43.8021,1.08308,within threshold,
+inner,,pass,pass,pass,2,2,2,mps,,1,"[[], [5, 5]]",pass,pass,materialized,39.8194,20.8681,1.90815,faster,
+int,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,28.7257,24.7361,1.16129,faster,
+isclose,,pass,pass,pass,17,17,17,mps,,3,"[[10, 5], []]",pass,pass,materialized,450.2604,169.5,2.6564,faster,
+isfinite,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,124.9896,54.2604,2.30351,faster,
+isin,,pass,NotImplementedError,pass,2,1,2,mps,,0,"[[20], [5]]",pass,pass,materialized,196.7639,33.1875,5.92886,faster,
+isinf,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,26.7708,18.5972,1.4395,faster,
+isnan,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,32.1944,23.1007,1.39366,faster,
+isneginf,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,94.0729,43.2118,2.17702,faster,
+isposinf,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,90.0833,40.6806,2.21441,faster,
+isreal,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,32.6667,28.7708,1.13541,faster,
+istft,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+item,,pass,pass,pass,4,4,4,,,0,[[]],pass,pass,host_scalar,381.2014,380.7431,1.0012,"alias, empty or host result",
+jiterator_2inputs_2outputs,,AssertionError,AssertionError,AssertionError,0,0,0,,"Jiterator is only supported on CUDA and ROCm GPUs, none are available.",,,excluded,excluded,,,,,unpaired,"AssertionError: Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_4inputs_with_extra_args,,AssertionError,AssertionError,AssertionError,0,0,0,,"Jiterator is only supported on CUDA and ROCm GPUs, none are available.",,,excluded,excluded,,,,,unpaired,"AssertionError: Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_binary,,AssertionError,AssertionError,AssertionError,0,0,0,,"Jiterator is only supported on CUDA and ROCm GPUs, none are available.",,,excluded,excluded,,,,,unpaired,"AssertionError: Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_binary_return_by_ref,,AssertionError,AssertionError,AssertionError,0,0,0,,"Jiterator is only supported on CUDA and ROCm GPUs, none are available.",,,excluded,excluded,,,,,unpaired,"AssertionError: Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+jiterator_unary,,AssertionError,AssertionError,AssertionError,0,0,0,,"Jiterator is only supported on CUDA and ROCm GPUs, none are available.",,,excluded,excluded,,,,,unpaired,"AssertionError: Jiterator is only supported on CUDA and ROCm GPUs, none are available."
+kron,,pass,pass,pass,1,1,1,mps,,0,"[[5, 5], [10, 20]]",pass,pass,materialized,144.0973,56.3056,2.5592,faster,
+kthvalue,,pass,NotImplementedError,pass,10,0,10,mps,,0,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,48.0104,,unpaired,MPS FP64 GPU implementation missing for aten.kthvalue.default
+lcm,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+ldexp,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,157.4062,109.9062,1.43219,faster,
+le,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,39.3923,23.2083,1.69734,faster,
+lerp,,pass,pass,pass,14,14,14,mps,,0,"[[5, 5], [5, 5]]",pass,pass,materialized,444.6423,272.3263,1.63276,faster,
+lgamma,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,179.9062,,unpaired,MPS FP64 GPU implementation missing for aten.lgamma.default
+linalg.cholesky,,pass,pass,pass,16,16,16,mps,,0,"[[5, 5]]",pass,pass,materialized,221.9618,219.6007,1.01075,within threshold,
+linalg.cholesky_ex,,pass,pass,pass,16,16,16,mps,,0,"[[5, 5]]",pass,pass,materialized,51.1771,42.1562,1.21399,faster,
+linalg.cond,,NotImplementedError,NotImplementedError,pass,0,0,3,mps,,1,"[[2, 5, 5]]",NotImplementedError,pass,materialized,,2006.6702,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.cross,,pass,pass,pass,3,3,3,mps,,1,"[[5, 3, 5], [5, 3, 5]]",pass,pass,materialized,491.3195,378.809,1.29701,faster,
+linalg.det,,pass,pass,pass,9,9,9,mps,,2,"[[5, 5]]",pass,pass,materialized,370.3125,283.4896,1.30626,faster,
+linalg.diagonal,,pass,pass,pass,15,15,15,mps,,0,"[[5, 5]]",pass,pass,alias,16.2361,4.9792,3.2608,"alias, empty or host result",
+linalg.eig,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_eig.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_eig.default
+linalg.eigh,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten._linalg_eigh.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.eigvals,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_eig.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_eig.default
+linalg.eigvalsh,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten._linalg_eigh.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.householder_product,,pass,NotImplementedError,pass,8,0,8,mps,,3,"[[2, 1, 6, 5], [2, 1, 5]]",NotImplementedError,pass,materialized,,49.1702,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_householder_product.default
+linalg.inv,,pass,pass,pass,8,8,8,mps,,0,"[[5, 5]]",pass,pass,materialized,297.1701,266.1632,1.1165,faster,
+linalg.inv_ex,,pass,pass,pass,8,8,8,mps,,0,"[[5, 5]]",pass,pass,materialized,122.8055,107.5035,1.14234,faster,
+linalg.ldl_factor,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default,1,"[[2, 5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default
+linalg.ldl_factor_ex,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default,1,"[[2, 5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_ldl_factor_ex.default
+linalg.ldl_solve,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_ldl_solve.default,0,"[[5, 5], [5], [5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_ldl_solve.default
+linalg.lstsq,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default,2,"[[4, 3], [4, 3]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default
+linalg.lstsq,grad_oriented,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default,2,"[[4, 3], [4, 3]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_lstsq.default
+linalg.lu,,pass,NotImplementedError,pass,20,0,20,mps,,3,"[[6, 5]]",NotImplementedError,pass,materialized,,66.8229,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_lu.default
+linalg.lu_factor,,pass,pass,pass,20,20,20,mps,,3,"[[6, 5]]",pass,pass,materialized,225.9758,186.6979,1.21038,faster,
+linalg.lu_factor_ex,,pass,pass,pass,20,20,20,mps,,3,"[[6, 5]]",pass,pass,materialized,50.6215,43.2014,1.17176,faster,
+linalg.lu_solve,,pass,pass,pass,108,108,108,mps,,0,"[[3, 3], [3], [3, 4]]",pass,pass,materialized,299.6632,279.7639,1.07113,within threshold,
+linalg.matrix_norm,,NotImplementedError,NotImplementedError,pass,4,4,64,mps,,0,"[[2, 2]]",pass,pass,materialized,5790.9931,144.9688,39.94649,faster,
+linalg.matrix_power,,pass,pass,pass,18,18,18,mps,,0,"[[1, 1]]",pass,pass,materialized,239.0243,83.9723,2.84647,faster,
+linalg.matrix_rank,,NotImplementedError,NotImplementedError,pass,0,0,72,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,1987.7777,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.matrix_rank,hermitian,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten._linalg_eigh.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_eigh.default
+linalg.multi_dot,,pass,pass,pass,7,7,7,mps,,3,"[[2, 2], [2, 2], [2, 2]]",pass,pass,materialized,135.5625,66.8438,2.02805,faster,
+linalg.norm,,NotImplementedError,NotImplementedError,pass,44,44,116,mps,,0,[[5]],pass,pass,materialized,227.875,99.9202,2.28057,faster,
+linalg.norm,subgradients_at_zero,NotImplementedError,NotImplementedError,pass,38,38,90,mps,,0,[[5]],pass,pass,materialized,206.8021,111.7777,1.85012,faster,
+linalg.pinv,,pass,NotImplementedError,pass,24,0,24,mps,,2,"[[5, 5], []]",NotImplementedError,pass,materialized,,2219.1215,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.pinv,hermitian,NotImplementedError,NotImplementedError,pass,0,0,8,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,2242.3125,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.pinv,singular,pass,NotImplementedError,pass,48,0,48,mps,,2,"[[3, 2], [3, 2]]",NotImplementedError,pass,materialized,,1698.9548,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+linalg.qr,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_qr.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+linalg.slogdet,,pass,pass,pass,9,9,9,mps,,2,"[[5, 5]]",pass,pass,materialized,6280.7535,446.2222,14.0754,faster,
+linalg.solve,,pass,pass,pass,24,24,24,mps,,2,"[[5, 5], [5, 3]]",pass,pass,materialized,251.8646,209.3125,1.20329,faster,
+linalg.solve_ex,,pass,pass,pass,24,24,24,mps,,2,"[[5, 5], [5, 3]]",pass,pass,materialized,96.9583,74.5173,1.30115,faster,
+linalg.solve_triangular,,pass,pass,pass,144,144,144,mps,,0,"[[3, 3], [3, 1]]",pass,pass,materialized,44.6737,39.3194,1.13617,faster,
+linalg.svd,,pass,NotImplementedError,AssertionError,216,0,32,mps,"Tensor-likes are not close!
+
+Mismatched elements: 6 / 9 (66.7%)
+Greatest absolute difference: 1.358615747299989 at index (1, 1) (up to 1e-12 allowed)
+Greatest relative difference: 2.000000000000002 at index (2, 1) (up to 1e-10 allowed)
+
+The failure occurred for item [0]",0,"[[0, 0]]",NotImplementedError,pass,empty,,16.1702,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_svd.default
+linalg.svdvals,,NotImplementedError,NotImplementedError,pass,0,0,36,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,1736.1389,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+linalg.tensorinv,,pass,pass,pass,2,2,2,mps,,0,"[[2, 2, 3, 12, 1]]",pass,pass,materialized,516.8402,391.9827,1.31853,faster,
+linalg.tensorsolve,,pass,pass,pass,4,4,4,mps,,2,"[[3, 4, 4, 3], [3, 4]]",pass,pass,materialized,450.5174,305.3854,1.47524,faster,
+linalg.vander,,pass,pass,pass,10,10,10,mps,,2,[[5]],pass,pass,materialized,435.934,338.9409,1.28617,faster,
+linalg.vecdot,,pass,pass,pass,44,44,44,mps,,2,"[[1], [1]]",pass,pass,materialized,120.6458,93.3402,1.29254,faster,
+linalg.vector_norm,,pass,pass,pass,180,180,180,mps,,0,[[]],pass,pass,materialized,57.0312,37.9027,1.50467,faster,
+linspace,,pass,pass,pass,62,62,62,mps,,0,[],pass,pass,empty,38.9167,8.3507,4.66026,"alias, empty or host result",
+linspace,tensor_overload,pass,NotImplementedError,pass,182,3,182,mps,,0,"[[], []]",pass,pass,empty,102.1597,9.0,11.35107,"alias, empty or host result",
+log,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,100.8508,28.3577,3.55638,faster,
+log10,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,114.1562,30.0,3.80521,faster,
+log1p,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,81.5173,76.5417,1.06501,within threshold,
+log2,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,42.1667,19.8021,2.12941,faster,
+log_normal,,AssertionError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.log_normal_.default,,,excluded,excluded,,,,,unpaired,ValueError: mutates input or running state
+log_softmax,,pass,pass,pass,7,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,7512.7292,402.9444,18.64458,faster,
+log_softmax,with_dtype,TypeError,pass,pass,0,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,7284.1562,420.125,17.33807,faster,
+logaddexp,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,4710.1702,169.6875,27.75791,faster,
+logaddexp2,,pass,pass,pass,1,1,1,mps,,0,"[[5, 5], [5, 5]]",pass,pass,materialized,4947.3923,138.3508,35.75978,faster,
+logcumsumexp,,pass,NotImplementedError,pass,6,0,6,mps,,0,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,80.8403,,unpaired,MPS FP64 GPU implementation missing for aten.logcumsumexp.default
+logdet,,pass,pass,pass,9,9,9,mps,,2,"[[5, 5]]",pass,pass,materialized,6380.9548,456.3715,13.98193,faster,
+logical_and,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,40.7604,22.4375,1.81662,faster,
+logical_not,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,29.5139,22.5521,1.3087,faster,
+logical_or,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,40.9965,21.0556,1.94706,faster,
+logical_xor,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,37.566,20.0208,1.87635,faster,
+logit,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,4713.7534,383.8577,12.27995,faster,
+logspace,,NotImplementedError,NotImplementedError,NotImplementedError,0,400,400,mps,"The operator 'aten::logspace.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the",0,[],pass,pass,empty,139.5173,12.0417,11.58621,"alias, empty or host result",
+logspace,tensor_overload,NotImplementedError,NotImplementedError,NotImplementedError,0,15,1200,mps,"The operator 'aten::logspace.out' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e0049d13a98d77ae1b14db1f45. As a temporary fix, you can set the",0,"[[], []]",pass,pass,empty,225.9861,12.3715,18.26667,"alias, empty or host result",
+logsumexp,,pass,NotImplementedError,pass,15,0,15,mps,,1,"[[5, 5]]",NotImplementedError,pass,materialized,,278.7118,,unpaired,MPS FP64 GPU implementation missing for aten.logsumexp.default
+long,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,28.1771,23.5694,1.19549,faster,
+lt,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.6701,23.4688,1.77556,faster,
+lu,,pass,pass,pass,30,30,30,mps,,3,"[[6, 5]]",pass,pass,materialized,53.4132,44.9133,1.18925,faster,
+lu_solve,,pass,pass,pass,27,27,27,mps,,0,"[[3, 4], [3, 3], [3]]",pass,pass,materialized,342.4271,285.8577,1.19789,faster,
+lu_unpack,,pass,NotImplementedError,pass,20,0,20,mps,,3,"[[6, 5], [5]]",NotImplementedError,pass,materialized,,337.4966,,unpaired,MPS FP64 GPU implementation missing for aten.lu_unpack.default
+mH,,pass,pass,pass,5,5,5,mps,,3,"[[5, 10, 5]]",pass,pass,alias,15.3194,4.9931,3.06813,"alias, empty or host result",
+mT,,pass,pass,pass,5,5,5,mps,,3,"[[5, 10, 5]]",pass,pass,alias,15.6389,5.2674,2.96899,"alias, empty or host result",
+masked.amax,,pass,pass,pass,90,90,90,mps,,1,"[[], []]",pass,pass,materialized,234.3611,202.5452,1.15708,faster,
+masked.amin,,pass,pass,pass,90,90,90,mps,,1,"[[], []]",pass,pass,materialized,221.2465,204.2153,1.0834,within threshold,
+masked.argmax,,AssertionError,pass,pass,16,55,55,mps,,1,"[[], []]",pass,pass,materialized,236.6285,233.4688,1.01353,within threshold,
+masked.argmin,,AssertionError,pass,pass,16,55,55,mps,,1,"[[], []]",pass,pass,materialized,258.8784,238.7188,1.08445,within threshold,
+masked.cumprod,,pass,pass,pass,17,17,17,mps,,1,"[[5, 5], [5, 5]]",pass,pass,materialized,651.2882,555.2118,1.17304,faster,
+masked.cumsum,,pass,pass,pass,17,17,17,mps,,1,"[[5, 5], [5, 5]]",pass,pass,materialized,625.8368,539.8473,1.15929,faster,
+masked.log_softmax,,pass,pass,pass,24,24,24,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,8221.441,710.7465,11.56733,faster,
+masked.logaddexp,,pass,pass,pass,11,11,11,mps,,3,"[[5, 5], [5, 5], [5, 5], [5, 5]]",pass,pass,materialized,5660.4931,713.1633,7.93716,faster,
+masked.logsumexp,,pass,NotImplementedError,pass,90,0,90,mps,,1,"[[], []]",NotImplementedError,pass,materialized,,519.5868,,unpaired,MPS FP64 GPU implementation missing for aten.logsumexp.default
+masked.mean,,pass,pass,pass,90,90,90,mps,,1,"[[], []]",pass,pass,materialized,371.2222,379.4548,0.9783,within threshold,
+masked.median,,AssertionError,NotImplementedError,pass,5,0,17,mps,,3,"[[5, 5], [5, 5]]",NotImplementedError,pass,materialized,,285.5382,,unpaired,MPS FP64 GPU implementation missing for aten.nanmedian.dim
+masked.norm,,AssertionError,pass,pass,200,450,450,mps,,1,"[[], []]",pass,pass,materialized,300.6841,258.0312,1.1653,faster,
+masked.normalize,,pass,pass,pass,30,30,30,mps,,1,"[[5, 5]]",pass,pass,materialized,3202.25,318.6215,10.05033,faster,
+masked.prod,,pass,pass,pass,90,90,90,mps,,1,"[[], []]",pass,pass,materialized,223.0938,190.0764,1.17371,faster,
+masked.softmax,,pass,pass,pass,24,24,24,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,6607.2743,618.7153,10.67902,faster,
+masked.softmin,,pass,pass,pass,24,24,24,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,6608.2952,610.9965,10.8156,faster,
+masked.std,,pass,pass,pass,58,58,58,mps,,1,"[[5, 5, 5], [5, 5, 5]]",pass,pass,materialized,980.8993,811.9757,1.20804,faster,
+masked.sum,,pass,pass,pass,90,90,90,mps,,1,"[[], []]",pass,pass,materialized,225.8715,217.934,1.03642,within threshold,
+masked.var,,pass,pass,pass,58,58,58,mps,,1,"[[5, 5, 5], [5, 5, 5]]",pass,pass,materialized,990.0417,873.007,1.13406,faster,
+masked_fill,,pass,pass,pass,8,8,8,mps,,1,"[[5, 5], [5, 5], []]",pass,pass,materialized,58.7327,39.6841,1.48001,faster,
+masked_scatter,,pass,NotImplementedError,pass,4,0,4,mps,,0,"[[5, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,644.0208,,unpaired,MPS FP64 GPU implementation missing for aten.masked_scatter.default
+masked_select,,pass,pass,pass,7,7,7,mps,,0,"[[10, 10], [10, 10]]",pass,pass,materialized,601.2362,566.4341,1.06144,within threshold,
+matmul,,pass,pass,pass,15,15,15,mps,,3,"[[5, 10], [10, 5]]",pass,pass,materialized,49.1215,32.4097,1.51564,faster,
+matrix_exp,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_matrix_exp.default,1,"[[5, 5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_matrix_exp.default
+max,binary,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,43.7188,25.3888,1.72197,faster,
+max,reduction_no_dim,pass,pass,pass,2,2,2,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,31.9444,31.1388,1.02587,within threshold,
+max,reduction_with_dim,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,35.4305,30.1181,1.17639,faster,
+max_pool2d_with_indices_backward,,pass,pass,pass,1440,1440,1440,mps,,0,"[[1, 2, 3, 6]]",pass,pass,materialized,535.3402,165.6979,3.23082,faster,
+maximum,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,42.3611,24.0312,1.76275,faster,
+mean,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,83.6493,52.1909,1.60276,faster,
+median,,pass,NotImplementedError,pass,13,0,13,mps,,3,[[2]],NotImplementedError,pass,materialized,,35.4062,,unpaired,MPS FP64 GPU implementation missing for aten.median.default
+meshgrid,list_of_tensors,pass,pass,pass,10,10,10,mps,,2,[[3]],pass,pass,alias,36.8888,12.5348,2.94293,"alias, empty or host result",
+meshgrid,variadic_tensors,pass,pass,pass,10,10,10,mps,,2,[[3]],pass,pass,alias,37.0417,12.4861,2.96664,"alias, empty or host result",
+min,binary,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,43.8958,23.3264,1.88181,faster,
+min,reduction_no_dim,pass,pass,pass,2,2,2,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,48.2951,50.5173,0.95601,within threshold,
+min,reduction_with_dim,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,51.566,39.9341,1.29128,faster,
+minimum,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,42.6216,24.1841,1.76238,faster,
+mm,,pass,pass,pass,3,3,3,mps,,0,"[[5, 10], [10, 5]]",pass,pass,materialized,102.5521,57.6042,1.78029,faster,
+mode,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.mode.default,0,"[[5, 5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.mode.default
+movedim,,pass,pass,pass,2,2,2,mps,,0,"[[4, 3, 2, 1]]",pass,pass,alias,21.3125,6.75,3.15741,"alias, empty or host result",
+msort,,pass,pass,pass,2,2,2,mps,,0,[[8000]],pass,pass,materialized,162.8993,79.3333,2.05335,faster,
+mul,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,41.4202,24.1875,1.71246,faster,
+multinomial,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+mv,,pass,pass,pass,1,1,1,mps,,0,"[[5, 10], [10]]",pass,pass,materialized,182.6806,126.8229,1.44044,faster,
+mvlgamma,mvlgamma_p_1,pass,NotImplementedError,pass,10,0,10,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,133.8507,,unpaired,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+mvlgamma,mvlgamma_p_3,pass,NotImplementedError,pass,10,0,10,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,132.9792,,unpaired,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+mvlgamma,mvlgamma_p_5,pass,NotImplementedError,pass,10,0,10,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,132.7222,,unpaired,MPS FP64 GPU implementation missing for aten.mvlgamma.default
+nan_to_num,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,486.8194,363.5,1.33926,faster,
+nanmean,,pass,pass,pass,35,35,35,mps,,0,[[]],pass,pass,materialized,347.1667,275.2639,1.26121,faster,
+nanmedian,,pass,NotImplementedError,pass,13,0,13,mps,,3,[[2]],NotImplementedError,pass,materialized,,34.4688,,unpaired,MPS FP64 GPU implementation missing for aten.nanmedian.default
+nanquantile,,pass,NotImplementedError,pass,60,0,60,mps,,0,[[]],NotImplementedError,pass,materialized,,608.3229,,unpaired,MPS FP64 GPU implementation missing for aten.masked_fill_.Scalar
+nansum,,pass,pass,pass,35,35,35,mps,,0,[[]],pass,pass,materialized,164.5417,138.1007,1.19146,faster,
+narrow,,pass,pass,pass,10,10,10,mps,,1,"[[5, 5, 5], []]",pass,pass,alias,151.8681,138.0938,1.09975,"alias, empty or host result",
+narrow_copy,,pass,pass,pass,5,5,5,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,66.2465,54.3542,1.21879,faster,
+native_batch_norm,,pass,pass,pass,10,10,10,mps,,0,"[[5, 5, 5], [5], [5], [5], [5]]",pass,pass,materialized,887.25,508.8021,1.7438,faster,
+native_dropout_backward,,pass,pass,pass,9,9,9,mps,,0,"[[5, 5, 5, 5], [5, 5, 5, 5]]",pass,pass,materialized,260.0069,155.6979,1.66994,faster,
+native_layer_norm,,AssertionError,pass,pass,9,20,20,mps,,0,"[[1, 2, 3], [1, 2, 3], [1, 2, 3]]",pass,pass,materialized,634.625,454.1008,1.39754,faster,
+ne,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,37.9966,18.9618,2.00385,faster,
+neg,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,29.1493,21.1632,1.37736,faster,
+new_empty,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,empty,20.4862,18.3958,1.11363,"alias, empty or host result",
+new_empty_strided,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,empty,23.8542,21.7465,1.09692,"alias, empty or host result",
+new_full,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,empty,20.8264,19.2465,1.08209,"alias, empty or host result",
+new_ones,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,empty,20.1284,19.0452,1.05688,"alias, empty or host result",
+new_zeros,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,empty,19.8646,18.8263,1.05515,"alias, empty or host result",
+nextafter,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,40.0243,23.4028,1.71024,faster,
+nn.functional.adaptive_avg_pool1d,,RuntimeError,pass,pass,0,6,6,mps,,2,"[[3, 8, 8]]",pass,pass,materialized,274.8854,64.6007,4.25515,faster,
+nn.functional.adaptive_avg_pool2d,,RuntimeError,pass,pass,0,10,10,mps,,2,"[[2, 8, 8, 8]]",pass,pass,materialized,201.4479,41.3889,4.86719,faster,
+nn.functional.adaptive_avg_pool3d,,NotImplementedError,pass,pass,0,12,12,mps,,1,"[[8, 8, 8, 8]]",pass,pass,materialized,226.5694,65.1667,3.47677,faster,
+nn.functional.adaptive_max_pool1d,,pass,pass,pass,8,8,8,mps,,0,"[[3, 4, 4]]",pass,pass,materialized,243.8646,49.8681,4.89019,faster,
+nn.functional.adaptive_max_pool2d,,pass,pass,pass,24,24,24,mps,,0,"[[1, 4, 4, 4]]",pass,pass,materialized,227.184,52.1701,4.35468,faster,
+nn.functional.adaptive_max_pool3d,,NotImplementedError,pass,pass,0,20,20,mps,,0,"[[1, 4, 4, 3, 5]]",pass,pass,materialized,208.1875,39.809,5.22966,faster,
+nn.functional.alpha_dropout,,AssertionError,NotImplementedError,NotImplementedError,2,2,2,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,0,"[[5, 5]]",pass,pass,alias,215.1562,216.2639,0.99488,"alias, empty or host result",
+nn.functional.avg_pool1d,,pass,pass,pass,9,9,9,mps,,0,"[[2, 3, 9]]",pass,pass,materialized,246.8333,46.9617,5.25605,faster,
+nn.functional.avg_pool2d,,pass,NotImplementedError,pass,7,4,7,mps,,3,"[[2, 3, 9, 9]]",pass,pass,materialized,248.6562,57.2396,4.34413,faster,
+nn.functional.avg_pool3d,,pass,NotImplementedError,pass,8,5,8,mps,,0,"[[2, 3, 3, 4, 4]]",pass,pass,materialized,213.7917,58.4167,3.65977,faster,
+nn.functional.batch_norm,,pass,pass,pass,12,12,12,mps,,0,"[[5, 5, 5], [5], [5], [5], [5]]",pass,pass,materialized,882.4618,488.7396,1.80559,faster,
+nn.functional.batch_norm,without_cudnn,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+nn.functional.bilinear,,pass,NotImplementedError,pass,16,0,16,mps,,2,"[[8, 3], [8, 4], [5, 3, 4], [5]]",NotImplementedError,pass,materialized,,271.8819,,unpaired,MPS FP64 GPU implementation missing for aten._trilinear.default
+nn.functional.binary_cross_entropy,,pass,pass,pass,11,11,11,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,5187.0208,469.2223,11.05451,faster,
+nn.functional.binary_cross_entropy_with_logits,,pass,pass,pass,26,26,26,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,5220.5868,565.3542,9.23419,faster,
+nn.functional.celu,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,5756.5833,181.7431,31.67429,faster,
+nn.functional.channel_shuffle,,NotImplementedError,NotImplementedError,pass,0,0,3,mps,,1,"[[2, 6, 8, 8]]",NotImplementedError,pass,materialized,,51.2152,,unpaired,MPS FP64 GPU implementation missing for aten.channel_shuffle.default
+nn.functional.conv1d,,pass,pass,pass,10,10,10,mps,,2,"[[2, 4, 8], [2, 2, 3], [2]]",pass,pass,materialized,210.1979,45.309,4.63921,faster,
+nn.functional.conv2d,,pass,pass,pass,30,30,30,mps,,2,"[[2, 4, 8, 8], [2, 2, 3, 3], [2]]",pass,pass,materialized,235.2466,56.6492,4.15269,faster,
+nn.functional.conv3d,,pass,pass,pass,20,20,20,mps,,2,"[[1, 1, 4, 4, 4], [1, 1, 4, 4, 4], [1]]",pass,pass,materialized,263.5833,70.6701,3.72977,faster,
+nn.functional.conv_transpose1d,,pass,pass,pass,10,10,10,mps,,0,"[[1, 3, 4], [3, 3, 3], [3]]",pass,pass,materialized,286.625,75.1285,3.81513,faster,
+nn.functional.conv_transpose2d,,pass,pass,pass,12,12,12,mps,,2,"[[2, 2, 4, 4], [2, 2, 4, 5], [4]]",pass,pass,materialized,246.3056,70.4479,3.49628,faster,
+nn.functional.conv_transpose3d,,pass,pass,pass,10,10,10,mps,,2,"[[2, 2, 4, 4, 4], [2, 2, 4, 5, 6], [4]]",pass,pass,materialized,372.8785,192.132,1.94074,faster,
+nn.functional.cosine_embedding_loss,,pass,NotImplementedError,pass,6,0,6,mps,,0,"[[5, 5], [5, 5], [5]]",NotImplementedError,pass,materialized,,580.9167,,unpaired,MPS FP64 GPU implementation missing for aten.sqrt_.default
+nn.functional.cosine_similarity,,pass,pass,pass,9,9,9,mps,,0,"[[5, 5], [5, 5]]",pass,pass,materialized,11896.5972,584.2361,20.36265,faster,
+nn.functional.cross_entropy,,pass,pass,pass,21,21,21,mps,,1,"[[2, 3], [2, 3]]",pass,pass,materialized,7596.7952,391.559,19.40141,faster,
+nn.functional.ctc_loss,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten._ctc_loss.default,1,"[[50, 16, 20], [16, 30], [16], [16]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._ctc_loss.Tensor
+nn.functional.dropout,,AssertionError,NotImplementedError,NotImplementedError,2,2,2,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+nn.functional.dropout2d,,AssertionError,NotImplementedError,NotImplementedError,2,2,2,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,0,"[[5, 5, 5]]",pass,pass,alias,217.0764,216.7292,1.0016,"alias, empty or host result",
+nn.functional.dropout3d,,AssertionError,NotImplementedError,NotImplementedError,2,2,2,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,0,"[[5, 5, 5, 5]]",pass,pass,alias,263.2013,230.5521,1.14161,"alias, empty or host result",
+nn.functional.elu,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,4731.2258,225.3507,20.99495,faster,
+nn.functional.embedding,,pass,NotImplementedError,pass,10,5,10,mps,,2,"[[10, 5], [5, 5]]",pass,pass,materialized,88.9202,55.4896,1.60247,faster,
+nn.functional.embedding_bag,,pass,NotImplementedError,pass,49,0,49,mps,,3,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,1110.9514,,unpaired,MPS FP64 GPU implementation missing for aten._embedding_bag_forward_only.default
+nn.functional.feature_alpha_dropout,with_train,AssertionError,NotImplementedError,NotImplementedError,1,1,1,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,3,"[[5, 5, 5, 5, 5]]",pass,pass,alias,212.5,214.309,0.99156,"alias, empty or host result",
+nn.functional.feature_alpha_dropout,without_train,pass,pass,pass,10,10,10,mps,,0,"[[5, 5]]",pass,pass,alias,211.8472,213.0104,0.99454,"alias, empty or host result",
+nn.functional.fractional_max_pool2d,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.fractional_max_pool2d.default,0,"[[1, 3, 9, 9]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.fractional_max_pool2d.default
+nn.functional.fractional_max_pool3d,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.fractional_max_pool3d.default,0,"[[2, 3, 5, 5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.fractional_max_pool3d.default
+nn.functional.gaussian_nll_loss,,pass,NotImplementedError,pass,324,0,324,mps,,0,"[[5], [5], [5]]",NotImplementedError,pass,materialized,,599.1492,,unpaired,MPS FP64 GPU implementation missing for aten.clamp_.default
+nn.functional.gelu,,pass,pass,pass,8,8,8,mps,,0,"[[10, 10]]",pass,pass,materialized,339.9027,85.0833,3.99494,faster,
+nn.functional.glu,,pass,NotImplementedError,pass,46,0,46,mps,,2,"[[8, 2]]",NotImplementedError,pass,materialized,,194.7743,,unpaired,MPS FP64 GPU implementation missing for aten.glu.default
+nn.functional.grid_sample,,RuntimeError,NotImplementedError,NotImplementedError,24,18,18,mps,MPS FP64 GPU implementation missing for aten.grid_sampler_3d.default,0,"[[2, 3, 5, 5], [2, 5, 5, 2]]",pass,pass,materialized,7669.25,1831.1354,4.18825,faster,
+nn.functional.group_norm,,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[1, 6, 3], [6], [6]]",NotImplementedError,pass,materialized,,201.0,,unpaired,MPS FP64 GPU implementation missing for aten.native_group_norm.default
+nn.functional.hardshrink,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5]]",pass,pass,materialized,234.2674,144.0521,1.62627,faster,
+nn.functional.hardsigmoid,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,578.8125,425.7258,1.35959,faster,
+nn.functional.hardswish,,pass,pass,pass,4,4,4,mps,,0,"[[10, 10]]",pass,pass,materialized,638.5208,462.3508,1.38103,faster,
+nn.functional.hardtanh,,pass,pass,pass,5,5,5,mps,,0,"[[5, 5]]",pass,pass,materialized,438.5069,349.6458,1.25415,faster,
+nn.functional.hinge_embedding_loss,,pass,pass,pass,10,10,10,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,425.8646,256.6841,1.6591,faster,
+nn.functional.huber_loss,,pass,pass,pass,9,9,9,mps,,3,"[[5, 5], [5, 5]]",pass,pass,materialized,339.3229,165.257,2.0533,faster,
+nn.functional.instance_norm,,pass,pass,pass,9,9,9,mps,,,,excluded,excluded,,,,,unpaired,ValueError: mutates input or running state
+nn.functional.interpolate,area,RuntimeError,pass,pass,0,22,22,mps,,0,"[[2, 3, 4]]",pass,pass,materialized,315.2153,56.1007,5.61874,faster,
+nn.functional.interpolate,bicubic,pass,pass,pass,24,24,24,mps,,2,"[[2, 3, 4, 5]]",pass,pass,materialized,9990.6354,286.2882,34.89713,faster,
+nn.functional.interpolate,bilinear,pass,NotImplementedError,pass,24,0,24,mps,,2,"[[2, 3, 4, 5]]",NotImplementedError,pass,materialized,,107.8091,,unpaired,MPS FP64 GPU implementation missing for aten.upsample_bilinear2d.default
+nn.functional.interpolate,linear,pass,NotImplementedError,pass,18,0,18,mps,,0,"[[2, 3, 4]]",NotImplementedError,pass,materialized,,100.868,,unpaired,MPS FP64 GPU implementation missing for aten.upsample_linear1d.default
+nn.functional.interpolate,nearest,pass,pass,pass,22,22,22,mps,,0,"[[2, 3, 4]]",pass,pass,materialized,267.5208,226.9236,1.1789,faster,
+nn.functional.interpolate,nearest-exact,pass,pass,pass,22,22,22,mps,,0,"[[2, 3, 4]]",pass,pass,materialized,285.6771,236.3055,1.20893,faster,
+nn.functional.interpolate,trilinear,pass,NotImplementedError,pass,24,0,24,mps,,0,"[[2, 3, 4, 4, 4]]",NotImplementedError,pass,materialized,,197.8333,,unpaired,MPS FP64 GPU implementation missing for aten.upsample_trilinear3d.default
+nn.functional.kl_div,,pass,pass,pass,16,16,16,mps,,0,"[[2], [2]]",pass,pass,materialized,127.7362,55.5382,2.29997,faster,
+nn.functional.l1_loss,,pass,pass,pass,6,6,6,mps,,1,"[[5], [5]]",pass,pass,materialized,116.9792,63.0417,1.85558,faster,
+nn.functional.layer_norm,,pass,pass,pass,6,6,6,mps,,1,"[[2, 2, 3], [2, 3], [2, 3]]",pass,pass,materialized,740.9688,500.1875,1.48138,faster,
+nn.functional.leaky_relu,,pass,pass,pass,9,9,9,mps,,0,"[[10, 10]]",pass,pass,materialized,187.6354,87.9237,2.13407,faster,
+nn.functional.linear,,pass,NotImplementedError,pass,18,11,18,mps,,2,"[[8, 3], [4, 3], [4]]",pass,pass,materialized,420.8507,200.4167,2.09988,faster,
+nn.functional.local_response_norm,,pass,pass,pass,11,11,11,mps,,0,"[[1, 6, 3]]",pass,pass,materialized,5230.6215,220.5833,23.71268,faster,
+nn.functional.logsigmoid,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,323.2952,246.4202,1.31197,faster,
+nn.functional.margin_ranking_loss,,pass,pass,pass,24,24,24,mps,,0,"[[], [], []]",pass,pass,materialized,226.2327,125.7152,1.79956,faster,
+nn.functional.max_pool1d,,pass,pass,pass,864,864,864,mps,,0,"[[1, 2, 3]]",pass,pass,materialized,290.2882,59.118,4.91032,faster,
+nn.functional.max_pool2d,,pass,pass,pass,1440,1440,1440,mps,,0,"[[1, 2, 3, 6]]",pass,pass,materialized,249.3125,54.5694,4.56872,faster,
+nn.functional.max_pool3d,,pass,pass,pass,576,576,576,mps,,0,"[[1, 2, 3, 6, 5]]",pass,pass,materialized,235.3958,47.1527,4.9922,faster,
+nn.functional.max_unpool1d,,pass,pass,pass,144,144,144,mps,,1,"[[1, 2, 2], [1, 2, 2]]",pass,pass,materialized,511.9965,387.6423,1.3208,faster,
+nn.functional.max_unpool1d,grad,pass,pass,pass,13,18,18,mps,,0,"[[1, 2, 1], [1, 2, 1]]",pass,pass,materialized,623.066,379.1112,1.64349,faster,
+nn.functional.max_unpool2d,,pass,pass,pass,288,288,288,mps,,1,"[[1, 2, 2, 4], [1, 2, 2, 4]]",pass,pass,materialized,525.2014,360.0417,1.45872,faster,
+nn.functional.max_unpool2d,grad,pass,pass,pass,33,35,35,mps,,0,"[[1, 2, 1, 2], [1, 2, 1, 2]]",pass,pass,materialized,488.0383,363.4444,1.34281,faster,
+nn.functional.max_unpool3d,,pass,pass,pass,96,96,96,mps,,1,"[[1, 2, 2, 4, 3], [1, 2, 2, 4, 3]]",pass,pass,materialized,512.7188,370.9931,1.38202,faster,
+nn.functional.max_unpool3d,grad,pass,pass,pass,12,9,9,mps,,2,"[[1, 2, 1, 3, 2], [1, 2, 1, 3, 2]]",pass,pass,materialized,494.8924,388.6493,1.27336,faster,
+nn.functional.mish,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,6271.2952,410.0555,15.29377,faster,
+nn.functional.mse_loss,,pass,pass,pass,6,6,6,mps,,1,"[[5], [5]]",pass,pass,materialized,307.1216,190.2083,1.61466,faster,
+nn.functional.multi_head_attention_forward,,AssertionError,NotImplementedError,NotImplementedError,1,1,1,mps,MPS FP64 GPU implementation missing for aten.bernoulli_.float,0,"[[3, 2], [3, 2], [3, 2], [6, 2], [6], [2], [2], [2, 2], [2]]",pass,pass,materialized,8857.5556,1808.5902,4.89749,faster,
+nn.functional.multi_margin_loss,,NotImplementedError,NotImplementedError,pass,0,0,10,mps,,3,"[[5, 10], [5]]",pass,pass,materialized,775.2673,540.0035,1.43567,faster,
+nn.functional.multilabel_margin_loss,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.multilabel_margin_loss_forward.default,2,"[[10, 5], [10, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.multilabel_margin_loss_forward.default
+nn.functional.multilabel_soft_margin_loss,,pass,pass,pass,4,4,4,mps,,3,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,5731.7917,964.4548,5.94304,faster,
+nn.functional.nll_loss,,pass,pass,pass,61,61,61,mps,,1,"[[2, 3], [2], [3]]",pass,pass,materialized,456.2882,359.5243,1.26914,faster,
+nn.functional.normalize,,pass,pass,pass,8,8,8,mps,,1,"[[2, 3, 4, 5]]",pass,pass,materialized,7477.2014,439.7847,17.00196,faster,
+nn.functional.one_hot,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+nn.functional.pad,circular,pass,pass,pass,8,8,8,mps,,2,"[[1, 3, 3]]",pass,pass,materialized,253.1701,117.0521,2.16288,faster,
+nn.functional.pad,constant,pass,pass,pass,51,51,51,mps,,0,"[[1, 3, 3]]",pass,pass,materialized,54.6632,52.2396,1.04639,within threshold,
+nn.functional.pad,reflect,pass,pass,pass,12,12,12,mps,,0,"[[1, 3]]",pass,pass,materialized,254.7638,226.5348,1.12461,faster,
+nn.functional.pad,replicate,pass,pass,pass,12,12,12,mps,,0,"[[1, 3]]",pass,pass,materialized,218.1423,183.5625,1.18838,faster,
+nn.functional.pad,replicate_negative,pass,pass,pass,6,6,6,mps,,2,"[[5, 6, 4, 4]]",pass,pass,materialized,358.7674,325.882,1.10091,faster,
+nn.functional.pairwise_distance,,pass,pass,pass,7,7,7,mps,,1,"[[2, 3], [2, 3]]",pass,pass,materialized,3028.8438,234.8646,12.89613,faster,
+nn.functional.pdist,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten._pdist_forward.default,3,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._pdist_forward.default
+nn.functional.pixel_shuffle,,pass,NotImplementedError,pass,5,0,5,mps,,0,"[[1, 9, 2, 2]]",NotImplementedError,pass,materialized,,26.2152,,unpaired,MPS FP64 GPU implementation missing for aten.pixel_shuffle.default
+nn.functional.pixel_unshuffle,,pass,NotImplementedError,pass,5,0,5,mps,,0,"[[1, 1, 6, 6]]",NotImplementedError,pass,materialized,,28.1008,,unpaired,MPS FP64 GPU implementation missing for aten.pixel_unshuffle.default
+nn.functional.poisson_nll_loss,,pass,pass,pass,72,72,72,mps,,0,"[[5], [5]]",pass,pass,materialized,5238.4479,362.9757,14.43195,faster,
+nn.functional.prelu,,pass,pass,pass,25,25,25,mps,,0,"[[20], []]",pass,pass,materialized,182.184,78.1458,2.33133,faster,
+nn.functional.relu,,pass,pass,pass,4,4,4,mps,,3,"[[5, 10, 5]]",pass,pass,materialized,32.8646,23.0868,1.42352,faster,
+nn.functional.relu6,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,485.0208,329.3507,1.47266,faster,
+nn.functional.rms_norm,,pass,pass,pass,6,6,6,mps,,1,"[[2, 2, 3], [2, 3]]",pass,pass,materialized,427.9097,238.3993,1.79493,faster,
+nn.functional.rrelu,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.rrelu_with_noise.default,0,[[20]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.rrelu_with_noise.default
+nn.functional.scaled_dot_product_attention,,AssertionError,NotImplementedError,NotImplementedError,2,0,0,,MPS FP64 GPU implementation missing for aten._scaled_dot_product_attention_math_for_mps.default,0,"[[4, 3, 8], [4, 6, 8], [4, 6, 8]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._scaled_dot_product_attention_math_for_mps.default
+nn.functional.selu,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,4712.3229,225.684,20.88018,faster,
+nn.functional.silu,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,439.7743,353.1841,1.24517,faster,
+nn.functional.silu,complex,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+nn.functional.smooth_l1_loss,,pass,pass,pass,8,8,8,mps,,1,"[[5], [5]]",pass,pass,materialized,443.8784,242.2223,1.83253,faster,
+nn.functional.soft_margin_loss,,pass,pass,pass,6,6,6,mps,,1,"[[5], [5]]",pass,pass,materialized,6220.8923,346.0903,17.97476,faster,
+nn.functional.softmin,,pass,pass,pass,7,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,6109.434,296.6076,20.5977,faster,
+nn.functional.softmin,with_dtype,TypeError,pass,pass,0,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,6040.4827,296.566,20.36809,faster,
+nn.functional.softplus,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,4918.2917,303.1667,16.22306,faster,
+nn.functional.softshrink,,pass,pass,pass,5,5,5,mps,,0,"[[5, 5]]",pass,pass,materialized,282.7222,90.1528,3.13603,faster,
+nn.functional.softsign,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,118.0417,53.9583,2.18764,faster,
+nn.functional.tanhshrink,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,82.2396,51.9479,1.58312,faster,
+nn.functional.threshold,,pass,pass,pass,4,4,4,mps,,3,"[[5, 5, 5]]",pass,pass,materialized,246.6805,183.7952,1.34215,faster,
+nn.functional.triplet_margin_loss,,pass,pass,pass,7,7,7,mps,,0,"[[5, 10], [5, 10], [5, 10]]",pass,pass,materialized,10677.2708,705.6319,15.1315,faster,
+nn.functional.triplet_margin_with_distance_loss,,pass,pass,pass,7,7,7,mps,,0,"[[5, 10], [5, 10], [5, 10]]",pass,pass,materialized,10818.5104,701.6562,15.41853,faster,
+nn.functional.unfold,,pass,NotImplementedError,pass,163,0,163,mps,,0,"[[0, 1, 5, 5]]",NotImplementedError,pass,empty,,302.1076,,unpaired,MPS FP64 GPU implementation missing for aten.im2col.default
+nn.functional.upsample_bilinear,,pass,NotImplementedError,pass,4,0,4,mps,,0,"[[2, 3, 4, 4]]",NotImplementedError,pass,materialized,,151.8056,,unpaired,MPS FP64 GPU implementation missing for aten.upsample_bilinear2d.default
+nn.functional.upsample_nearest,,pass,pass,pass,12,12,12,mps,,0,"[[2, 3, 4]]",pass,pass,materialized,277.4618,239.3784,1.15909,faster,
+nonzero,,pass,pass,pass,24,24,24,mps,,0,[[]],pass,pass,empty,287.0729,259.875,1.10466,"alias, empty or host result",
+nonzero_static,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.nonzero_static.default,0,[[]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.nonzero_static.default
+norm,,pass,pass,pass,42,42,42,mps,,0,"[[5, 5]]",pass,pass,materialized,5820.684,171.9098,33.85895,faster,
+norm,fro,pass,pass,pass,3,3,3,mps,,0,"[[5, 5]]",pass,pass,materialized,219.2848,121.7604,1.80095,faster,
+norm,inf,pass,pass,pass,4,4,4,mps,,0,"[[5, 5]]",pass,pass,materialized,118.4132,97.7396,1.21152,faster,
+norm,nuc,NotImplementedError,NotImplementedError,pass,0,0,2,mps,,1,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,2321.3646,,unpaired,MPS FP64 GPU implementation missing for aten._linalg_svd.default
+normal,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+normal,in_place,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+normal,number_mean,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+ones,,pass,pass,pass,2,2,2,mps,,0,[],pass,pass,materialized,68.6736,66.1111,1.03876,within threshold,
+ones_like,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,61.066,60.7188,1.00572,within threshold,
+ormqr,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.ormqr.default,0,"[[5, 5], [5], [5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.ormqr.default
+outer,,pass,pass,pass,1,1,1,mps,,0,"[[5], [10]]",pass,pass,materialized,81.9931,34.7153,2.36188,faster,
+pca_lowrank,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_qr.default,3,"[[4, 2], [4, 2]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+permute,,pass,pass,pass,4,4,4,mps,,0,"[[1, 2, 3, 4]]",pass,pass,alias,20.4688,5.7778,3.54269,"alias, empty or host result",
+permute_copy,,pass,pass,pass,4,4,4,mps,,0,"[[1, 2, 3, 4]]",pass,pass,materialized,80.8264,57.2466,1.4119,faster,
+pinverse,,pass,NotImplementedError,pass,8,0,8,mps,,0,"[[5, 5]]",NotImplementedError,pass,materialized,,2315.4375,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_pinv.atol_rtol_tensor
+polar,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,230.1667,94.9826,2.42325,faster,
+polygamma,polygamma_n_0,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+polygamma,polygamma_n_1,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+polygamma,polygamma_n_2,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+polygamma,polygamma_n_3,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+polygamma,polygamma_n_4,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+positive,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,alias,0.7639,0.9965,0.7666,"alias, empty or host result",
+pow,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,81.7986,62.3438,1.31206,faster,
+prod,,pass,pass,pass,39,39,39,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,33.434,29.8923,1.11848,faster,
+put,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.put.default,0,"[[3, 3], [3], [3]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.put.default
+qr,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_qr.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+quantile,,pass,NotImplementedError,pass,60,0,60,mps,,0,[[]],NotImplementedError,pass,materialized,,508.9202,,unpaired,MPS FP64 GPU implementation missing for aten.ceil_.default
+rad2deg,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,90.1424,43.6077,2.06712,faster,
+rand_like,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+randint,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+randint_like,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+randn,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+randn_like,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+ravel,,pass,pass,pass,3,3,3,mps,,0,"[[5, 5, 5]]",pass,pass,alias,17.3403,5.2014,3.33376,"alias, empty or host result",
+real,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,alias,0.7223,0.9306,0.77613,"alias, empty or host result",
+reciprocal,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,30.0695,20.6667,1.45498,faster,
+remainder,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,6083.7465,167.3055,36.3631,faster,
+renorm,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,6278.5625,405.6354,15.47834,faster,
+repeat,,pass,pass,pass,40,40,40,mps,,3,[[2]],pass,pass,empty,17.5764,16.9028,1.03986,"alias, empty or host result",
+repeat_interleave,,pass,pass,pass,5,5,5,mps,,3,"[[2, 3, 4], [3]]",pass,pass,materialized,391.5034,380.5694,1.02873,within threshold,
+reshape,,pass,pass,pass,7,7,7,mps,,3,"[[50, 5]]",pass,pass,alias,18.9444,5.8576,3.23417,"alias, empty or host result",
+reshape_as,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5], [25, 5]]",pass,pass,alias,20.2987,6.5312,3.10793,"alias, empty or host result",
+resize_,,pass,NotImplementedError,pass,3,0,3,mps,,0,"[[5, 5, 5]]",NotImplementedError,pass,materialized,,39.2848,,unpaired,MPS FP64 GPU implementation missing for aten.resize_.default
+resize_as_,,pass,NotImplementedError,pass,3,0,3,mps,,0,"[[5, 5, 5], [5, 5, 5]]",NotImplementedError,pass,materialized,,36.2778,,unpaired,MPS FP64 GPU implementation missing for aten.resize_as_.default
+resolve_conj,,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,alias,0.75,0.9479,0.79121,"alias, empty or host result",
+resolve_neg,,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,alias,0.7847,0.9306,0.84329,"alias, empty or host result",
+roll,,pass,pass,pass,17,17,17,mps,,1,"[[5, 5, 5]]",pass,pass,materialized,34.8021,34.5382,1.00764,within threshold,
+rot90,,pass,pass,pass,34,34,34,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,88.8854,70.5243,1.26035,faster,
+round,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,33.875,25.8819,1.30883,faster,
+round,decimals_0,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,54.8194,45.125,1.21483,faster,
+round,decimals_3,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,201.2848,87.9445,2.28877,faster,
+round,decimals_neg_3,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,188.9896,79.3646,2.38128,faster,
+rsqrt,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,35.1319,22.1493,1.58614,faster,
+rsub,,pass,pass,pass,11,11,11,mps,,3,"[[10, 5], []]",pass,pass,materialized,54.1388,32.3854,1.6717,faster,
+scalar_tensor,,pass,pass,pass,3,3,3,mps,,0,[],pass,pass,materialized,40.8993,35.8542,1.14071,faster,
+scatter,,pass,NotImplementedError,pass,27,0,27,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,414.5659,,unpaired,MPS FP64 GPU implementation missing for aten.scatter.src
+scatter_add,,pass,NotImplementedError,pass,7,0,7,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,357.1633,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_add.default
+scatter_reduce,amax,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,392.3715,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,amin,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,397.0903,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,mean,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,391.1737,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,prod,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,339.6771,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+scatter_reduce,sum,pass,NotImplementedError,pass,21,0,21,mps,,0,"[[10, 5], [5, 5], [5, 5]]",NotImplementedError,pass,materialized,,426.6181,,unpaired,MPS FP64 GPU implementation missing for aten.scatter_reduce.two
+searchsorted,,pass,NotImplementedError,pass,288,0,288,mps,,0,"[[0], [0]]",NotImplementedError,pass,empty,,9.2708,,unpaired,MPS FP64 GPU implementation missing for aten.searchsorted.Tensor
+select,,pass,pass,pass,6,6,6,mps,,0,"[[5, 5, 5]]",pass,pass,alias,15.8646,5.1667,3.07056,"alias, empty or host result",
+select_scatter,,pass,pass,pass,5,5,5,mps,,0,"[[5, 5, 5], [5, 5]]",pass,pass,materialized,212.7013,45.2292,4.70275,faster,
+sgn,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,48.8473,36.1562,1.351,faster,
+short,,pass,pass,pass,5,5,5,mps,,2,"[[2, 3]]",pass,pass,materialized,45.4931,43.5521,1.04457,within threshold,
+sigmoid,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,291.3611,159.2535,1.82954,faster,
+sign,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,26.2986,18.25,1.44102,faster,
+signal.windows.bartlett,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,18.6771,17.7188,1.05409,"alias, empty or host result",
+signal.windows.blackman,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,21.5798,20.9271,1.03119,"alias, empty or host result",
+signal.windows.cosine,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,18.7569,17.7014,1.05963,"alias, empty or host result",
+signal.windows.exponential,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,20.5174,18.9792,1.08105,"alias, empty or host result",
+signal.windows.gaussian,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,19.3091,19.059,1.01312,"alias, empty or host result",
+signal.windows.general_cosine,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,19.7847,19.9444,0.99199,"alias, empty or host result",
+signal.windows.general_hamming,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,20.125,19.6562,1.02385,"alias, empty or host result",
+signal.windows.hamming,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,21.0208,20.066,1.04758,"alias, empty or host result",
+signal.windows.hann,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,20.4792,20.9931,0.97552,"alias, empty or host result",
+signal.windows.kaiser,,pass,NotImplementedError,pass,12,4,12,mps,,0,[],pass,pass,empty,22.0243,19.7986,1.11242,"alias, empty or host result",
+signal.windows.nuttall,,pass,pass,pass,12,12,12,mps,,0,[],pass,pass,empty,19.3785,18.7118,1.03563,"alias, empty or host result",
+signbit,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,32.0729,21.4202,1.49732,faster,
+sin,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,122.3542,59.7882,2.04646,faster,
+sinc,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,4796.8367,401.4792,11.94791,faster,
+sinh,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,63.2743,61.2708,1.0327,within threshold,
+slice,,pass,pass,pass,4,4,4,mps,,1,"[[20, 30, 40]]",pass,pass,alias,18.9653,7.1493,2.65273,"alias, empty or host result",
+slice_scatter,,pass,pass,pass,9,9,9,mps,,0,"[[20, 20, 20], [20, 20, 20]]",pass,pass,materialized,75.7812,37.0694,2.04431,faster,
+softmax,,pass,pass,pass,7,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,5968.1528,352.5659,16.92776,faster,
+softmax,with_dtype,TypeError,pass,pass,0,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,5966.3438,338.1042,17.64647,faster,
+sort,,pass,pass,pass,58,58,58,mps,,0,[[8000]],pass,pass,materialized,148.9306,67.6007,2.20309,faster,
+sparse.mm,reduce,ValueError,ValueError,ValueError,0,0,0,,sample outside dense real audit,,,excluded,excluded,,,,,unpaired,ValueError: no eligible dense real input among the first four samples
+sparse.sampled_addmm,,ValueError,ValueError,ValueError,0,0,0,,sample outside dense real audit,,,excluded,excluded,,,,,unpaired,ValueError: no eligible dense real input among the first four samples
+special.airy_ai,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.special_airy_ai.default,0,[[20]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.special_airy_ai.default
+special.bessel_j0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,134.4758,,unpaired,MPS FP64 GPU implementation missing for aten.special_bessel_j0.default
+special.bessel_j1,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,130.1945,,unpaired,MPS FP64 GPU implementation missing for aten.special_bessel_j1.default
+special.bessel_y0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,132.7743,,unpaired,MPS FP64 GPU implementation missing for aten.special_bessel_y0.default
+special.bessel_y1,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,136.6319,,unpaired,MPS FP64 GPU implementation missing for aten.special_bessel_y1.default
+special.chebyshev_polynomial_t,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,182.3889,,unpaired,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_t.default
+special.chebyshev_polynomial_u,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,179.7431,,unpaired,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_u.default
+special.chebyshev_polynomial_v,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,159.4375,,unpaired,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_v.default
+special.chebyshev_polynomial_w,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,147.3542,,unpaired,MPS FP64 GPU implementation missing for aten.special_chebyshev_polynomial_w.default
+special.entr,,pass,pass,pass,2,2,2,mps,,0,[[20]],pass,pass,materialized,4756.809,275.9375,17.23872,faster,
+special.erfcx,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,151.1632,,unpaired,MPS FP64 GPU implementation missing for aten.special_erfcx.default
+special.hermite_polynomial_h,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,29.3402,,unpaired,MPS FP64 GPU implementation missing for aten.special_hermite_polynomial_h.default
+special.hermite_polynomial_he,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,28.7431,,unpaired,MPS FP64 GPU implementation missing for aten.special_hermite_polynomial_he.default
+special.i0e,,pass,NotImplementedError,pass,2,0,2,mps,,0,[[5]],NotImplementedError,pass,materialized,,121.2882,,unpaired,MPS FP64 GPU implementation missing for aten.special_i0e.default
+special.i1,,pass,NotImplementedError,pass,2,0,2,mps,,0,[[5]],NotImplementedError,pass,materialized,,88.2465,,unpaired,MPS FP64 GPU implementation missing for aten.special_i1.default
+special.i1e,,pass,NotImplementedError,pass,2,0,2,mps,,0,[[5]],NotImplementedError,pass,materialized,,77.1216,,unpaired,MPS FP64 GPU implementation missing for aten.special_i1e.default
+special.laguerre_polynomial_l,,NotImplementedError,NotImplementedError,pass,0,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,148.5243,,unpaired,MPS FP64 GPU implementation missing for aten.special_laguerre_polynomial_l.default
+special.legendre_polynomial_p,,NotImplementedError,NotImplementedError,pass,0,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,137.2292,,unpaired,MPS FP64 GPU implementation missing for aten.special_legendre_polynomial_p.default
+special.log_ndtr,,NotImplementedError,NotImplementedError,pass,0,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,415.8923,,unpaired,MPS FP64 GPU implementation missing for aten.special_log_ndtr.default
+special.modified_bessel_i0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,131.6146,,unpaired,MPS FP64 GPU implementation missing for aten.special_modified_bessel_i0.default
+special.modified_bessel_i1,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,132.5417,,unpaired,MPS FP64 GPU implementation missing for aten.special_modified_bessel_i1.default
+special.modified_bessel_k0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,84.1285,,unpaired,MPS FP64 GPU implementation missing for aten.special_modified_bessel_k0.default
+special.modified_bessel_k1,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,86.6354,,unpaired,MPS FP64 GPU implementation missing for aten.special_modified_bessel_k1.default
+special.ndtr,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,266.2014,46.5139,5.72305,faster,
+special.ndtri,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.special_ndtri.default,0,[[20]],NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.special_ndtri.default
+special.polygamma,special_polygamma_n_0,pass,NotImplementedError,AssertionError,10,0,0,mps,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)",0,"[[5, 5]]",NotImplementedError,AssertionError,,,,,unpaired,"Tensor-likes are not close!
+
+Mismatched elements: 2 / 25 (8.0%)
+Greatest absolute difference: 2.276309141180377e-10 at index (2, 3) (up to 1e-12 allowed)
+Greatest relative difference: 3.6343964110747887e-10 at index (2, 3) (up to 1e-10 allowed)"
+special.scaled_modified_bessel_k0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,74.8958,,unpaired,MPS FP64 GPU implementation missing for aten.special_scaled_modified_bessel_k0.default
+special.scaled_modified_bessel_k1,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,74.1493,,unpaired,MPS FP64 GPU implementation missing for aten.special_scaled_modified_bessel_k1.default
+special.shifted_chebyshev_polynomial_t,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,144.8438,,unpaired,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_t.default
+special.shifted_chebyshev_polynomial_u,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,122.6007,,unpaired,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_u.default
+special.shifted_chebyshev_polynomial_v,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,149.4375,,unpaired,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_v.default
+special.shifted_chebyshev_polynomial_w,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,152.1285,,unpaired,MPS FP64 GPU implementation missing for aten.special_shifted_chebyshev_polynomial_w.default
+special.spherical_bessel_j0,,pass,NotImplementedError,pass,3,0,3,mps,,0,[[20]],NotImplementedError,pass,materialized,,141.5,,unpaired,MPS FP64 GPU implementation missing for aten.special_spherical_bessel_j0.default
+special.xlog1py,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,4895.9827,422.0417,11.60071,faster,
+special.zeta,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 5], []]",NotImplementedError,pass,materialized,,64.8646,,unpaired,MPS FP64 GPU implementation missing for aten.special_zeta.default
+split,,pass,pass,pass,2,2,2,mps,,0,"[[5, 5, 5]]",pass,pass,alias,20.8612,19.0173,1.09696,"alias, empty or host result",
+split,list_args,pass,pass,pass,3,3,3,mps,,0,"[[5, 5, 5]]",pass,pass,alias,24.007,23.9653,1.00174,"alias, empty or host result",
+split_with_sizes,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,alias,22.8889,22.2048,1.03081,"alias, empty or host result",
+split_with_sizes_copy,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,122.4236,86.4375,1.41632,faster,
+sqrt,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,31.184,22.632,1.37787,faster,
+square,,pass,pass,pass,3,3,3,mps,,0,[[20]],pass,pass,materialized,47.5868,25.0903,1.89662,faster,
+squeeze,,pass,pass,pass,8,8,8,mps,,0,"[[5, 1, 5, 1]]",pass,pass,alias,14.0695,4.4965,3.12899,"alias, empty or host result",
+squeeze,multiple,pass,pass,pass,6,6,6,mps,,1,"[[5, 1, 5, 1]]",pass,pass,alias,17.9757,17.2292,1.04333,"alias, empty or host result",
+squeeze_copy,,pass,pass,pass,8,8,8,mps,,0,"[[5, 1, 5, 1]]",pass,pass,materialized,64.7673,48.3611,1.33924,faster,
+stack,,pass,pass,pass,9,9,9,mps,,2,"[[1, 2, 1, 4], [1, 2, 1, 4], [1, 2, 1, 4]]",pass,pass,materialized,43.5521,41.3507,1.05324,within threshold,
+std,,pass,pass,pass,14,14,14,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,234.0729,158.1875,1.47972,faster,
+std,unbiased,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,materialized,155.2674,75.1285,2.06669,faster,
+std_mean,,pass,pass,pass,14,14,14,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,184.4305,82.2604,2.24203,faster,
+std_mean,unbiased,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,materialized,146.6598,75.0763,1.95348,faster,
+stft,,pass,NotImplementedError,pass,9,0,9,mps,,3,"[[10, 100]]",NotImplementedError,pass,materialized,,269.5382,,unpaired,MPS complex128 operation missing for aten.transpose_.default
+sub,,pass,pass,pass,11,11,11,mps,,3,"[[10, 5], []]",pass,pass,materialized,44.5556,26.3958,1.68798,faster,
+sum,,pass,pass,pass,20,20,20,mps,,0,[[]],pass,pass,materialized,24.2188,19.809,1.22261,faster,
+sum_to_size,,pass,pass,pass,16,16,16,mps,,1,[[5]],pass,pass,materialized,55.7674,44.9688,1.24014,faster,
+svd,,pass,NotImplementedError,AssertionError,216,0,32,mps,"Tensor-likes are not close!
+
+Mismatched elements: 6 / 9 (66.7%)
+Greatest absolute difference: 1.358615747299989 at index (1, 1) (up to 1e-12 allowed)
+Greatest relative difference: 2.000000000000002 at index (2, 1) (up to 1e-10 allowed)
+
+The failure occurred for item [0]",0,"[[0, 0]]",NotImplementedError,pass,empty,,29.809,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_svd.default
+svd_lowrank,,NotImplementedError,NotImplementedError,NotImplementedError,0,0,0,,MPS FP64 GPU implementation missing for aten.linalg_qr.default,3,"[[4, 2], [4, 2]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten.linalg_qr.default
+t,,pass,pass,pass,3,3,3,mps,,0,"[[1, 2]]",pass,pass,alias,13.4028,4.434,3.02274,"alias, empty or host result",
+t_copy,,pass,pass,pass,3,3,3,mps,,0,"[[1, 2]]",pass,pass,materialized,58.6354,45.4792,1.28928,faster,
+take,,NotImplementedError,NotImplementedError,pass,0,0,10,mps,,0,"[[3, 3], [3]]",NotImplementedError,pass,materialized,,92.2188,,unpaired,"The operator 'aten::take' is not currently implemented for the MPS device. If you want this op to be considered for addition please comment on https://github.com/pytorch/pytorch/issues/141287 and mention use-case, that resulted in missing op as well as commit hash 70d99e998b4955e"
+take_along_dim,,pass,pass,pass,5,5,5,mps,,0,"[[5, 5], [5, 5]]",pass,pass,materialized,117.7465,98.257,1.19835,faster,
+tan,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,129.4167,109.3854,1.18313,faster,
+tanh,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,83.2674,50.3924,1.65238,faster,
+tensor_split,,pass,pass,pass,10,10,10,mps,,0,"[[5, 5, 5], [3]]",pass,pass,alias,64.0,16.6319,3.84802,"alias, empty or host result",
+tensordot,,pass,pass,pass,3,3,3,mps,,0,"[[2, 2, 2], [2, 2, 2]]",pass,pass,materialized,207.0938,68.6702,3.01577,faster,
+tile,,pass,pass,pass,54,54,54,mps,,2,[[2]],pass,pass,materialized,47.118,46.8611,1.00548,within threshold,
+to,,TypeError,ValueError,ValueError,0,0,0,cpu,unexpected output device: ['cpu'],0,"[[5, 5, 5, 5]]",ValueError,ValueError,,,,,unpaired,output includes a CPU tensor
+to_sparse,,pass,NotImplementedError,NotImplementedError,2,0,0,,MPS FP64 GPU implementation missing for aten._to_sparse.default,0,"[[5, 5]]",NotImplementedError,NotImplementedError,,,,,unpaired,MPS FP64 GPU implementation missing for aten._to_sparse.default
+topk,,pass,pass,pass,14,14,14,mps,,0,"[[5, 10, 5]]",pass,pass,materialized,85.3542,36.816,2.3184,faster,
+torch._scaled_mm,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+torch._scaled_mm_v2,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+torch.ops.aten._efficient_attention_forward,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+torch.ops.aten._flash_attention_forward,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+torch.ops.aten._safe_softmax.default,,pass,pass,pass,8,8,8,mps,,2,"[[2, 3, 4, 5]]",pass,pass,materialized,6008.7083,565.6493,10.62267,faster,
+trace,,pass,pass,pass,1,1,1,mps,,0,"[[5, 5]]",pass,pass,materialized,178.6528,90.8923,1.96554,faster,
+transpose,,pass,pass,pass,8,8,8,mps,,0,"[[1, 2, 3]]",pass,pass,alias,15.2188,5.1389,2.96147,"alias, empty or host result",
+transpose_copy,,pass,pass,pass,8,8,8,mps,,0,"[[1, 2, 3]]",pass,pass,materialized,72.0729,47.6423,1.51279,faster,
+trapezoid,,pass,pass,pass,9,9,9,mps,,0,"[[2, 3], [2, 3]]",pass,pass,materialized,287.8611,93.0208,3.09459,faster,
+trapz,,pass,pass,pass,9,9,9,mps,,0,"[[2, 3], [2, 3]]",pass,pass,materialized,356.1215,141.8854,2.50992,faster,
+triangular_solve,,pass,pass,pass,16,16,16,mps,,1,"[[5, 3], [5, 5]]",pass,pass,materialized,67.684,53.9271,1.2551,faster,
+tril,,pass,pass,pass,8,8,8,mps,,0,"[[10, 10]]",pass,pass,materialized,30.4202,28.2987,1.07497,within threshold,
+tril_indices,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+triu,,pass,pass,pass,8,8,8,mps,,0,"[[10, 10]]",pass,pass,materialized,31.4202,28.3507,1.10827,faster,
+triu_indices,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+true_divide,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,39.5348,21.7639,1.81653,faster,
+trunc,,pass,pass,pass,1,1,1,mps,,0,"[[20, 20]]",pass,pass,materialized,33.0763,22.9722,1.43984,faster,
+unbind,,pass,pass,pass,6,6,6,mps,,1,"[[5, 5]]",pass,pass,alias,19.2188,17.2466,1.11435,"alias, empty or host result",
+unbind_copy,,pass,pass,pass,6,6,6,mps,,1,"[[5, 5]]",pass,pass,materialized,143.4583,105.2917,1.36249,faster,
+unflatten,,pass,pass,pass,10,10,10,mps,,0,[[8]],pass,pass,alias,17.4548,5.6528,3.08785,"alias, empty or host result",
+unfold,,pass,pass,pass,22,22,22,mps,,1,"[[5, 5, 5, 5]]",pass,pass,alias,17.3889,5.4965,3.16363,"alias, empty or host result",
+unfold_copy,,pass,pass,pass,22,22,22,mps,,1,"[[5, 5, 5, 5]]",pass,pass,materialized,71.8646,55.0729,1.3049,faster,
+uniform,,stochastic_separate,stochastic_separate,stochastic_separate,0,0,0,,,,,excluded,excluded,,,,,unpaired,ValueError: stochastic input or output
+unique,,pass,NotImplementedError,pass,528,0,528,mps,,0,[[]],NotImplementedError,pass,materialized,,568.0417,,unpaired,MPS FP64 GPU implementation missing for aten._unique2.default
+unique_consecutive,,pass,NotImplementedError,pass,264,0,264,mps,,0,[[]],NotImplementedError,pass,materialized,,556.4896,,unpaired,MPS FP64 GPU implementation missing for aten.unique_consecutive.default
+unravel_index,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+unsafe_chunk,,pass,pass,pass,3,3,3,mps,,0,"[[5, 5, 5]]",pass,pass,alias,35.2188,27.0069,1.30406,"alias, empty or host result",
+unsafe_split,,pass,pass,pass,2,2,2,mps,,0,"[[5, 5, 5]]",pass,pass,alias,34.566,27.1215,1.27449,"alias, empty or host result",
+unsqueeze,,pass,pass,pass,9,9,9,mps,,0,"[[3, 4, 5]]",pass,pass,alias,15.5208,4.8646,3.19058,"alias, empty or host result",
+unsqueeze_copy,,pass,pass,pass,9,9,9,mps,,0,"[[3, 4, 5]]",pass,pass,materialized,66.8507,44.0347,1.51813,faster,
+var,,pass,pass,pass,14,14,14,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,176.6042,78.8784,2.23894,faster,
+var,unbiased,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,materialized,145.243,70.9583,2.04688,faster,
+var_mean,,pass,pass,pass,14,14,14,mps,,0,"[[5, 5, 5]]",pass,pass,materialized,212.0659,150.1632,1.41224,faster,
+var_mean,unbiased,pass,pass,pass,2,2,2,mps,,0,"[[5, 5]]",pass,pass,materialized,138.3298,68.2951,2.02547,faster,
+vdot,,pass,pass,pass,1,1,1,mps,,0,"[[5], [5]]",pass,pass,materialized,127.7048,103.2708,1.2366,faster,
+view,,pass,pass,pass,7,7,7,mps,,3,"[[50, 5]]",pass,pass,alias,20.7743,6.5347,3.17908,"alias, empty or host result",
+view_as,,pass,pass,pass,4,4,4,mps,,0,"[[5, 5, 5], [25, 5]]",pass,pass,alias,18.757,5.9097,3.17391,"alias, empty or host result",
+view_as_complex,,pass,pass,pass,1,1,1,mps,,0,"[[5, 2]]",pass,pass,alias,7.2257,5.1875,1.3929,"alias, empty or host result",
+view_as_real,,ValueError,ValueError,ValueError,0,0,0,,no CPU float64 sample,,,excluded,excluded,,,,,unpaired,ValueError: no CPU float64 sample
+view_copy,,pass,pass,pass,7,7,7,mps,,3,"[[50, 5]]",pass,pass,materialized,65.2014,49.2743,1.32324,faster,
+vsplit,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5, 5]]",pass,pass,alias,62.9792,16.4966,3.81771,"alias, empty or host result",
+vstack,,pass,pass,pass,2,2,2,mps,,1,"[[5, 5], [5, 5], [5, 5]]",pass,pass,materialized,36.875,34.0035,1.08445,within threshold,
+where,,pass,pass,pass,6,6,6,mps,,0,"[[10, 10], [10, 10], [10, 10]]",pass,pass,materialized,34.2361,29.4375,1.16301,faster,
+xlogy,,pass,pass,pass,9,9,9,mps,,3,"[[10, 5], []]",pass,pass,materialized,4855.1805,360.3646,13.47297,faster,
+zero_,,pass,pass,pass,3,3,3,mps,,1,"[[5, 5, 5]]",pass,pass,materialized,46.2812,40.2569,1.14965,faster,
+zeros,,pass,pass,pass,2,2,2,mps,,0,[],pass,pass,materialized,34.4271,34.1111,1.00926,within threshold,
+zeros_like,,TypeError,pass,pass,4,7,7,mps,,1,"[[5, 5]]",pass,pass,materialized,29.9618,28.1598,1.064,within threshold,

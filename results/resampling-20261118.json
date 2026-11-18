@@ -1,0 +1,296 @@
+{
+  "device": "Apple M4 Max",
+  "torch": "2.11.0",
+  "macos": "15.7.1",
+  "seed": 1156,
+  "comparison": "ATen CPU float64 to the GPU shader; 6 geometry cases, both align_corners settings, finite and mixed infinities, both directions, 2 batches and 3 channels",
+  "shapes_and_scale_factors": {
+    "1": [
+      [
+        [
+          8
+        ],
+        [
+          5
+        ],
+        null
+      ],
+      [
+        [
+          1
+        ],
+        [
+          6
+        ],
+        null
+      ],
+      [
+        [
+          5
+        ],
+        [
+          1
+        ],
+        null
+      ],
+      [
+        [
+          9
+        ],
+        [
+          7
+        ],
+        [
+          0.8
+        ]
+      ],
+      [
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          1.08
+        ]
+      ],
+      [
+        [
+          6
+        ],
+        [
+          9
+        ],
+        [
+          1.5
+        ]
+      ]
+    ],
+    "2": [
+      [
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        null
+      ],
+      [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        null
+      ],
+      [
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          1
+        ],
+        null
+      ],
+      [
+        [
+          8,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0.81,
+          0.8
+        ]
+      ],
+      [
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1.08,
+          1.08
+        ]
+      ],
+      [
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          1.15,
+          1.5
+        ]
+      ]
+    ],
+    "3": [
+      [
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          8,
+          4,
+          5
+        ],
+        null
+      ],
+      [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          6
+        ],
+        null
+      ],
+      [
+        [
+          4,
+          3,
+          5
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        null
+      ],
+      [
+        [
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          6,
+          7
+        ],
+        [
+          0.45,
+          0.81,
+          0.8
+        ]
+      ],
+      [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          1.08,
+          1.08,
+          1.08
+        ]
+      ],
+      [
+        [
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          5,
+          9
+        ],
+        [
+          1.5,
+          1.15,
+          1.5
+        ]
+      ]
+    ]
+  },
+  "operations": {
+    "upsample_linear1d": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 2.220446049250313e-16,
+      "max_abs_finite_backward": 8.881784197001252e-16,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    },
+    "upsample_bilinear2d": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 4.440892098500626e-16,
+      "max_abs_finite_backward": 4.440892098500626e-16,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    },
+    "upsample_bicubic2d": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 8.881784197001252e-16,
+      "max_abs_finite_backward": 2.220446049250313e-15,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    },
+    "upsample_trilinear3d": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 6.661338147750939e-16,
+      "max_abs_finite_backward": 8.881784197001252e-16,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    },
+    "_upsample_bilinear2d_aa": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 4.440892098500626e-16,
+      "max_abs_finite_backward": 4.440892098500626e-16,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    },
+    "_upsample_bicubic2d_aa": {
+      "compared_tensor_pairs": 48,
+      "max_abs_finite_forward": 4.440892098500626e-16,
+      "max_abs_finite_backward": 8.881784197001252e-16,
+      "nan_inf_classification_mismatches": [
+        0,
+        0
+      ]
+    }
+  }
+}

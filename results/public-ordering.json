@@ -1,0 +1,2542 @@
+{
+  "schema_version": 1,
+  "torch": "2.11.0",
+  "torch_git": "70d99e998b4955e0049d13a98d77ae1b14db1f45",
+  "macOS": "15.7.1",
+  "python": "3.13.9",
+  "cpu": "Apple M4 Max",
+  "physical_cpu_cores": 16,
+  "performance_cpu_cores": 12,
+  "efficiency_cpu_cores": 4,
+  "gpu": "Apple M4 Max",
+  "gpu_cores": 40,
+  "package_source_sha256": "7ace66e84f1246b7fb7a6f786240a6d70eea1c34a599c1c0ba95e822d55aa89f",
+  "script_sha256": "363bfa668707832cf5a52ad05a6835712f26fa6485db0807bc177b8e4f403fe2",
+  "reference": "PyTorch CPU functional at 1 thread. Every returned binary64 word and int64 index checked once per operator, shape, thread count, and supported allocation mode.",
+  "input": "Contiguous seeded float64 torch.randn, transferred once as raw IEEE bits; same samples for all three operators at each shape.",
+  "rounds": 9,
+  "warmups": 2,
+  "cpu_threads": [
+    1,
+    4,
+    8,
+    12,
+    16
+  ],
+  "order_seed": 20261118,
+  "gpu_case_order": [
+    "argmax_2048x512",
+    "topk_128x128",
+    "topk_4096x2048",
+    "argmax_128x128",
+    "argmax_4096x2048",
+    "sort_4096x2048",
+    "sort_128x128",
+    "topk_2048x512",
+    "sort_2048x512"
+  ],
+  "cpu_thread_block_order": [
+    4,
+    1,
+    8,
+    16,
+    12
+  ],
+  "cpu_case_order_by_threads": {
+    "4": [
+      "sort_128x128",
+      "sort_2048x512",
+      "sort_4096x2048",
+      "topk_4096x2048",
+      "topk_2048x512",
+      "argmax_4096x2048",
+      "topk_128x128",
+      "argmax_2048x512",
+      "argmax_128x128"
+    ],
+    "1": [
+      "argmax_4096x2048",
+      "topk_2048x512",
+      "sort_4096x2048",
+      "argmax_128x128",
+      "topk_4096x2048",
+      "sort_128x128",
+      "sort_2048x512",
+      "topk_128x128",
+      "argmax_2048x512"
+    ],
+    "8": [
+      "topk_2048x512",
+      "argmax_128x128",
+      "topk_4096x2048",
+      "argmax_4096x2048",
+      "topk_128x128",
+      "argmax_2048x512",
+      "sort_128x128",
+      "sort_2048x512",
+      "sort_4096x2048"
+    ],
+    "16": [
+      "sort_4096x2048",
+      "argmax_2048x512",
+      "topk_128x128",
+      "argmax_128x128",
+      "sort_2048x512",
+      "argmax_4096x2048",
+      "topk_4096x2048",
+      "topk_2048x512",
+      "sort_128x128"
+    ],
+    "12": [
+      "argmax_2048x512",
+      "sort_128x128",
+      "argmax_4096x2048",
+      "argmax_128x128",
+      "topk_2048x512",
+      "sort_2048x512",
+      "topk_4096x2048",
+      "sort_4096x2048",
+      "topk_128x128"
+    ]
+  },
+  "timing": "Single public call per sample on resident inputs, one MPS synchronization at the end of every measured GPU call. FP64 CPU and MPS blocks are separate. Functional and preallocated calls alternate within each block. Allocation of output buffers, validation, copies, and warmups are outside samples.",
+  "comparison_rule": "Lowest median among all CPU thread counts and public allocation modes divided by public functional MPS median; ratios above one favor MPS.",
+  "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+  "package_cpu_replay_calls": 0,
+  "measurements": [
+    {
+      "id": "sort_128x128",
+      "operator": "torch.sort",
+      "kwargs": {
+        "dim": -1,
+        "descending": false,
+        "stable": true
+      },
+      "shape": [
+        128,
+        128
+      ],
+      "input_elements": 16384,
+      "input_seed": 20261118,
+      "input_sha256": "1219774081ebdd5ae19356535c45e09818dab7edbdb214bffdba233c3239b8b8",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.sort.values_stable"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.153167,
+            0.150834,
+            0.1665,
+            0.152167,
+            0.167958,
+            0.166792,
+            0.154875,
+            0.172667,
+            0.162333
+          ],
+          "median_ms": 0.162333
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.26625,
+            0.266291,
+            0.269167,
+            0.260417,
+            0.255208,
+            0.256084,
+            0.251917,
+            0.256583,
+            0.267875
+          ],
+          "median_ms": 0.260417
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.272625,
+            0.262042,
+            0.260208,
+            0.322083,
+            0.254209,
+            0.263542,
+            0.267166,
+            0.251708,
+            0.513667
+          ],
+          "median_ms": 0.263542
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.344708,
+            0.346167,
+            0.337584,
+            0.3265,
+            0.333,
+            0.336125,
+            0.339,
+            0.324292,
+            0.352459
+          ],
+          "median_ms": 0.337584
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.385291,
+            0.347583,
+            0.360167,
+            0.325708,
+            0.325625,
+            0.323708,
+            0.327208,
+            0.32975,
+            0.339042
+          ],
+          "median_ms": 0.32975
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.245917,
+            0.250167,
+            0.236917,
+            0.239,
+            0.24825,
+            0.2325,
+            0.230708,
+            0.239959,
+            0.232667
+          ],
+          "median_ms": 0.239
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.250458,
+            0.24075,
+            0.239542,
+            0.23425,
+            0.233708,
+            0.23225,
+            0.235208,
+            0.230125,
+            0.23475
+          ],
+          "median_ms": 0.23475
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.400625,
+            0.364042,
+            0.367416,
+            0.360459,
+            0.369625,
+            0.367416,
+            0.354792,
+            0.363125,
+            0.367833
+          ],
+          "median_ms": 0.367416
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.370292,
+            0.377083,
+            0.385583,
+            0.361917,
+            0.372041,
+            0.386709,
+            0.357584,
+            0.369375,
+            0.358625
+          ],
+          "median_ms": 0.370292
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.232916,
+            0.223375,
+            0.218125,
+            0.228833,
+            0.222917,
+            0.21675,
+            0.220333,
+            0.224375,
+            0.21325
+          ],
+          "median_ms": 0.222917
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 16384,
+            "indices": 16384,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.250834,
+            0.220417,
+            0.219209,
+            0.21675,
+            0.223209,
+            0.215,
+            0.219709,
+            0.2145,
+            0.214208
+          ],
+          "median_ms": 0.219209
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_out",
+        "cpu_threads": 12,
+        "cpu_median_ms": 0.219209,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.162333,
+        "speedup": 1.3503662225179105
+      }
+    },
+    {
+      "id": "argmax_128x128",
+      "operator": "torch.argmax",
+      "kwargs": {},
+      "shape": [
+        128,
+        128
+      ],
+      "input_elements": 16384,
+      "input_seed": 20261118,
+      "input_sha256": "1219774081ebdd5ae19356535c45e09818dab7edbdb214bffdba233c3239b8b8",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.argmax.out"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.169208,
+            0.178292,
+            0.166583,
+            0.170959,
+            0.231459,
+            0.1775,
+            0.157458,
+            0.157166,
+            0.141167
+          ],
+          "median_ms": 0.169208
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.008292,
+            0.00825,
+            0.008208,
+            0.008167,
+            0.00825,
+            0.008208,
+            0.008209,
+            0.00825,
+            0.008208
+          ],
+          "median_ms": 0.008209
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.008166,
+            0.00825,
+            0.008167,
+            0.008167,
+            0.008167,
+            0.008167,
+            0.008125,
+            0.008125,
+            0.008208
+          ],
+          "median_ms": 0.008167
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.008583,
+            0.0085,
+            0.008541,
+            0.00925,
+            0.008542,
+            0.0085,
+            0.008416,
+            0.008375,
+            0.008333
+          ],
+          "median_ms": 0.0085
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.008416,
+            0.008375,
+            0.008416,
+            0.010541,
+            0.0085,
+            0.008417,
+            0.008292,
+            0.008416,
+            0.008292
+          ],
+          "median_ms": 0.008416
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.009292,
+            0.009208,
+            0.009208,
+            0.009292,
+            0.00925,
+            0.009291,
+            0.009209,
+            0.009208,
+            0.009167
+          ],
+          "median_ms": 0.009209
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.009208,
+            0.009125,
+            0.009208,
+            0.00925,
+            0.009167,
+            0.009084,
+            0.009125,
+            0.009084,
+            0.009083
+          ],
+          "median_ms": 0.009125
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.0095,
+            0.009334,
+            0.0105,
+            0.009208,
+            0.009125,
+            0.00925,
+            0.009167,
+            0.009834,
+            0.009125
+          ],
+          "median_ms": 0.00925
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.00925,
+            0.00925,
+            0.011458,
+            0.010709,
+            0.009125,
+            0.009125,
+            0.011042,
+            0.011375,
+            0.009167
+          ],
+          "median_ms": 0.00925
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.010542,
+            0.009291,
+            0.0085,
+            0.008417,
+            0.008417,
+            0.008459,
+            0.008459,
+            0.008458,
+            0.008416
+          ],
+          "median_ms": 0.008459
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.008416,
+            0.008542,
+            0.008375,
+            0.008416,
+            0.008333,
+            0.008417,
+            0.008375,
+            0.008292,
+            0.008291
+          ],
+          "median_ms": 0.008375
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t4_out",
+        "cpu_threads": 4,
+        "cpu_median_ms": 0.008167,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.169208,
+        "speedup": 0.04826603943075978
+      }
+    },
+    {
+      "id": "topk_128x128",
+      "operator": "torch.topk",
+      "kwargs": {
+        "k": 32,
+        "dim": -1,
+        "largest": true,
+        "sorted": true
+      },
+      "shape": [
+        128,
+        128
+      ],
+      "input_elements": 16384,
+      "input_seed": 20261118,
+      "input_sha256": "1219774081ebdd5ae19356535c45e09818dab7edbdb214bffdba233c3239b8b8",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.topk.values"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.209208,
+            0.178375,
+            0.163417,
+            0.163083,
+            0.157541,
+            0.163458,
+            0.160667,
+            0.159959,
+            0.159833
+          ],
+          "median_ms": 0.163083
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.077375,
+            0.085208,
+            0.071625,
+            0.0715,
+            0.071458,
+            0.07125,
+            0.071166,
+            0.070917,
+            0.070875
+          ],
+          "median_ms": 0.071458
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.073167,
+            0.078792,
+            0.074667,
+            0.071375,
+            0.071291,
+            0.0715,
+            0.070917,
+            0.071041,
+            0.070708
+          ],
+          "median_ms": 0.071375
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.060208,
+            0.046291,
+            0.043541,
+            0.042708,
+            0.042875,
+            0.047875,
+            0.042333,
+            0.047875,
+            0.050375
+          ],
+          "median_ms": 0.046291
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.053834,
+            0.050166,
+            0.043584,
+            0.043334,
+            0.043084,
+            0.042542,
+            0.042667,
+            0.042708,
+            0.049666
+          ],
+          "median_ms": 0.043334
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.051583,
+            0.055917,
+            0.048041,
+            0.0475,
+            0.046834,
+            0.046917,
+            0.047083,
+            0.046583,
+            0.046625
+          ],
+          "median_ms": 0.047083
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.054125,
+            0.049542,
+            0.048209,
+            0.04725,
+            0.047,
+            0.047042,
+            0.047209,
+            0.04675,
+            0.046625
+          ],
+          "median_ms": 0.047209
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.052708,
+            0.048583,
+            0.047625,
+            0.047,
+            0.047084,
+            0.046958,
+            0.046792,
+            0.046458,
+            0.046834
+          ],
+          "median_ms": 0.047
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.050834,
+            0.049125,
+            0.051166,
+            0.047083,
+            0.046834,
+            0.046625,
+            0.046334,
+            0.046375,
+            0.046375
+          ],
+          "median_ms": 0.046834
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.076709,
+            0.06025,
+            0.052583,
+            0.051209,
+            0.044917,
+            0.044833,
+            0.045084,
+            0.045125,
+            0.044541
+          ],
+          "median_ms": 0.045125
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 4096,
+            "indices": 4096,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.072333,
+            0.06025,
+            0.051917,
+            0.050083,
+            0.045041,
+            0.045167,
+            0.048292,
+            0.044959,
+            0.045
+          ],
+          "median_ms": 0.048292
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t1_out",
+        "cpu_threads": 1,
+        "cpu_median_ms": 0.043334,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.163083,
+        "speedup": 0.2657174567551492
+      }
+    },
+    {
+      "id": "sort_2048x512",
+      "operator": "torch.sort",
+      "kwargs": {
+        "dim": -1,
+        "descending": false,
+        "stable": true
+      },
+      "shape": [
+        2048,
+        512
+      ],
+      "input_elements": 1048576,
+      "input_seed": 20261119,
+      "input_sha256": "07d8b7580bb08c11b324f0fb33aa63696b781c6a8c064001caef2ddc601829f3",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.sort.values_stable"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.547667,
+            0.400166,
+            0.371917,
+            0.371208,
+            0.374875,
+            0.391208,
+            0.3735,
+            0.392208,
+            0.384333
+          ],
+          "median_ms": 0.384333
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            10.081416,
+            10.424083,
+            10.227959,
+            9.896667,
+            9.865667,
+            10.270333,
+            10.052875,
+            10.049958,
+            9.903542
+          ],
+          "median_ms": 10.052875
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            9.848875,
+            9.729417,
+            9.597292,
+            9.73025,
+            9.6725,
+            9.670916,
+            9.836209,
+            9.926291,
+            9.629
+          ],
+          "median_ms": 9.729417
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            38.402959,
+            38.911792,
+            38.894709,
+            38.514875,
+            38.674666,
+            38.321125,
+            38.156125,
+            38.583541,
+            38.580459
+          ],
+          "median_ms": 38.580459
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            38.912833,
+            38.266917,
+            37.931,
+            37.587292,
+            37.836166,
+            37.391042,
+            37.768292,
+            37.695541,
+            37.6965
+          ],
+          "median_ms": 37.768292
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            6.018084,
+            5.13125,
+            5.981084,
+            5.338125,
+            5.289625,
+            5.150542,
+            5.1235,
+            5.07425,
+            5.193333
+          ],
+          "median_ms": 5.193333
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.909875,
+            4.910916,
+            4.819542,
+            4.859084,
+            4.93325,
+            4.853834,
+            4.942292,
+            4.8615,
+            4.918666
+          ],
+          "median_ms": 4.909875
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            5.2145,
+            5.166875,
+            4.451417,
+            5.803625,
+            4.981875,
+            4.578583,
+            4.091375,
+            5.171792,
+            5.194583
+          ],
+          "median_ms": 5.166875
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.462708,
+            4.796708,
+            4.006541,
+            4.492541,
+            4.294625,
+            4.364833,
+            4.424208,
+            4.489,
+            3.437292
+          ],
+          "median_ms": 4.424208
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            5.190667,
+            4.169541,
+            4.2585,
+            4.191833,
+            4.334791,
+            4.164291,
+            3.812042,
+            4.344875,
+            4.273083
+          ],
+          "median_ms": 4.2585
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 1048576,
+            "indices": 1048576,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            3.545084,
+            3.35975,
+            3.36175,
+            3.651666,
+            3.9925,
+            4.004792,
+            3.958667,
+            3.989792,
+            4.136792
+          ],
+          "median_ms": 3.958667
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_out",
+        "cpu_threads": 12,
+        "cpu_median_ms": 3.958667,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.384333,
+        "speedup": 10.300096530872969
+      }
+    },
+    {
+      "id": "argmax_2048x512",
+      "operator": "torch.argmax",
+      "kwargs": {},
+      "shape": [
+        2048,
+        512
+      ],
+      "input_elements": 1048576,
+      "input_seed": 20261119,
+      "input_sha256": "07d8b7580bb08c11b324f0fb33aa63696b781c6a8c064001caef2ddc601829f3",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.argmax.out"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.239042,
+            0.3295,
+            0.23375,
+            0.232125,
+            0.237541,
+            0.231083,
+            0.228833,
+            0.232833,
+            0.465834
+          ],
+          "median_ms": 0.23375
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.4665,
+            0.470875,
+            0.466208,
+            0.46675,
+            0.4735,
+            0.474167,
+            0.465292,
+            0.486791,
+            0.475
+          ],
+          "median_ms": 0.470875
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.476292,
+            0.466209,
+            0.469417,
+            0.469125,
+            0.473875,
+            0.466,
+            0.465292,
+            0.466041,
+            0.479792
+          ],
+          "median_ms": 0.469125
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.524167,
+            0.547875,
+            0.520208,
+            0.520208,
+            0.520208,
+            0.53325,
+            0.536417,
+            0.53,
+            0.534166
+          ],
+          "median_ms": 0.53
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.530125,
+            0.533667,
+            0.520166,
+            0.537917,
+            0.523,
+            0.533125,
+            0.520083,
+            0.520042,
+            0.525167
+          ],
+          "median_ms": 0.525167
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.474583,
+            0.478167,
+            0.466875,
+            0.476208,
+            0.465791,
+            0.466917,
+            0.476458,
+            0.485042,
+            0.491167
+          ],
+          "median_ms": 0.476208
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.466625,
+            0.465583,
+            0.489375,
+            0.467542,
+            0.474208,
+            0.478125,
+            0.479542,
+            0.51625,
+            0.553
+          ],
+          "median_ms": 0.478125
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.521209,
+            0.520333,
+            0.544417,
+            0.539667,
+            0.5385,
+            0.56325,
+            0.5515,
+            0.527459,
+            0.533209
+          ],
+          "median_ms": 0.5385
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.528625,
+            0.520208,
+            0.524042,
+            0.548833,
+            0.548709,
+            0.567167,
+            0.557917,
+            0.523458,
+            0.531
+          ],
+          "median_ms": 0.531
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.534583,
+            0.520084,
+            0.520166,
+            0.553625,
+            0.520167,
+            0.52,
+            0.53525,
+            0.54975,
+            0.531875
+          ],
+          "median_ms": 0.531875
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.553792,
+            0.519959,
+            0.519916,
+            0.520666,
+            0.519916,
+            0.520042,
+            0.528708,
+            0.564833,
+            0.531292
+          ],
+          "median_ms": 0.520666
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t4_out",
+        "cpu_threads": 4,
+        "cpu_median_ms": 0.469125,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.23375,
+        "speedup": 2.006951871657754
+      }
+    },
+    {
+      "id": "topk_2048x512",
+      "operator": "torch.topk",
+      "kwargs": {
+        "k": 32,
+        "dim": -1,
+        "largest": true,
+        "sorted": true
+      },
+      "shape": [
+        2048,
+        512
+      ],
+      "input_elements": 1048576,
+      "input_seed": 20261119,
+      "input_sha256": "07d8b7580bb08c11b324f0fb33aa63696b781c6a8c064001caef2ddc601829f3",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.topk.values"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.38425,
+            0.382,
+            0.382125,
+            0.39225,
+            0.390917,
+            0.408042,
+            0.395583,
+            0.402666,
+            0.401667
+          ],
+          "median_ms": 0.39225
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.034709,
+            2.029208,
+            2.077417,
+            2.118708,
+            2.073917,
+            2.038625,
+            2.125625,
+            2.064583,
+            2.110416
+          ],
+          "median_ms": 2.073917
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.003375,
+            2.051458,
+            2.060583,
+            2.010917,
+            2.046083,
+            2.070458,
+            2.081916,
+            2.027084,
+            2.041541
+          ],
+          "median_ms": 2.046083
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            7.945459,
+            7.640292,
+            7.888167,
+            7.811208,
+            7.795709,
+            7.852125,
+            7.878208,
+            8.300667,
+            8.399625
+          ],
+          "median_ms": 7.878208
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            7.757375,
+            7.743291,
+            7.986584,
+            7.604834,
+            7.698084,
+            7.683541,
+            8.000167,
+            7.949875,
+            8.347833
+          ],
+          "median_ms": 7.757375
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            1.080333,
+            1.053958,
+            1.088583,
+            1.064333,
+            1.069208,
+            1.017417,
+            1.05175,
+            1.088875,
+            1.10825
+          ],
+          "median_ms": 1.069208
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            1.039958,
+            1.088166,
+            1.092334,
+            1.072708,
+            1.067834,
+            1.004292,
+            1.097459,
+            1.023542,
+            1.064917
+          ],
+          "median_ms": 1.067834
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.741667,
+            1.002,
+            1.003125,
+            0.988792,
+            0.936167,
+            0.939208,
+            0.964709,
+            0.805542,
+            0.952459
+          ],
+          "median_ms": 0.952459
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            1.027625,
+            0.959958,
+            0.991125,
+            1.010291,
+            0.887,
+            0.921333,
+            0.919792,
+            1.033833,
+            0.925042
+          ],
+          "median_ms": 0.959958
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.76075,
+            0.847166,
+            0.886,
+            0.833417,
+            0.702917,
+            0.72175,
+            0.95775,
+            0.699708,
+            0.692167
+          ],
+          "median_ms": 0.76075
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 65536,
+            "indices": 65536,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.813875,
+            0.824375,
+            0.735708,
+            0.724583,
+            0.70175,
+            0.642917,
+            0.741917,
+            0.714708,
+            0.713167
+          ],
+          "median_ms": 0.724583
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_out",
+        "cpu_threads": 12,
+        "cpu_median_ms": 0.724583,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.39225,
+        "speedup": 1.8472479286169534
+      }
+    },
+    {
+      "id": "sort_4096x2048",
+      "operator": "torch.sort",
+      "kwargs": {
+        "dim": -1,
+        "descending": false,
+        "stable": true
+      },
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_elements": 8388608,
+      "input_seed": 20261120,
+      "input_sha256": "cbca461253b4c4f30cb606cdef074d1fd3049795f55126bb5b0151031db0d006",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.sort.values_stable"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            3.476458,
+            3.548667,
+            3.467833,
+            3.572833,
+            3.556875,
+            3.412958,
+            3.392208,
+            3.476417,
+            3.884167
+          ],
+          "median_ms": 3.476458
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            96.620584,
+            96.773292,
+            98.866958,
+            98.228333,
+            96.726708,
+            97.753875,
+            97.088333,
+            97.415,
+            97.154792
+          ],
+          "median_ms": 97.154792
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            94.798584,
+            94.446334,
+            94.908,
+            95.195333,
+            94.627833,
+            94.994834,
+            95.195125,
+            94.797209,
+            94.671916
+          ],
+          "median_ms": 94.798584
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            378.502375,
+            381.381209,
+            381.572166,
+            382.650708,
+            382.998875,
+            379.2915,
+            397.340042,
+            379.916542,
+            378.878042
+          ],
+          "median_ms": 381.381209
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            374.539333,
+            375.282459,
+            372.8285,
+            375.087583,
+            375.729542,
+            375.48175,
+            372.294,
+            378.138792,
+            374.048291
+          ],
+          "median_ms": 375.087583
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            49.570208,
+            49.765625,
+            49.910542,
+            49.825916,
+            49.782917,
+            49.936583,
+            50.019542,
+            49.934542,
+            49.586625
+          ],
+          "median_ms": 49.825916
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            48.073041,
+            48.0645,
+            48.100041,
+            48.5565,
+            48.611125,
+            48.065875,
+            48.0085,
+            48.248,
+            48.269917
+          ],
+          "median_ms": 48.100041
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            37.485792,
+            37.5385,
+            36.460125,
+            34.810916,
+            38.682708,
+            33.975834,
+            40.217375,
+            40.471417,
+            37.537458
+          ],
+          "median_ms": 37.537458
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            35.508167,
+            33.484041,
+            35.740667,
+            35.142625,
+            35.530875,
+            32.62525,
+            39.141458,
+            38.007292,
+            38.912959
+          ],
+          "median_ms": 35.530875
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            35.292834,
+            36.65,
+            36.050375,
+            35.486958,
+            37.967209,
+            36.253666,
+            36.767958,
+            41.544625,
+            37.055583
+          ],
+          "median_ms": 36.65
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 8388608,
+            "indices": 8388608,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            33.641041,
+            34.389291,
+            33.764292,
+            34.140458,
+            34.348417,
+            34.223083,
+            34.432,
+            36.958334,
+            35.685334
+          ],
+          "median_ms": 34.348417
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_out",
+        "cpu_threads": 12,
+        "cpu_median_ms": 34.348417,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 3.476458,
+        "speedup": 9.880291089378902
+      }
+    },
+    {
+      "id": "argmax_4096x2048",
+      "operator": "torch.argmax",
+      "kwargs": {},
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_elements": 8388608,
+      "input_seed": 20261120,
+      "input_sha256": "cbca461253b4c4f30cb606cdef074d1fd3049795f55126bb5b0151031db0d006",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.argmax.out"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            0.435333,
+            0.300083,
+            0.302166,
+            0.294083,
+            0.3035,
+            0.293625,
+            0.3185,
+            0.299792,
+            0.295583
+          ],
+          "median_ms": 0.300083
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.268958,
+            4.396542,
+            4.250916,
+            4.280833,
+            4.251959,
+            4.243666,
+            4.283166,
+            4.307625,
+            4.29475
+          ],
+          "median_ms": 4.280833
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.253166,
+            4.339625,
+            4.234333,
+            4.243125,
+            4.279084,
+            4.175083,
+            4.235333,
+            4.264542,
+            4.266292
+          ],
+          "median_ms": 4.253166
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.298625,
+            4.295042,
+            4.383958,
+            4.300333,
+            4.395833,
+            4.187375,
+            4.269667,
+            4.221584,
+            4.297708
+          ],
+          "median_ms": 4.297708
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.2755,
+            4.33075,
+            4.271833,
+            4.21725,
+            4.306166,
+            4.371792,
+            4.319791,
+            4.256291,
+            4.435208
+          ],
+          "median_ms": 4.306166
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.308667,
+            4.215041,
+            4.2065,
+            4.197167,
+            4.27825,
+            4.218375,
+            3.830458,
+            4.175916,
+            3.880708
+          ],
+          "median_ms": 4.2065
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.301375,
+            4.21475,
+            4.196125,
+            4.2505,
+            4.302125,
+            4.2025,
+            4.267208,
+            4.065958,
+            3.889334
+          ],
+          "median_ms": 4.21475
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.319125,
+            4.339458,
+            4.264541,
+            4.35425,
+            4.307209,
+            4.2485,
+            4.185792,
+            4.299542,
+            4.300417
+          ],
+          "median_ms": 4.300417
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.257542,
+            4.279417,
+            4.266833,
+            4.274125,
+            4.300083,
+            4.178084,
+            4.280375,
+            4.202416,
+            4.305041
+          ],
+          "median_ms": 4.274125
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            3.811625,
+            4.499834,
+            4.384292,
+            4.249917,
+            4.269709,
+            3.908458,
+            3.863291,
+            3.793667,
+            3.973042
+          ],
+          "median_ms": 3.973042
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 0,
+            "indices": 1,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            4.194208,
+            4.202542,
+            4.5405,
+            4.223041,
+            4.357125,
+            3.877958,
+            3.800125,
+            3.816917,
+            3.824625
+          ],
+          "median_ms": 4.194208
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_functional",
+        "cpu_threads": 12,
+        "cpu_median_ms": 3.973042,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 0.300083,
+        "speedup": 13.239810319145036
+      }
+    },
+    {
+      "id": "topk_4096x2048",
+      "operator": "torch.topk",
+      "kwargs": {
+        "k": 32,
+        "dim": -1,
+        "largest": true,
+        "sorted": true
+      },
+      "shape": [
+        4096,
+        2048
+      ],
+      "input_elements": 8388608,
+      "input_seed": 20261120,
+      "input_sha256": "cbca461253b4c4f30cb606cdef074d1fd3049795f55126bb5b0151031db0d006",
+      "out_unavailable": {
+        "mps": "MPS FP64 GPU implementation missing for aten.topk.values"
+      },
+      "methods": {
+        "mps_functional": {
+          "device": "mps",
+          "threads": null,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            3.688875,
+            3.321542,
+            3.338167,
+            3.352959,
+            3.342625,
+            3.727542,
+            3.376708,
+            3.373459,
+            3.33825
+          ],
+          "median_ms": 3.352959
+        },
+        "cpu_t4_functional": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            5.366375,
+            5.348875,
+            5.377625,
+            5.406667,
+            5.518167,
+            5.422292,
+            5.253125,
+            5.23025,
+            5.309458
+          ],
+          "median_ms": 5.366375
+        },
+        "cpu_t4_out": {
+          "device": "cpu",
+          "threads": 4,
+          "allocation": "out",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            5.281208,
+            5.338125,
+            5.3215,
+            5.325792,
+            5.381792,
+            5.339625,
+            5.313458,
+            5.292,
+            5.2455
+          ],
+          "median_ms": 5.3215
+        },
+        "cpu_t1_functional": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            20.892917,
+            20.624208,
+            20.958167,
+            21.074625,
+            21.090625,
+            21.054292,
+            21.363,
+            20.72575,
+            20.888375
+          ],
+          "median_ms": 20.958167
+        },
+        "cpu_t1_out": {
+          "device": "cpu",
+          "threads": 1,
+          "allocation": "out",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            21.011916,
+            20.74625,
+            20.557542,
+            21.019291,
+            21.041375,
+            20.992625,
+            21.104666,
+            20.444625,
+            21.040583
+          ],
+          "median_ms": 21.011916
+        },
+        "cpu_t8_functional": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.648875,
+            2.717125,
+            2.795292,
+            2.723875,
+            2.679833,
+            2.704292,
+            2.708625,
+            2.71975,
+            2.719
+          ],
+          "median_ms": 2.717125
+        },
+        "cpu_t8_out": {
+          "device": "cpu",
+          "threads": 8,
+          "allocation": "out",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.61,
+            2.73075,
+            2.685708,
+            2.695333,
+            2.661542,
+            2.651125,
+            2.689458,
+            2.730584,
+            2.71975
+          ],
+          "median_ms": 2.689458
+        },
+        "cpu_t16_functional": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.568,
+            2.022542,
+            2.374625,
+            2.517542,
+            2.076084,
+            2.528166,
+            2.693375,
+            2.529667,
+            2.554375
+          ],
+          "median_ms": 2.528166
+        },
+        "cpu_t16_out": {
+          "device": "cpu",
+          "threads": 16,
+          "allocation": "out",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.596167,
+            2.519,
+            2.34975,
+            2.495458,
+            2.523833,
+            2.341417,
+            2.597459,
+            2.252834,
+            2.122167
+          ],
+          "median_ms": 2.495458
+        },
+        "cpu_t12_functional": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "functional",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            2.433875,
+            1.905042,
+            2.597625,
+            1.858959,
+            2.220375,
+            2.34975,
+            2.553792,
+            2.027667,
+            1.828875
+          ],
+          "median_ms": 2.220375
+        },
+        "cpu_t12_out": {
+          "device": "cpu",
+          "threads": 12,
+          "allocation": "out",
+          "validation": {
+            "value_words": 131072,
+            "indices": 131072,
+            "mismatches": 0
+          },
+          "samples_ms": [
+            1.926041,
+            1.987292,
+            2.071584,
+            1.915916,
+            1.828875,
+            2.724625,
+            2.405042,
+            1.913958,
+            2.042875
+          ],
+          "median_ms": 1.987292
+        }
+      },
+      "comparison": {
+        "cpu_method": "cpu_t12_out",
+        "cpu_threads": 12,
+        "cpu_median_ms": 1.987292,
+        "mps_method": "mps_functional",
+        "mps_median_ms": 3.352959,
+        "speedup": 0.5926979721493761
+      }
+    }
+  ],
+  "summary": {
+    "cells": 9,
+    "mps_faster": 6
+  }
+}

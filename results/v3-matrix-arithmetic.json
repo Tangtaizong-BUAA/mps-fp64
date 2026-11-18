@@ -1,0 +1,37 @@
+{
+  "device": "Apple M4 Max",
+  "rounding": "nearest-even",
+  "NaN": "classification",
+  "operations": {
+    "add": {
+      "cases": 40284288,
+      "level": 2,
+      "mismatches": 0
+    },
+    "mul": {
+      "cases": 40284288,
+      "level": 2,
+      "mismatches": 0
+    },
+    "first": {
+      "cases": 40284288,
+      "level": 2,
+      "mismatches": 0
+    },
+    "outer": {
+      "cases": 40284288,
+      "level": 2,
+      "mismatches": 0
+    },
+    "dense_fma": {
+      "cases": 6133248,
+      "level": 1,
+      "mismatches": 0
+    },
+    "short_fma": {
+      "cases": 6133248,
+      "level": 1,
+      "mismatches": 0
+    }
+  }
+}

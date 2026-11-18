@@ -1,0 +1,30 @@
+# Third-party software
+
+Project-authored code is covered by [the project MIT license](LICENSE). The following notices apply to the upstream material shipped in this distribution. The wheel contains Metal source that PyTorch compiles on the target Mac. The source archive keeps the notices below at their listed paths. In an installed wheel they are also available under `mps_fp64-<version>.dist-info/licenses/`.
+
+## Binary64 arithmetic
+
+`mps_fp64/vendor/softfloat64.metal` is the unmodified `dist/softfloat64.metal` from metal-softfloat commit `8b6c592e2e383040fe2778bed8dda7904df284b1`. Its reciprocal and reciprocal-square-root approximations and lookup tables derive from John R. Hauser's Berkeley SoftFloat 3e, copyright The Regents of the University of California, under BSD-3-Clause. The Metal implementation carries the metal-softfloat contributors' MIT license. [Upstream header](https://github.com/guyfischman/metal-softfloat/blob/8b6c592e2e383040fe2778bed8dda7904df284b1/dist/softfloat64.metal) · [Berkeley notice](mps_fp64/vendor/LICENSE-BSD-3-Clause) · [metal-softfloat MIT license](mps_fp64/vendor/LICENSE-MIT)
+
+## OpenLibm elementary functions
+
+`mps_fp64/vendor/openlibm.metal` translates 34 C files from OpenLibm commit `5fe399749f9276eaa0b8403e507470da05cbbb3f`. Its base-2 and base-10 logarithms also use `src/k_log.h`. `mps_fp64/special_gamma.metal` separately translates `src/e_lgamma_r.c`. Most of these routines carry Sun Microsystems' permission notice. The `k_exp.c` and `s_exp2.c` ports carry David Schultz's two-clause BSD notices dated 2011 and 2005, respectively. The file inventory identifies the exact notice for every imported source and retains Bruce D. Evans's credit on `e_rem_pio2.c`. The upstream license collection retains its description of the separately distributed OpenLibm test suite. [Per-file notices](LICENSES/OpenLibm-files.txt) · [Complete upstream license collection](mps_fp64/vendor/LICENSE-OpenLibm.md) · [Pinned sources](https://github.com/JuliaMath/openlibm/tree/5fe399749f9276eaa0b8403e507470da05cbbb3f/src)
+
+To regenerate the elementary-function port, run `python tools/port_openlibm.py /path/to/openlibm` with a checkout at that commit and Clang available. The generator translates the operation order and converts constants to IEEE binary64 bit patterns. [Port generator](tools/port_openlibm.py)
+
+## PyTorch and its upstream sources
+
+The runtime uses the installed PyTorch for tensor storage, dispatch, automatic differentiation and decompositions. Adaptations of ATen code in this project use PyTorch 2.11.0, commit `70d99e998b4955e0049d13a98d77ae1b14db1f45`. [PyTorch license](LICENSES/PyTorch.txt) · [Upstream notices](https://github.com/pytorch/pytorch/blob/70d99e998b4955e0049d13a98d77ae1b14db1f45/NOTICE)
+
+| Shipped source | Material and origin |
+| --- | --- |
+| `mps_fp64/special.metal`, `mps_fp64/special_gamma.metal` | Polynomial branches and Bessel approximations follow ATen. Its Bessel, digamma and Hurwitz zeta routines include coefficients and formulas from Steven Moshier's Cephes library. [ATen Math.h](https://github.com/pytorch/pytorch/blob/70d99e998b4955e0049d13a98d77ae1b14db1f45/aten/src/ATen/native/Math.h) · [Cephes notice](LICENSES/PyTorch-Cephes-SciPy.txt) |
+| `mps_fp64/special_gamma.metal`, `inverse_erf` | The central and tail rational seeds follow ATen's `calc_erfinv`, adapted from Gary L. Pavlis's Indiana University implementation. This port refines the seed using a tail-sensitive residual. [Original C routine](https://github.com/antelopeusersgroup/antelope_contrib/blob/5a662a9a06ec48f27caa83cb86f10a543388d34a/lib/location/libgenloc/erfinv.c) · [Indiana University BSD notice from ATen](LICENSES/Indiana-University-erfinv.txt) |
+| `mps_fp64/special_igamma.metal`, `ig_temme` | The first 14 rows of ATen's 25-by-25 Temme expansion table derive from SciPy. All 350 binary64 coefficients also match the table in SciPy 1.5.4. The other local series use logarithmic-gamma and Stirling coefficients. [SciPy table](https://github.com/scipy/scipy/blob/19acfed431060aafaa963f7e530c95e70cd4b85c/scipy/special/cephes/igam.h) · [SciPy notice from ATen](LICENSES/PyTorch-Cephes-SciPy.txt) |
+| `mps_fp64/resampling.metal` | The antialiasing weights follow ATen's CPU interpolation rules. ATen credits Pillow for the bilinear and bicubic filters. Pillow's HPND notice credits Secret Labs AB, Fredrik Lundh, Alex Clark and contributors. [ATen interpolation](https://github.com/pytorch/pytorch/blob/70d99e998b4955e0049d13a98d77ae1b14db1f45/aten/src/ATen/native/cpu/UpSampleKernel.cpp) · [Pillow filters](https://github.com/python-pillow/Pillow/blob/6812205f18ca4ef54372e87e1a13ce4a859434df/src/libImaging/Resample.c) · [Pillow license](LICENSES/Pillow.txt) |
+
+## Table generation and validation
+
+The integer coefficients in `mps_fp64/fast_math_tables.metal` are generated offline with MPFR through gmpy2. The generator computes directed-rounding intervals and stores rounded integers. Other development tools use separately installed NumPy, mpmath and the PyTorch OpInfo test catalog, which uses expecttest. The `tests/` directory contains project tests. The `results/` directory contains recorded measurements and operator names from the local test runs. [Table generator](tools/generate_math_tables.py) · [OpInfo runner](tools/opinfo_audit.py)
+
+The optional Berkeley reference check accepts an external metal-softfloat checkout, builds Berkeley SoftFloat 3e and TestFloat 3e in a temporary directory, and accesses them through this project's C bridge. For that checkout, the copyrights, redistribution conditions and disclaimers for the C reference libraries are in their own `COPYING.txt` files. [Test runner](tools/testfloat.py) · [SoftFloat 3e license at the pinned revision](https://github.com/guyfischman/metal-softfloat/blob/8b6c592e2e383040fe2778bed8dda7904df284b1/vendor/SoftFloat-3e/COPYING.txt) · [TestFloat 3e license at the pinned revision](https://github.com/guyfischman/metal-softfloat/blob/8b6c592e2e383040fe2778bed8dda7904df284b1/vendor/TestFloat-3e/COPYING.txt)
